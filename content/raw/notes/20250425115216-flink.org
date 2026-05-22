@@ -1,0 +1,86 @@
+:PROPERTIES:
+:ID:       956849EE-EFBB-4C3B-8502-F98685FD34C9
+:END:
+#+title: Flink
+
+* Important Points
+- many problems don't require stream processing and could instead be solved using batch processing (using Spark or Hadoop). So, ask yourself if real-time latencies are really needed
+- provides exactly-once processing guarantees, even in the face of failures, while maintaining high throughput and low latency.
+* Basic Concepts
+- Flink is a dataflow engine, built around the idea of a dataflow graph. This is a DAG of nodes and edges between nodes
+- Nodes are called *operators*, edges are called *streams*
+- beginning and end of graphs are called *sources* and *sinks*
+** Basic Dataflow Graph                                                                     :ATTACH:
+:PROPERTIES:
+:ID:       0FEF9C71-AD0D-4D22-A68A-DF77A28F6D3F
+:END:
+[[attachment:clipboard-20250425T115940.png]]
+** Sources
+...read data from external systems and convert them into Flink streams. Examples:
+  - Kafka: for message queues
+  - Kinesis: for AWS streaming data
+  - File systems: for batch processing
+  - Custom sources: for specialized integrations
+** Sinks
+...write data from Flink systems to external systems. Examples:
+  - Databases: MySQL, Postgres, MongoDB
+  - Data warehouses: Snowflake, BigQuery, Redshift
+  - Message queues: Kafka, RabbitMQ
+  - File systems: HDFS, S3, local files
+** Streams
+...are unbounded sequence of data elements flowing through the system, like an infinite array of elements. Flink gives us tools to slice, transform, aggregate, recombine, and otherwise process streams
+** Operators
+...are (potentially) stateful transformations that process one or more input streams and produce one or more output streams. Operators are the building blocks of a stream processing application.
+  - Common operators: map, filter, reduce, window, join, flatmap, aggregate
+** State
+- Flink operators are stateful, meaning they can maintain internal state across multiple events. For example, if you want to count how many times a user clicked in the last 5 minutes, you need to maintain state about previous clicks.
+- This state is managed internally by Flink.
+- Flink provides several types of states:
+  - value state: single value per key
+  - list state: a list of values per key
+  - map state: a map of values per key
+  - aggregating states: state for incremental aggregations
+  - reducing states: state for incremental reductions
+** Watermarks
+- A watermark is essentially a timestamp that flows through the system alongside streaming data and declares "all events with timestamps before this watermark have arrived"
+- for example, you might receive a watermark at 5:01:15 pm that 5pm has passed. Meaning, at 5:01:15 pm, consider all events that have occurred until 5pm and nothing after that.
+- helps with:
+  - making decisions about when to trigger window computations
+  - handle late-arriving events gracefully
+  - maintain consistent event time processing across the distributed system
+- watermarks are configured on the source of the stream. Two strategies:
+  - Unbounded out-of-orderness: tells Flink to wait for events that arrive up to a certain time after the event timestamp
+  - No watermarks: tells Flink to not wait, and process all events as soon as it gets them
+** Windows
+- are a way to group items in a stream by time or count
+- Flink supports the following types of windows:
+  - tumbling window: fixed-size, non-overlapping windows
+  - sliding window: fixed-size, overlapping windows
+  - session window: dynamic-size windows based on activity
+  - global window: custom windowing logic
+- Based on the window type, Flink emits a value at the end of a window. For example, if I create a tumbling window of 5 minutes and my input is clicks, Flink emits the total number of clicks every 5 minutes (at the end of each window)
+- windows can be applied to both keyed and non-keyed streams. When they're applied for keyed streams, windows are maintained independently for each key. This allows you to look at a window for a particular user/account or other key
+- windows work closely with watermarks to determine when to trigger computations and how to handle late events.
+- you can also configure windows with allowed lateness to process events that arrive after the window has closed but before a specified grace period ends.
+* Basic Use
+You define a job by specifying one/more sources, one/more syncs and some operator logic (for aggregation, alerting, etc) in between. More details here: [[https://www.hellointerview.com/learn/system-design/deep-dives/flink#basic-use][Flink Deep Dive for System Design Interviews (Basic Use)]]
+** Example
+#+begin_src java
+DataStream<ClickEvent> clickstream = env
+    .addSource(new FlinkKafkaConsumer<>("clicks", new JSONDeserializationSchema<>(ClickEvent.class), kafkaProps));
+    
+// Calculate metrics with 1-minute windows
+DataStream<PageViewCount> pageViews = clickstream
+    .keyBy(click -> click.getPageId())
+    .window(TumblingProcessingTimeWindows.of(Time.minutes(1)))
+    .aggregate(new CountAggregator());
+    
+// Write to Redis for dashboard consumption
+pageViews.addSink(new RedisSink<>(redisConfig, new PageViewCountMapper()));
+#+end_src
+* Using Flink in interviews
+- it's usually overkill for simple stream processing. If you just need to transform messages as they flow through Kafka, setting up a service which consumes from Kafka is probably sufficient
+- Flink requires significant operational overhead. You need to consider deployment, monitoring and scaling of the Flink cluster
+- State management is both Flink's superpower as well as its biggest operational challenge. Discuss how you'll manage state growth and recovery.
+- window choice dramatically impacts accuracy and resource usage. Be ready to justify your windowing decisions.
+- consider whether you really need exactly once processing. It comes with performance overhead and complexity. 

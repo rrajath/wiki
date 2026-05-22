@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       3B50B3AA-1B95-45FA-892D-AC9E73F320B4
+:END:
+#+title: DynamoDB Streams
+
+Any adds/updates/deletes to [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] table that has streams enabled will emit a CDC event that can be consumed and processed. Usually this is done using a lambda where the CDC events are pushed to a queue and lambda processes the messages in the queue.
+
+* Example
+Ticketmaster has complex search queries that involve geospatial search, full text search, etc. So, there maybe good reasons to use ElasticSearch to serve that data. But how do we make sure that ElasticSearch is kept up to date? This can be done using [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] Streams.
+

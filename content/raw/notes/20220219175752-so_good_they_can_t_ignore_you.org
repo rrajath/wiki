@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       8A9807B7-C1D9-490D-BC9A-0CD448D7CA26
+:END:
+#+title: So Good They Can't Ignore You
+#+filetags: :book-summary:
+
+- Have a [[id:5192CB14-A6D5-46AE-993B-AC64656E8F81][Craftsman Mindset]]
+- Indulge in [[id:F0708B5B-AD38-406F-9CC5-692A78B71E8B][Deliberate Practice]]. Just showing up and working hard will make you hit a performance plateau
+- Build [[id:BA2618D2-8EE2-4F58-BA7C-BE1B4B8FA18B][Career Capital]]
+- [[id:D5AFFCD3-E157-4519-8F48-7227446FC402][Make Little Bets]] along the way which add value to your [[id:BA2618D2-8EE2-4F58-BA7C-BE1B4B8FA18B][Career Capital]]

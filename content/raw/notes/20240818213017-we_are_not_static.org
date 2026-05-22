@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       9179EC1F-A8EF-4B3E-84C4-16B2B88D20C5
+:END:
+#+title: We are not static
+

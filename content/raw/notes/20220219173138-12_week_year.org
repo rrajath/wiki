@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       3F70B745-3D53-48A9-9A55-2A29859D38E0
+:END:
+#+title: 12 Week Year
+#+filetags: :project:book-summary:
+
+- Doing yearly planning is error-prone because we're not good at predicting long term success. This impacts our [[id:26F2106A-6B6A-4E50-9885-5950E8B8E358][Goal Setting]]
+- We're very driven around new years since we make goals around that time. This enthusiasm goes down pretty quickly since we feel there's enough time to slack.
+- Slacking causes anxiety in Q4 when we realize we haven't done more of what we had planned
+- 12 week year makes us to this kind of planning 4 times a year where we can much more easily predict how things will go in the next 12 weeks.
+- These goals must be in line with our long term [[id:DD3C1BFC-E406-4868-8E4A-EFCB23C1520F][Vision]], that way we're making actual progress long term as well.
+- After a 12 week planning is complete, it's important to come up with a weekly plan to make sure we course-correct sooner rather than later.
+
+

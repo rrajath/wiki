@@ -1,0 +1,1545 @@
+#+TITLE: Blog
+#+HUGO_BASE_DIR: /Users/rrajath/blogs/hugo/blog
+#+HUGO_AUTO_SET_LASTMOD: t
+#+STARTUP: overview indent hidestars
+
+* rrajath.com
+** Blog Post Ideas
+:PROPERTIES:
+:ARCHIVE:  archive.org::* Blog Posts
+:END:
+*** TODO Reflections
+> Learning doesn't happen when you read, it happens when you reflect on what you've read. - Derek Sivers
+
+I'm always curious about things and I keep jumping around consuming information. I used to read books after books and I'd also read blog posts, listen to podcasts.
+
+outline:
+- I kept consuming lot of information in various forms - books, blogposts, podcasts, etc.
+- I'd be super busy at work too and I'd just switch from one task to the next without any pause or breaks. When I did take breaks it was mostly something mind numbing, like checking reddit or hackernews.
+- it's only when I paused and thought about whatever I consumed is when I actually learned stuff, because I'd have questions in my mind and I'd actively think about stuff.
+*** TODO My experience building an ergo mech keyboard
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-experience-building-an-ergo-mech-keyboard.md
+:END:
+I've been using a Keychron K1 for the past couple of years. Couple of months ago when I noticed some strain in my wrist and I thought of checking what else is out there that can potentially help with the ergonomics. I found [[https://reddit.com/r/ErgoMechKeyboards][/r/ErgoMechKeyboards]] and got intrigued by the keyboards people were showing off. Many reported that spilt keyboards positively impacted their posture and they feel much more comfortable typing that way. After spending hours on that subreddit and doing my own research, I was sold and I immediately placed an order for a Moonlander.
+
+[Pic of Moonlander]
+
+My interest turned into an obsession and I started devouring information to get myself familiar with the most basic terms like, group buys, interest check, QMK, ZMK, n!n, etc. This obsession led me to placing a bunch of orders on AliExpress and desperately waiting to start building my own. This is also when I realized how Amazon had spoiled me with their 2-day (and even same day shipping).
+
+When I finally got all the components to build a corne, I was excited to solder everything and play around with it. This led to a bunch of failures and learnings. A friend of mine helped me debug the issue I had with one of the keys after which I started using the corne as my daily driver.
+
+[Pic of corne]
+
+With this I got the confidence to build more and I immediately ordered a Microdox Bud which I built pretty quickly and was also able to debug and resolve all the issues I came across. The Microdox Bud is now my daily driver.
+*** TODO All the mistakes I made while building an ergo mech keyboard
+*** TODO Decisions and outcomes
+- reading Thinking in Bets
+- we often combine the two and stress over it
+- reframe thinking and remind ourselves to separate the two
+- we will end up evaluating situations using data rather than emotions
+- we'll feel less stressed and better prepared in future
+A few months ago, I was reading Thinking in Bets by Annie Duke and one of the things that caught my attention is about decisions and outcomes. The point Annie was making was to view decisions and outcomes as two separate things. They happen at two different times. We make a decision to do something and the outcome is either favorable or unfavorable to us. We are quick to dismiss the outcome as a bad decision after which we’re filled with regret. If you look at the step-by-step process of this sequence, it goes something like this:
+1. Encounter a situation
+2. Make a decision
+3. Some time passes (this can vary from seconds to months or years)
+4. Experience the outcome of the decision
+5. If it tends to have a negative outcome, quickly blame ourselves that we made a bad decision (or a bad bet). Same goes with positive outcome as well, but we remember negative outcomes more vividly due to our Negativity Bias.
+
+Decision is what we make (or the action we take) with all the information we have at hand at a particular moment. Outcome is what we experience as a result of that decision. Everything (well, almost everything) in between is where all the variables we /don’t control/ lie.
+
+Combining decisions and outcomes makes us have an emotional response when things don’t go our way.
+
+Reframing our thinking and looking at decisions and outcomes as two separate entities will help us view them logically and avoid us having an emotional reaction to them. A simple fact is that, by the time we experience the outcome, we have more information about the situation than we started. So, we obviously feel a little stupid for making a bad bet. But if you really turn back time and go back to the moment you made that (bad) decision, with the same information you had when you made it the first time, you would obviously repeat the same mistake.
+
+The point is, we must notice whenever we have a visceral reaction to a bad outcome and whenever we jump to conclusion thinking it’s because of a bad decision.
+*** TODO No absolutes, only trade-offs
+*** TODO Confidence with a range
+*** TODO iPhone annoyances
+Specifically with keyboard
+*** TODO One tool to rule them all
+we find a cool tool which claims to be universal (maybe it is to a great extent covering a lot of use cases)
+we get excited about changing our workflows and try to get everything working in that tool
+we then customize the heck out of that tool to fit our needs
+there comes a tipping point where we spend more time trying to customize the tool and drastically change our workflow so that it's well integrated only to find that after changing everything (customizing the tool and changing our workflows), it works well only 90% of the time and it now takes us longer to get things done just because it's a little more integrated with rest of our workflows. The solution could've been to just use a different tool for it.
+
+Example 1: tracking workouts via emacs vs an app
+Example 2: trying to get the IDE working using lsp-mode in emacs vs just using VSCode
+
+Tools exist to make our lives easier, but there's no rule to use just one. I feel real power is where we use a multitude of tools and get the best things that each of them offer and integrating all of them into a nice workflow instead of being married to one tool and trying to customize the shit out of it only to end up with a poorer experience and also end up spending more time just debugging the little quirks and issues it comes with.
+*** TODO Lessons dark souls taught me
+- very unforgiving
+- expect death repeatedly
+- embrace failure
+- go into playing it with that expectation and you'll not get as frustrated
+*** TODO Lessons stardew valley taught me
+- tons of things to do, each yield an outcome of a certain magnitude
+- I can see that the spirits are happy today and decide to spend most of my time in the mines and get some stones, crystals, geodes and what not. But I could have also spent foraging, or fishing. Or maybe spirits were displeased, in which case I have other choices like expanding my farm, reorganizing my chests, doing quests or even prepping to do quests.
+- lesson: There are always tons of things to do in a day in stardew valley (and in real life). But there's time and energy for only some of those. As enthusiastic as we are about doing everything, it's simply not possible. There's no choice but to prioritize and stick with that decision
+
+If you haven’t played Stardew Valley, I highly recommend it. It’s a farming simulator game where you move to a small town and inherit a farm from your grandfather that you tend to. You do things like farming, fishing, mining, foraging, etc. There are certain tasks that other NPCs in the town give you and you complete them. You earn money by completing tasks and also by selling what you produce. You spend money to buy seeds, farming equipment (like sprinklers), furniture, weapons, etc. There’s much more to it than just this. But the point is, it’s a game that’s not very linear with its storyline or progression. There are A LOT of things to do (like I mentioned above) and you get to build XP in each of those categories.
+
+After putting in about 150 hours playing it, two things stood out to me that I see parallels with real life.
+**** So much to do, so little time
+As you progress in Stardew Valley (and even pretty early on in the game), there are so many things you can do that you just don’t have the time to do them all. Things take time. Preparing the farm takes time, harvesting takes time, fishing takes time, mining takes time (even getting to some of the mines take time). So, you’ll have to pick what you want to do based on certain criteria.
+
+This applies in our everyday life too. We have so many things we want to do. But there’s only so much time especially when we exclude the time we spend sleeping, working, getting ready, etc. If we go over our day’s schedule and remove these blocks of time that are non-negotiable, we will be left with just a few hours to spare. What we do in those hours end up shaping who we are in the long run. Do we want to spend that time productively? Do we want to invest that time in improving our fitness, knowledge, craft, hobby, etc? Or do we binge watch, doom scroll and be lazy?
+**** The spirits are very happy today
+One of the things in Stardew Valley is the TV that you have at home (in the game, I mean). One of the programs on the TV is the announcement of today’s fortune. It could range anywhere from "the spirits are very displeased today" to "the spirits are very happy today". The former means there is very little luck, so if you go mining or fishing, for example, you may find very few items. The latter means that you will be very lucky in finding valuable items while mining and easily catch lot of fish while fishing. Depending on what the fortune for that day is, you plan your day.
+
+This made me think about how we are sometimes in the mood to do a particular activity and not a different one. There are times when we can force ourselves to start doing something even though we don’t feel like it, and we end up either completing that activity or enjoying it more than we thought we would (like running, working out or practicing guitar). But otherwise, we do an activity better when we enjoy doing it versus when we don’t. I’d like to have a set of productive activities that I can pick from, and optimize for max enthusiasm in doing certain activities while also making sure that we don’t neglect others.
+*** TODO Why do people minimize windows?
+I don't understand why people minimize windows on their desktop. I've seen many people do this and I really don't get it. There are a bunch of apps open and they want to switch to a different app. In order to switch, instead of hitting =Cmd+Tab=, they minimize the window. This is a little odd because:
+1. =Cmd+Tab= is blazing fast compared the the minimize/maximize animation.
+2. There's also no real value in minimizing the app especially when the apps take up pretty much the entire screen.
+3. If you want to get the apps out of your view, you can just do a =Cmd+H= and hide the app. Next time when you try to switch to it, it comes up instantly.
+*** TODO The two things I constantly chase in life
+:PROPERTIES:
+:EXPORT_FILE_NAME: the-two-things-i-constantly-chase-in-life.md
+:END:
+*Flow state* and *Insight*.
+
+Okay, so these two are closely related and interdependent in most cases. Being in flow state causes insight. But insight can also happen outside of flow state sometimes, in short bursts.
+
+These are extremely important to me for multiple reasons:
+1. They are deeply satisfying to me
+2. They are applicable across activities and domains
+3. There is unlimited supply of it; all I have to do is  just have to make up my mind
+4. They are not contingent on anything
+**** What is Flow State?
+It is where you are so focused and so involved in what you're doing that you forget everything else around you. Hours feel like minutes, there's constant feedback loop on how you're doing, the wheels in your mind are constantly turning and in the end, you feel accomplished. There's a deep sense of satisfaction. It is also where you can develop insight.
+**** What is Insight?
+Insights (a-ha moments) are the epiphanies you have when you connect two or more ideas together. It is when you spend a lot of time trying to fit a few pieces of ideas together and they somehow don't fit and after spending enough time thinking about it, you find the missing piece that then becomes a strong foundation for your latticework of ideas.
+**** Why do I find them to be special?
+So, what makes them special for me? Flow state is achieved when doing something for its own sake and not having an agenda behind it. When you're genuinely trying to learn something and go in with a beginner mindset, you are very likely to be like a sponge and absorb all the information. The most common example of flow state is rock climbing. Pretty much every rock climber is in flow state when they're on the rock. Everything around them at that time is irrelevant, they are hyper-focused on the task at hand. They get immediate feedback on what they're doing. So, they're constantly learning, implementing and evolving.
+
+Insight is another high reward feeling that I chase. Making ideas fit together so that they make sense in a way that my perspective changes or I experience a mental maturity or even just understand hard concepts. There's a great level of satisfaction I get from it. Pursuing knowledge for its own sake, for the sake of curiosity makes the struggle all the more exciting.
+
+Flow state and insight are so broadly applicable that they're not domain-specific. I can get into flow state for literally any activity. I can have an insight connecting any ideas. I don't have to be part of a particular career. I don't have to read specific books to experience these. All I need for this to work is the right mindset.
+*** TODO Apps I install on a fresh setup
+There are few apps that I can’t live without and I install them as soon as I change laptops or start afresh for any reason. I’ve developed such a dependency on these tools and they’ve become part of my muscle memory that I keep hitting those keybindings all the time. So, when I’m setting up a new laptop with MacOS on it, there are 3 apps I install first - Chrome/Firefox with Bitwarden extension so that I can get to my passwords quickly. BetterTouchTool so that I have all my keyboard shortcuts and trackpad gestures ready to go and Alfred so that I can launch things and do a bunch of other productive stuff.
+*** TODO 12-Week Year
+I read a book early last year called [[https://www.amazon.com/12-Week-Year-Others-Months-ebook/dp/B00CU9P31K?keywords=12-week+year&qid=1683606213&sr=8-1][The 12-Week Year]]. I found out about it through [[https://critter.blog/2022/03/29/the-12-week-year-2022-round-1-wrap-up/][Mike Crittenden’s blog post]]. I’ve also been following Cal Newport and his [[https://www.youtube.com/watch?v=3FipKTzkTD4][Planning System]]. And I find a lot of similarities in both. I ended up with a combination of the two systems, but I can’t tell to what extent I used each of those systems. But whatever I ended up with works for me.
+
+Since I originally read the 12-Week Year before I learned about Cal Newport’s planning system, I start by creating a 12-Week plan. Each such plan has goals.
+*** TODO Continuous Self-Improvement: Tracking Progress in 5 Key Areas
+:PROPERTIES:
+:EXPORT_FILE_NAME: continuous-self-improvement-tracking-progress-in-5-key-areas.md
+:END:
+A few years ago, I identified 5 areas in my life that I wanted to keep a close eye on, so that whatever I did was in line with some sort of progress in these 5 spots. They are: *Health*, *Finance*, *Career*, *Relationships* and *Personal Development*. These are the big themes I link all my tasks to. Whenever I think about how my life is going, these are the areas I look at to see which ones need some work and what I can do to make it better.
+
+Everybody’s got different priorities, but over the past years, I settled on these 5 as my main areas that I wanted to concentrate on to live a happy and fulfilling life. How I ended up with these areas is by asking questions like:
+
+- What brings me joy and fulfillment and also helps me grow as a person?
+- What areas should I invest my time and effort in that help me and the people around me live a good life?
+- What’s something I can do regularly that benefits me both in the short and long term?
+**** Why each of these areas are important
+***** Health
+It’s critical to take care of our health because if that’s good then we can focus on other areas of our life. So this includes everything health related, like physical fitness, mental wellbeing, eating right and not drinking too much.
+***** Finance
+It’s not only important to make enough money to live comfortably, but also to be smart with saving and investing. Doing that will yield results (literally) and it’s also good to be informed on how and where to invest to live stress-free.
+***** Career
+I love what I do mainly because I work with great people and every day I learn a lot. That makes my workday fulfilling and I’m always looking forward to Mondays.
+***** Relationships
+Hanging out with people you love makes your life very meaningful. Every activity you do with that person makes the experience that much better.
+***** Personal Development
+Always be curious. The moment we link ideas together to form a better understanding of concepts is the best feeling ever. The more we learn the more we link ideas and that way the more we create new ideas.
+**** Tracking Progress
+Since these are areas, they never end. It’s an ongoing investment of time and effort in each of these areas and there’s no final goal. Everything I do should map to one or more of these areas. They’re a constant reminder to me to keep myself in check and make sure I’m not slipping.
+
+So, when it comes to "tracking progress", it’s the smaller tasks (that map to these areas) that I track progress on. But the area itself as a whole, I can look back at a longer time frame, like a couple of years, and see how much I’ve improved in my physical and mental health, my career, my relationships, how I’ve spent the past few years, and how much I’ve learned.
+*** TODO Weekly plan, Thursday break day
+Thursdays are break day. They serve as buffer to complete the tasks that I couldn't during the first half of the week
+*** TODO Avoiding naming variables badly
+<REWRITE THE WHOLE THING>
+Naming variables and functions appropriately is super important so that whoever reads the code (maybe somebody else or the future you) is able to make sense of the code and doesn’t end up spending too much time trying to figure out what each of them actually do. There are good names (like =items= or =userMap= or =getRecords()=) and bad names (like =i=, =<SOMETHING>=) and then there are mediocre ones. It’s the mediocre ones I really hate. They convey what needs to be conveyed well enough, but not quite.
+*** TODO Pull model to consume information (change the title)
+[2023-05-01 Mon]
+Talking points:
+- we’re constantly bombarded with information
+- we use apps and websites with endless scrolling that suggest infinite stream of content
+- we’re constantly overwhelmed with information which also leads to FOMO.
+- there are two ways to consume information. I name it the push model and the pull model
+- push model is where content is served to us in various forms - via a feed, a newsletter, recommendations, etc. This model gives us "curated" content (where the definition of curation is up to the discretion of the platform). For example, YouTube decides what you may be interested in after you watch a video and based on that, it recommends videos to watch. Other platforms do something similar. The curation may or may not be personalized. Platforms like YouTube or Instagram depend on your browsing history on that platform for them to be able to "curate" content to serve you. Other sources like newsletters don’t really depend on your input to serve you content.
+- Pull model is where you seek out information. Let’s say you’re curious about learning how an internal combustion engine works. You go to websites like Wikipedia, HowStuffWorks or YouTube and learn about it. Nothing is "served to you". You browse the internet /with an intent/ to accomplish a task.
+- Push model is broad, erratic and overwhelming. You rarely see content focused on one specific topic and instead see 30-50 links on a variety of topics. What the push model forces upon us is distraction. We are overwhelmed by the amount of content and the variety of content that we often mentally just give up and resort to mindless consumption.
+- Pull model, being so intentional, has the opposite effect since we go in with the intention of accomplishing something. It also makes our brain sharper and notice things better. When we’re specifically looking for something, we pay better attention to what’s around us and filter accordingly. This makes the experience of learning all the more immersive.
+
+We’re constantly bombarded with information. Our most visited websites are social media websites or link aggregators. I personally use Reddit and YouTube as my main source of learning and entertainment.
+
+Back in the pre-Internet days or even the early Internet days, there were just websites that existed and we’d visit them. There was no YouTube, no social media, no reddit. When we wanted some information, we’d seek out that information by either reading books, magazines, newspapers, or talking to people. We didn’t get curated list of links every time we visit a website.
+
+The problem with websites like YouTube, Reddit, Instagram, etc is that it’s very easy to lose ourselves in it. It’s easy to just click on related content and go down several rabbit holes. There are so many links on the page and most of them are interesting enough and are also potential rabbit holes.
+
+A simple use case is, you have a Reddit app and you log in with your account. You’re subscribed to some 20+ subreddits - most of which are informational, like emacs, space, askscience, ELI5, etc. As soon as you open your reddit app, you see links from all these subreddits right there waiting for you and they’re all a click away. You go through those posts, related posts, maybe you look at some other subreddit. As you keep doing this, you start wasting time and you won’t even realize how you lost all that time.
+
+If we flip this approach on its head and instead of us being bombarded with information, we /seek it out/. We get interested in something, we search for information on that topic. Now, our browsing is so much more focused. It’s harder to get distracted. It’s much more satisfying since at the end, we’d end up feeling like we didn’t waste time. We instead spent time searching for something that we really wanted to learn.
+
+[REWORD ALL THIS]
+*** TODO We live in bubbles
+[2023-05-05 Fri]
+Whether we like it or not, we live in bubbles. The concept of filter bubble became more and more popular when social media came about since sites like Facebook, Instagram, etc. curated content based on what we interact with the most. And what we interact with is what is engaging to us. Most times we tend to stick to information that aligns with whatever we already believe. This creates a filter bubble where we are surrounded by "like minded people" in online communities and we’re more and more reassured that what we believe is true (or mostly true) and there are others around us to give that assurance that we’re not alone.
+
+When it comes to real world, we don’t realize that we tend to create such bubbles for ourselves by mingling with people with whom we have most of our ideas aligned. This happens more often than we think. The places we go to, the people we meet, the content we talk about when we meet those people.
+
+We take this for granted and it doesn’t even occur to us that there are several other possibilities out there. That there are several people who believe in wide range of things. Reminding ourselves every now and then that we’re in some kind of a bubble helps us be grounded to reality and keep ourselves in check without getting too carried away with the thoughts and opinions of people around us.
+*** TODO Reality is never what it seems
+[2023-05-05 Fri]
+Most people (including myself) have immediate reactions when they see or hear something and they’re quick to voice their opinions. They only look at the situation from their own perspective that is already tainted with biases and combine that with lack of information they have on the topic, it just ends up being noise. When this noise is modified in just the right way, it becomes an outrage or just another bitching session.
+*** TODO ChatGPT is a great approximator
+[2023-05-05 Fri]
+*** TODO The world is gray
+[2023-05-05 Fri]
+*** TODO Having a learning mindset (may need a different title)
+[2023-05-05 Fri]
+I love learning. I’m easily distracted by anything new and shiny that I can learn about. This ends up with me trying to do too much and then get frustrated when I realize I don’t have enough time to do everything or to learn everything. Regardless of what I learn, I always focus on two things: *always be curious* and *never repeat your mistakes*.
+
+There’s an endless amount of knowledge out there in the world and there are a zillion different things that grab your interest. Learning is so beautiful and it’s one of the best feelings when you figure out something that you initially found it hard to understand. At some point, it just clicks and everything falls into place nicely with other ideas you have in your mind.
+
+I think learning is 50% done when you consume information. It is 75% done when you apply what you learned. It is 100% done when you teach it to someone. That’s a really vague estimation, but I think I at least got the progression right; I don’t care about the numbers.
+
+For example, whenever I get comments on my PR, I’m delighted to learn something new. I also try my best to never get that comment again on any of my future PRs. I try to "learn once, apply everywhere (applicable)". I think this kind of rigorous approach helps learn things better.
+
+Another example? This very blog post. I wrote the whole post and then used ChatGPT to improve my writing. I didn’t blindly copy paste what it gave me. Instead, I read through its output and understood how to write better. One thing I make sure is that I don’t use ChatGPT as a crutch. I’m not sloppy while writing blog posts just because I have a tool that can always help me write and make it look 100x better. I write my posts as if ChatGPT doesn’t even exist and once I’m done, I use ChatGPT as a learning tool to help myself improve.
+*** TODO Internet and Social media gave everyone a voice and now the world is filled with noise
+[2023-05-05 Fri]
+Before the internet, there used to be books and magazines. News and TV programmes. Big budget tv shows and movies. Plays and performances.
+
+With internet in the 90’s, there was some gatekeeping where there were news websites with reknowned editors writing their piece. Or specific sources where information could be obtained and while obtaining that information, one would have the confidence that it is reliable to some extent. Of course, there were always wacky websites, but for the most part information was kind of reliable. Most of it was good quality.
+
+With Web2.0 and social media, everything became easier. Creating content became easier. Anybody could create a blog in 5 minutes. There are many platforms that let you host your blog for free and they provide several other tools as well. You can have your own newsletters. There are so many social media websites you can go to if you want to market yourself and build a brand. You can create groups, be part of groups, organize events. Web2.0 also enabled easy sharing of content. Now things could go viral.
+
+With this combination, everybody has a voice and anything anyone creates can go viral. This is awesome and it’s one of the best things ever. It’s like living in a dial-up world and all of a sudden being exposed to Gigabit bandwidth. We started with a few folks and companies having an online presence to the entire world have an online presence. And not just an online presence, each and everybody is on the same playing field and has equal opportunity to make a name for themselves.
+
+While this is great, it also comes with sub-par content. Most of the internet is filled with mediocre content (at best). Compared to the amount of content that exists in the entire Internet, only a handful are good quality. Everything else is either mediocre or bad. Including this blog.
+*** TODO Dealing with newsletter fatigue
+[2023-07-22 Sat]
+I like learning new things and I’m constantly reading blog posts I find online. Until about a year ago, I used to visit Hackernews every single day, multiple times to check out the links posted there and read through them. This was taking a lot of time away from whatever I was doing. It also became a habit where I would just open it up when I have a few spare seconds (when I wait for builds to complete). This increased context switching as well. So, I decided to subscribe to newsletters instead of frequently visiting websites.
+*** TODO DevAdventures
+[2023-10-09 Mon]
+Today, I’m starting a new series of projects called DevAdventures. I’ve always been averse to CSS and it always stressed me out with all the thousands of properties it comes with. I’ve been a backend developer all my life and I really wanted to learn some frontend development to build web apps that I would get ideas to build. And, since I already have enough experience coding, it would take me relatively less time to learn frontend stuff.
+
+So, what I came up with was to learn a new concept in React every week and build a web app using what I learned. Just learning concepts without building anything is boring and inefficient. It’s more fun to build something that works all while using the new concepts that I learned.
+
+Here are the rules:
+1. The website must be extremely simple. The focus should be more on the concept I’m learning and not beautification of the website nor adding features that don’t really use the new concept.
+2. Every Monday I build basically the same or similar website. That way, I don’t have to spend time coming up with new ideas to build websites and instead focus on the concepts.
+3. Reuse old codebase if need be so that I don’t spend too much time setting things up. Speed should be the focus when setting a new project, rest of the time should be devoted to learning the concept.
+4. The project runs Monday to Saturday which is when I stop coding.
+5. Sunday is to reflect and review, and write a blog post about it. The blog post serves as a quick reference to my future self so that when I want to use this concept in the future, in case I need a quick overview of how something works, I can just look at the blog post. The other purpose the blogpost serves would be to solidify my understanding of it. Sunday is also when I’d prep for the next thing I’ll be learning/building.
+
+Here is a list of things I want to learn (in no particular order) through this series. I’ll be starting with React concepts/libraries. But I’ll expand that to other areas as well:
+- React Router
+- Tanstack router
+- Tanstack Table
+- Tanstack Query
+- Trigger.dev
+- Express
+- Theming
+- Using a database
+- Using docker
+- Building a website that exposes a REST API
+- Building a website that exposes a GraphQL API
+- Authentication and Authorization - JWT, Bearer, OAuth, etc
+- Session Management
+- Payment page and payment processing
+
+I will be reporting my learnings as a blog post every week going forward. Let’s see how long I can keep this going. The plan is to do this for the entire quarter. The overarching idea is - "across a quarter, go broad; across each week, go deep". Which means, cover a broad range of topics across the quarter. But each week, go deep into each concept that you learn.
+*** TODO DevAdventures 001 - React Router
+A brief TL;DR of DevAdventures. It’s a weekly exercise I came up with to learn new things in React or even to build small projects. The idea is to start a project on Monday and finish it by Saturday EOD, and while doing so learn a concept. The concept can be anything - react router, tanstack, monorepo, migrating from one build system to another, docker, etc. Sunday will be the day for reflection and review of what I learned during the week. The point of this is to quickly iterate on learning new things by getting my hands dirty and building a project. The simplicity of a project is important to make sure more time is spent on learning a new concept rather than designing the application.
+
+This post serves as notes to myself if I ever want to use this concept in my future projects so that I can quickly get ramped up on it and apply it to whatever I’m working on.
+
+This is the first installment of DevAdventures. In this project, I learned a good amount of how ReactRouter works and how to use them.
+**** Project: Movie Database
+The project is really simple. It’s a movie database where one can add, edit, view and delete movies. There are only a handful of fields to update - Name, overview, release date and rating. The website lets the user favorite a movie. It also lets the user search for movies by both name and overview (why not?)
+**** Concept: React Router
+This week I learned how [[https://reactrouter.com/en/main][ReactRouter]] works and how easily it can be used in projects to achieve routing, loading of data, revalidating data, actions on the page, defining error pages, etc. Let’s dive in.
+***** Setup
+The setup is straight forward. Not a lot of code changes to set everything up. If it’s a new project, it’s much easier.
+
+First things first, install the package:
+#+begin_src sh
+  npm install react-router-dom
+#+end_src
+****** Adding a browser router
+The existing ~App.tsx~ can be used as the base page. ReactRouter suggests adding all the route pages under ~src/routes~ directory. It doesn’t really matter where you add them as long as a convention is followed in the codebase. So, let’s add a new file ~Root.tsx~ in ~src/routes~.
+
+In index.tsx, add the following:
+#+begin_src typescript
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root/>
+    }
+  ])
+#+end_src
+
+Use ~RouterProvider~ in ~root.render()~ function:
+#+begin_src typescript
+  root.render(
+    <React.StrictMode>
+      <RouterProvider router={router}/>
+    </React.StrictMode>
+  )
+#+end_src
+***** Loaders
+Loaders are basically what loads data that can be rendered on a page. Every page that needs to dynamically render data can expose a loader function which will retrieve data either via an API or from a DB or from memory. By convention, these are best written in the same file as the component that’s rendering the page, but it doesn’t matter where they exist as long as they’re wired up in ~createBrowserRouter()~ call before initializing the router in the codebase.
+
+The function will look something like this:
+#+begin_src js
+  export function loader() {
+    // fetch code to be rendered
+    // return object that can be used by the component
+  }
+#+end_src
+
+And the component trying to render the objects just has to add the following line:
+#+begin_src js
+  export default function Component() {
+      const obj = useLoaderData();
+      // rest of the code
+  }
+#+end_src
+
+Wiring up the loader is done in the ~createBrowserRouter()~ params:
+#+begin_src js
+  const router = createBrowserRouter([
+      path: ’/’,
+      children: [
+          {
+              path: ’/movies/:movieId’,
+              loader: movieLoader,
+          }
+      ]
+  ])
+#+end_src
+***** Forms
+React router offers ~<Form>~ with some nice conveniences. One of the main ones is the ~action~ attribute. This maps to the action that is defined for the form submission. For example, if the ~action~ attribute has the value ~destroy~, it will expect the route ~/movies/:movieId/destroy~ to exist (assuming the form is rendered in ~/movies/:movieId~)
+
+The ~<Form>~ element will look something like this:
+#+begin_src js
+  export default function Component() {
+      return (
+          <Form action=’destroy’>
+              // ... rest of the code
+          </Form>
+      )
+  }
+#+end_src
+
+The action will be implemented in a function and wired up in ~createBrowserRouter()~ as explained in the next section.
+***** Actions
+Actions are basically the actions you take on a page. For example, a button submitting a form is an action which causes a mutation. The way actions are incorporated in to the codebase is similar to loaders where the convention is to keep them in the same file as the component that’s using the action. But as long as it’s wired up in the ~createBrowserRouter()~ call, it should be fine.
+
+The function will look something like this:
+#+begin_src js
+  export async function action({ request, params }) {
+      const formData = await request.formData();
+      // ...
+      return redirect(’/’); // or redirect to any page you want
+  }
+#+end_src
+
+Wiring up the action is done similar to loader in ~createBrowserRouter()~ params:
+#+begin_src js
+  const router = createBrowserRouter([
+      path: ’/’,
+      children: [
+          {
+              path: ’/movies/:movieId’,
+              loader: movieLoader,
+              action: editMovieAction,
+          }
+      ]
+  ])
+#+end_src
+***** The main page
+The main page is split into a sidebar on the left that contains a list of movies and a detail view on the right which would show the movie details when a user clicks on a movie.
+~movies.tsx~ will 
+*** TODO Why stick with defaults?
+THIS IS NOT GOOD. REWRITE/DELETE
+I don't understand why some people stick with defaults when they have the opportunity to change and customize things to their liking. Like, I see people not changing anything on their phone or laptop, use the default apps, use the default setting and be happy with it. When I look at them, I'm baffled by the lack of customization that it annoys me. And, I'm on the other side of the spectrum where I customize the heck out of everything.
+*** TODO Is this your best work?
+I was reading Clear Thinking by Shane Parrish and in one of the first chapters, there's a chapter called Setting the Standards where he talks about how we get used to producing things that is just good enough where it has the potential to be our best work.
+
+This struck a chord with me and made me think about how I have done this so many times. At work, there were projects that I was passionate about and I'd continuously improve it. And there were also those that I didn't really enjoy them, but I had to do them anyway. And those are the ones that I badly wanted to get done with. And those are the ones that did not leave me satisfied or fulfilled when I was done with them. Sometimes I'd rationalize it to myself saying that it's not so important or it doesn't matter that much. But at the end of the day, it was fulfillment that I was missing from my work.
+
+I noticed this in other areas of my life as well. Like cooking or working out or running. Not pushing myself and not striving to be my best led to me being mediocre and hating myself for it. The hate wasn't because I didn't do a good job. It was because I could have done a better job, and I didn't.
+
+What I really want is to develop the awareness to recognize this, and stop and ask myself if I'm giving my best.
+*** TODO High switching costs
+[[https://x.com/andyyen/status/1864436449942110660][Related Tildes post]]
+
+Alright, I'm going to get a lot of hate (or disagreement) for this, but please do play devil's advocate and hear me out.
+
+I keep seeing posts like these either on Tildes/Reddit/Hackernews/personal blogs. One post from a CEO or a prominent person makes people go into a frenzy and they immediately want to switch services. It's like, Proton CEO tweeted something (whether a month ago or a decade ago) and people want to switch to something else. Kagi chooses to use Yandex and people are furious and watch to switch. Buy Tesla few years ago when Elon was sane, but once he starts saying shit, sell Tesla? Stuff like that. It's interesting to see this pattern show up again and again.
+
+I'm all for voting with your dollar/click/subscription/etc. And I'm all for taking a stand and not funding something nefarious. But where's the line? Just because I don't agree with one person's view on one thing, does that mean I should stop using all their services? I know it's up to the individual to consider what subscription is worth stopping and what is worth continuing, and how much something means to them. Also, if I dig up anybody's past tweets or conversations, isn't it likely for me to find something you disagree with? Isn't this particular outrage just because it happened to show up on my feed? Is that enough grounds for not using their product?
+
+Why not just use a product just because it's good? Because this argument seems to somehow work well for iPhones. Everybody knows how Apple uses (or at least used to for a very long time) cheap labor with horrible working conditions to manufacture iPhones. But that's somehow okay for everyone. I mean, when was the last time we did a thorough reasearch on whether the CEO of the company that makes the toothpaste we use didn't tweet anything weird?
+
+Having said all this, I get it. I /was/ this person. I was the same way when WhatsApp introduced a change in their Terms of Service a few years ago and I uninstalled WhatsApp. I tried convincing my friends to switch to Signal and not all of them did (because nobody they knew was on WhatsApp). I ended up losing contact with them and a couple of years later I reinstalled WhatsApp so I could talk to them again. I took a stand against WhatsApp for a couple of years. Was it worth it? No. To me it created more friction than I expected. I also switched from Gmail to Protonmail because I didn't want Google mining my emails for data.
+
+The switching cost for replacing services like these are very high. I mean, what are my next steps supposed to look like? Happen to see a tweet, get triggered, spend the next few days/weeks thoroughly researching an alternate secure email provider, then spend the next several weeks moving /all/ my accounts to a different email? Update my password manager along the way as well? And then what? Repeat this whole thing all over again when that email provider's CEO tweets something I don't agree with?
+
+/Sigh!/
+
+I don't have an answer. I cannot have an answer. It depends on the individual. Having been that kind of person, I just feel it's not worth it. I learned over the years to let go of most things. Life's too short for high switching costs. I just want to get through the day doing things I enjoy. Just because I happen to see a tweet from someone, if that turns my next few weeks into a frenzy, then it's not worth it.
+
+I'm sure I may have gotten some of the data or even the worldview wrong. I feel, just like how people have knee-jerk reactions to this kind of news, I'm having a meta knee-jerk reaction to these kinds of posts.
+
+PS: Please do not feel personally attacked by my views. Everybody has opinions, I respect yours and this one's mine.
+*** TODO Jujutsu use cases
+**** Start a repo locally, set remote and push to Github
+- if you have an existing folder
+- run ~git init~ (if you haven't already)
+- run ~jj git init --colocate~
+- run ~jj git remote add origin git@github.com:<username>/<repo_name>.git~
+**** Create a new branch
+- run ~jj bookmark set <branch_name>~
+- start adding changes
+- maybe add multiple changes and squash them all with ~jj squash -f <from_revision> -t <to_revision>~
+- switch to your previous branch (or change) by just doing ~jj edit <revision_shortcut>~
+**** Push new branch
+- create a new "branch" by running ~jj bookmark set <branch_name>~
+- assuming this new branch contains changes that needs to be pushed
+- once you're done with your changes, run ~jj git push --allow-new~
+**** Push changes to existing branch
+- once you're happy with your changes, run ~jj bookmark set <branch_name>~. This is to ensure that the latest change is ready to be pushed.
+-  run ~jj git push <branch_name>~ to push this change to remote
+- if there's already a branch by that name in your remote but it's not tracked, you'll get an error to track it. So, run ~jj bookmark track main@origin~
+**** Pull new changes on the current branch on to your local
+- for example, on your ~main~ branch you have new changes in your remote
+- run ~jj git fetch~ to pull the changes and it creates a branch because it had previously created a commit with your latest commit on local as its parent. Now that remote was updated, it applied that change on to your latest local commit, so the new change it created before still exists pointing to the local commit as its parent. So, we need to update it.
+- Do so by running ~jj new main@origin~. This creates a new empty change on top of the pulled change and the timeline becomes linear.
+**** Dealing with conflicts
+- example to simulate this is by changing a part of a file on both local and remote
+- you run ~jj git fetch~ and you DON'T see a conflict. The pulled commit becomes a sibling of your latest local commit. So, its parent has two branches - one with your local change and one with the remote change.
+- in order to resolve it, you have to rebase your commit on top of the commit that was pulled from remote. This is also what happens in git when you run ~git pull --rebase~, so it tracks.
+- In order to rebase the commit, you run ~jj rebase -r <local_change_rev_id> -d <remote_change_rev_id>~
+- this will cause a conflict that can be resolved using ~jj resolve~ or by directly editing the file in ~vim~ or ~hx~ or ~emacs~ or any other editor.
+- once it's resolved, it's not committed yet. Running ~jj st~ will still show that there are files modified. To get past that, you gotta run ~jj bookmark set main~.  This will create a new empty change on top of the existing one by committing the existing change.
+- now that the conflict has been resolved, this change needs to be pushed. Do so by running ~jj git push~
+**** Merging branches?
+*** TODO Thoughts about vibecoding
+Write down all your thoughts first 
+Talk to LLM to get more clarity 
+Then write a blog post 
+*** TODO My stance on vibecoding
+- I'm proficient in some languages. I use them on a daily basis at work. I learned them myself and got good at them.
+- same with frameworks and architectures.
+- vibecoding feels like playing a game with cheat codes on. You progress and maybe even finish the game, but the magic is lost. It's not as fun anymore once you start using cheat codes
+- My stance on vibecoding is, I'll absolutely use it if I need something quick and I don't have the skillset and/or the time to build it. I only get a couple of hours a day to myself and I have so many commitments that I cannot possibly spend months learning a new language, framework, UI design guidelines, etc. In that case, I can just vibecode an app to get moving. It's far more likely that I'll give up halfway due to life getting in the way if I happen to go it alone. So, vibecoding would at least give me what I want in an hour. Sure, the magic is kinda lost and it's not as fun as learning to build it. But if it's not something I want to invest time learning, I'd just want to get it done quick.
+- for languages or frameworks that I do want to learn, I don't vibecode. I'd want to improve myself and my skillset and make sure I get better at it instead of completely depending on the AI tools.
+*** TODO Bloggo: an android app to blog on the go
+:PROPERTIES:
+:EXPORT_FILE_NAME: bloggo-an-android-app-to-blog-on-the-go.md
+:END:
+This website ([[https://rrajath.com][rrajath.com]]) is built using a static site generator ([[https://gohugo.io][Hugo]]). I specifically like static site generators for the control, simplicity and the lack of need for deploying on a host and maintaining it. I can write blog posts in markdown format and push it to a github repo and they get built and deployed either via GitHub Pages, Cloudflare Pages, Netlify or other similar solutions. For free!
+
+I like the fact that the posts are in GitHub because of a couple of reasons:
+1. It aligns with my other workflows of committing code to GitHub. Writing, committing and pushing are second nature to me and my muscle memory helps me do it really fast. Since most of the time I'm either in emacs or terminal, this workflow is very seamless.
+2. The entire website including the HTML partials, JS, CSS, etc. are out in the open to see for anybody.
+3. Any posts or pages I change go through commits and they have a commit history. I (or anyone) can go back and see the previous versions of those pages.
+
+This very setup became a kind of friction for me because whenever I had to post something, I had to be on my laptop to commit the changes and push to GitHub. This was not always feasible because I would not be near my personal laptop most of the time. I did play around with writing posts in my notes app on my phone (Orgzly) and later transferring them to the GitHub repo (via ox-hugo on emacs). But that workflow was a little clunky as well. It was the closest I came to having a seamless workflow.
+
+What I really needed was an app on my phone that I could write blog posts in, preview the markdown files and push to GitHub - all from my phone. This was not available and I ended up vibecoding one a couple of weeks ago. It's simple and does the job well. It's exactly what I need; nothing more, nothing less. The app basically needs a GitHub Personal Access Token in order to be able to push files to the repo. It also needs the name of the repo, the name of the branch and the folder where the files get pushed. You can also configure the frontmatter that gets added to every post so that you don't have to add them manually. That's pretty much it.
+
+**** Screenshots
+Here are some screenshots:
+<main page screenshot>
+<blog post page screenshot>
+<blog post preview screenshot>
+
+**** How the app works
+The main page shows all the posts that are in the remote and published. There are two sections - one for published posts and one for unpublished. The unpublished posts are the ones that are started on the phone and are in draft mode. The blog post page shows a simple text editor to write down content. The preview button at the top switches between editor mode and markdown preview mode to show how the post looks. Hitting back button on the blog post page would auto-save the file.
+
+The title of the post updates the frontmatter accordingly (by setting the value for the ~title~ attribute). And the filename gets generated from the title of the post with appropriate changes to make the slug short and not have any special or repeated characters. The Publish to GitHub button does literally that. It pushes the file to GitHub.
+
+The app is extensible-ish since all it cares about is where to push the files. So, it doesn't really matter if you're using Hugo as your static site generator. You can use Jekyll, Zola or any other SSG.
+
+**** My Workflow
+Now, my workflow has changed. I write my blog posts directly in this app. And I may take multiple sittings to write a blog post. I can always preview what I wrote to see if the formatting looks good. Once I'm ready, I just hit a button and the blog gets published. I've written a lot more blog posts this year because of this improvement. I love the fact that the lack of friction is really making me write more.
+
+**** Next Steps
+The app does pretty much what I need. Although, I may add a few features like:
+- making it easier to add links: for example, selecting a text should give me a popup and I should be able to add a link there instead of having to go through the Android keyboard to find characters like ~[~, ~]~, ~(~, ~)~  to format a link in markdown.
+- add pages: like the about page, now page or any other pages, instead of restricting the app to just blog posts.
+
+*** DONE Moved from Wireguard to Tailscale
+CLOSED: [2026-02-13 Fri 21:11]
+I had been wanting to install Tailscale for the longest time, but I never got around to it. I finally installed it and the whole installation was a breeze. I'm also able to connect to my devices easily. Every now and then I would set up wireguard on either my NAS or one of the Raspberry Pis and I would set everything up on the phone. And then I would never use it for a few months. And the next time I try to use it, I wouldn't be able to either because the docker container wouldn't be running or I would have lost the profile somehow or some other lame reason. I liked the idea of logging into my network from outside via a Wireguard VPN and be able to access all the hosts and services running on my home network. Wireguard is technically not painful, but it does require some set up and upkeep. For example, for whatever reason the Raspberry Pi on which it's hosted is down, I won't be able to access the network.
+
+So, I ended up installing Tailscale on all my devices and it's been awesome!
+**** Features I liked
+- One of the features of Tailscale that I really liked is that it's peer to peer mesh network (built on Wireguard). I can specifically access one device and not the whole network.
+- It also has something called a MagicDNS where the underlying IP could change, but the MagicDNS hostname it generates and gives you remains the same. So, you can use that for as long as you want and it still connects.
+- The connection is super easy. You just toggle it on your phone and you can immediately access any device on the tailnet, assuming both devices are online and allowed by access control lists.
+- One of the security features is the tailscale ssh, where you can enable SSHing to your host only through Tailscale. This is really secure. Tailscale SSH does not require an SSH key exchange. The authentication happens via Wireguard and identity verification.
+- The taildrop feature makes it extremely convenient to transfer files back and forth between devices. I'm loving it.
+**** Caveat
+One caveat I found about using Tailscale on my Pixel is that I had set my DNS server to be =dns.adguard.com=. When I connected to Tailscale, I had to change this since it conflicted with Tailscale.
+*** KILL Setting up tailscale
+CLOSED: [2026-01-30 Fri 07:55]
+Set it up first 
+Write about your experience 
+*** DONE Expander - an Android app for text expansion
+CLOSED: [2026-02-08 Sun 13:59]
+:PROPERTIES:
+:EXPORT_FILE_NAME: expander-an-android-app-for-text-expansion.md
+:END:
+I use text expansion a lot for the words or phrases that I frequently use. This works well on Gboard, the default keyboard on Android where you can configure text shortcuts. But it does not support dynamic data like current date, day or time. I need that for adding journal entries in Orgzly. There weren't good apps for this and the only one that was good enough was Typing Hero. This did the job, but had a limit on how many shortcuts one could create and anything beyond that needed a subscription. I'm all for paying money for good apps, but a monthly subscription for a text expansion app didn't make sense to me. Sure, the subscription got me a few more features and most of those features were not super useful to me. So, I decided to build my own.
+
+With assistance from Claude Code, I built an Android app called Expander that does exactly what I need. Nothing more, nothing less. No ads, no tracking, lightweight. Modern Material 3 UI. Once the snippet is configured, typing it in any app and hitting space would replace the text that was typed with the full snippet. I also added the feature to export and import snippets into a JSON file. That really comes in handy while changing phones.
+**** Screenshots
+Here are some screenshots of the list page and the settings page.
+
+<Screenshot 1>
+<Screenshot 2>
+**** Demo
+And here's a demo on how it works.
+
+<Demo>
+**** Conclusion
+I mostly used Claude Code for this and I was really impressed by how good it actually is. This would have taken me weeks to learn Kotlin, learn the Android app framework, the latest architecture and design guidelines and implement it. With Claude Code, the whole thing was done in a couple of hours. Even to the point where debug and release APKs get generated on every code push.
+*** DONE Week Notes - 26-06
+CLOSED: [2026-02-08 Sun 15:19]
+:PROPERTIES:
+:EXPORT_FILE_NAME: week-notes-26-06.md
+:END:
+Last week I was quite busy with work, but I did play around with OpenClaw a bit more.
+**** Explorations
+I installed Tailscale on all my devices. I'll be writing a blog post about it soon. The setup was way easier than I thought it would be.
+
+I augmented my Todoist grocery helper workflow on OpenClaw to make it check for deals/coupons on QFC as it adds each item to my Todoist.
+
+OpenClaw by default uses Pi as its coding agent and when I asked it to build a couple of web apps, it did an okay job. I had to prompt it a bunch of times to fix some minor UI bugs and it really struggled with it. So, I used claude-code to rewrite one of the web apps and make enhancements (and fix bugs) in the other web app. I also made sure to use the frontend-design plugin to get a polished and professional looking UI. It did an awesome job and I was really happy with the result.
+**** Projects
+Worked on an Android app that I'm calling Bloggo which is to write markdown files from the phone and push it to GitHub. This is mainly to blog on the go and not have to depend on a laptop and run git commands in order to post something to Hugo (or a similar static site generator). I'll be writing a more detailed blog post about this soon.
+**** Misc
+I didn't get much reading done. I was kinda caught up with perfecting my set up with OpenClaw and Tailscale.
+*** DONE Openclaw adventures
+CLOSED: [2026-02-08 Sun 13:59]
+Like many people over the last few days, I was curious to try Clawdbot/Moltbot/OpenClaw. I didn't rush to buy a Mac mini. I instead installed it on a raspberry pi that didn't have anything important on it and it didn't have access to other devices. 
+
+I was mind blown by not just what it could do, but also how easy it was to configure it, all of which happened by just interacting with it. 
+*** DONE Moltbot use case: todoist helper
+CLOSED: [2026-02-08 Sun 13:59]
+I installed moltbot recently on my raspberry pi and I was looking for ways to make it work for me and streamline my life. I found the todoist skill and thought of giving it a go. 
+
+So, I installed the todoist skill and set the API key. Here are some of the use cases that have been really useful for me. 
+**** Research assistant
+Moltbot is great for acting as a research assistant and I configured it to do the research for some of the tasks I have in my todoist. 
+
+Here's my instruction: 
+
+Add specific instructions
+
+Now every 6 hours it checks todoist and looks for the label ellie (the name for my bot) and picks up the task. It does all the research and puts what it finds in a markdown file in a specific directory. It also adds context to the task, where it came from and any additional metadata. Once it does all that, it notifies me on telegram with a brief summary of what it did. 
+**** Groceries
+I use todoist for my shopping list. I have a shopping list project where most items are groceries. I used to open todoist, add each grocery item and move it to the shopping list project and sometimes add a label like Costco, whole foods, etc. Now the bot has instructions to do this automatically. All I send in the message is "add milk" and it adds it to my shopping list project on todoist. 
+*** DONE OpenClaw use case: improvement to todoist grocery helper     :workflows:todoist:openclaw:
+CLOSED: [2026-02-08 Sun 13:57]
+:PROPERTIES:
+:EXPORT_FILE_NAME: openclaw-use-case-improvement-to-todoist-grocery-helper.md
+:END:
+I recently wrote about how I used OpenClaw to add groceries to my Todoist Shopping List project which is where I maintain my grocery list. I made an enhancement to this workflow which does the following. For each item I add:
+1. OpenClaw checks if the item is unlabeled (I use QFC as my default grocery store, so unlabeled ones means I have to buy them at QFC)
+2. If it has a label, it adds that item to the Shopping List project with that label
+3. If it doesn't, then OpenClaw uses browser control and goes to the QFC website
+4. It then finds deals for that item (if any)
+5. It clips those coupons and adds them to my card
+
+Now, all I have to do is say "add eggs" in my messaging app and the bot will both add the item to Todoist as well as add coupons to my card (if it finds them).
+*** DONE Migrating to porkbun
+CLOSED: [2026-01-28 Wed 22:07]
+Namecheap kept raising their prices.
+Heard a lot about porkbun and everyone had great things to say about it. 
+Migrated to porkbun for their lower prices and their transparency. 
+*** DONE Moving from GitHub Pages to Cloudflare Pages
+CLOSED: [2026-01-27 Tue 21:07]
+:PROPERTIES:
+:EXPORT_FILE_NAME: moving-from-github-pages-to-cloudflare-pages.md
+:END:
+I've been using Hugo since 2020 and as part of the setup, according to the docs, I had to create two repositories. One which I called [[https://github.com/rrajath/blog/][blog]] for the =.md= files, and another called [[https://github.com/rrajath/rrajath.github.io][rrajath.github.io]] for the generated HTML files. This led me to a workflow where I write a blog post, commit the file and push it to the =blog= repo. I then run a script that executes the =hugo= command generate HTML files. This script also copied the output to the =rrajath.github.io= directory, committed those changes and then pushed them to the remote.
+
+I didn't think much back then because I had a script which did all the work. But lately I wanted to find a way to create or update posts from my phone and while investigating ways to do that, I wondered if I could create a GitHub Actions that does this for me. After which I wondered why I even need two repos. I explored alternatives and found [[https://pages.cloudflare.com/][Cloudflare Pages]] to be a great choice because of two reasons:
+
+1. I only need one repo and the build command in Cloudflare pages could be configured to run the =hugo= command to generate the HTML files as well as run the =pagefind= index command for updating the search index.
+2. I can create a new blog post, send it as a PR, and view it as a draft before publishing the post.
+
+All of this needed just one repo and I really didn't have to deal with GitHub pages, two repositories, scripts, etc. This really streamlined my blogging workflow and simplified a lot of things.
+*** DONE Testing Cloudflare Pages
+CLOSED: [2026-01-27 Tue 20:51]
+:PROPERTIES:
+:EXPORT_FILE_NAME: testing-cloudflare-pages.md
+:END:
+This is a test post to see how it shows up on Cloudflare Pages.
+*** DONE Week Notes - 26-04                                                            :weeknotes:
+CLOSED: [2026-01-27 Tue 08:05]
+:PROPERTIES:
+:EXPORT_FILE_NAME: week-notes-26-04.md
+:END:
+Here's everything I did last week
+**** Fediverse stuff
+I stumbled upon [[https://home.omg.lol/][omg.lol]] and found it really interesting. After a few minutes of checking out the services that were offered, I joined and created a [[https://rrajath.omg.lol/][profile page]], a [[https://rrajath.omg.lol/now][now page]] and a [[https://rrajath.weblog.lol/][weblog]]. I also joined [[https://social.lol/home][social.lol]] and it has some of the nicest people there. I'm really digging this whole ecosystem. 
+**** Domain registrar switch
+Realized I was paying a little too much for my domain at [[https://www.namecheap.com/][Namecheap]]. And they kept increasing their prices. Found out about [[https://porkbun.com/][porkbun]] and saw some good reviews by the fine folks at social.lol and ended up switching. The whole migration took about 15 minutes and it was really smooth. 
+**** Blog posts I wrote
+- [[https://rrajath.com/posts/app-defaults-2025/][App Defaults - 2025 Edition]]
+**** Projects
+Made an enhancement to [[https://rrajath.com/][my blog]] hosted on GitHub pages. The search box was huge and had a white background. It was looking ugly when the blog had a dark theme. With the help of LLM, I updated the CSS so that the search box blends with the blog theme and it now looks much nicer. 
+*** DONE org-retro-journal: an emacs package for looking back through your journal :emacs:vibecoding:
+CLOSED: [2026-01-26 Mon 22:54]
+:PROPERTIES:
+:EXPORT_FILE_NAME: org-retro-journal.md
+:END:
+I've been journaling in org-mode since 2020. It's a simple =journal.org= file in =datetree= format, where I add entries each day. One thing I never did is to go back and read what I had written. I really like the Memories feature in Google Photos where it shows what I was doing that day or around that day a year ago, 2 years ago, 3 years ago and so on. And I wanted a similar feature for my journal.
+
+So, with some assistance from the LLM, I vibecoded an emacs package called [[https://github.com/rrajath/org-retro-journal][org-retro-journal]] that does exactly this. The package scans each year to find entries from the same or nearest date in previous years. It then presents these in an ephemeral buffer. I even added a few keyboard shortcuts that enable the user to go backward and forward through time one day at a time. Or the user can pick a specific date and view past entries for each year around that date. I wanted the level of detail to be just the headings so that I could go into any of them to read more. Plus, these org subtrees are /copied/ to the ephemeral buffer, so any accidental edits won't affect the original file.
+**** Screenshot
+Here's what it looks like in action:
+file:/images/OrgRetroJournal.png
+
+This is invoked by calling the function =org-retro-journal-review=, which can be bound to any key.
+**** Conclusion
+This was a fun exercise. As mentioned earlier in this post, I co-developed it with LLM assistance. I'm not super proficient in Emacs Lisp to the point where I can write complex functions. Given enough time, I would have figured it out, but due to lack of time and LLMs being pretty good at writing code, I chose to use an LLM to assist me with this. The whole process took less than half an hour.
+*** DONE Add modeline indicators to Prodigy in Emacs                            :vibecoding:emacs:
+CLOSED: [2026-01-15 Thu 15:04]
+:PROPERTIES:
+:EXPORT_FILE_NAME: add-modeline-indicators-to-prodigy-in-emacs.md
+:END:
+I recently started using [[https://github.com/rejeep/prodigy.el][prodigy.el]] at work since I had to run a few services locally for development. I used to run them in my terminal in different tabs, but I thought of giving Prodigy a try and it worked great! I was able to not just run the services without having to look at the logs (unless I needed to) but also configure the status of each service based on certain text patterns in the logs. This way Prodigy would show if the service is Ready/Running/Stopped.
+
+One thing missing in Prodigy is that it doesn't show any modeline indicators. What I wanted was to be able to quickly find which services were running and which ones were stopped. This was going to be too much information to be displayed on the modeline, so I instead wanted just the number of services running vs stopped, and I wanted them to be color coded (green for running, blue for ready, yellow for stopped, etc.) And on hover, I wanted the respective service names to be displayed in the echo area.
+
+I asked Gemini 3 Pro to generate functions and hooks with these exact requirements and it did a great job.
+**** Screenshots
+Here's the screenshot of mouse hover on services stopped
+file:/images/ProdigyServicesStopped.png
+
+And here's the screenshot of mouse hover on services running
+file:/images/ProdigyServicesRunning.png
+**** Code
+Like I mentioned above, the entire code was generated by an LLM (Gemini 3 Pro) and I didn't have to tweak anything at all.
+
+#+begin_src emacs-lisp
+  ;; 1. Define a variable to hold the modeline string
+  (defvar my/prodigy-mode-line-string ""
+    "String to display in the modeline for Prodigy services.")
+  (put 'my/prodigy-mode-line-string 'risky-local-variable t)
+
+  ;; 2. Add to mode-line-misc-info (instead of global-mode-string)
+  ;;    We use `assq-delete-all` first to ensure we don't add duplicates if you re-eval.
+  (setq mode-line-misc-info
+        (append (assq-delete-all 'my/prodigy-mode-line-string mode-line-misc-info)
+                '(my/prodigy-mode-line-string)))
+
+  ;; 3. Define the function that builds the status string
+  (defun my/prodigy-get-services-string (status)
+    (let ((names '()))
+      (dolist (service prodigy-services)
+        (let ((s-status (or (plist-get service :status) 'stopped)))
+          (when (if (eq status 'stopped)
+                    (or (eq s-status 'stopped) (null (plist-get service :status)))
+                  (eq s-status status))
+            (push (plist-get service :name) names))))
+      (mapconcat #'identity (nreverse names) ", ")))
+
+  (defvar my/prodigy-mode-line-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map [mode-line mouse-1] #'prodigy)
+      (define-key map [mode-line mouse-2] #'prodigy)
+      map))
+
+  ;; 4. Define the update function (same as before)
+  (defun my/prodigy-update-mode-line (&rest _)
+    (let ((failed 0) (stopped 0) (running 0) (ready 0))
+      (dolist (service prodigy-services)
+        (let ((status (plist-get service :status)))
+          (cond
+           ((eq status 'failed)  (cl-incf failed))
+           ((eq status 'ready)   (cl-incf ready))
+           ((eq status 'running) (cl-incf running))
+           ((or (null status) (eq status 'stopped)) (cl-incf stopped)))))
+      
+      (let ((items '()))
+        (cl-flet ((make-item (count color status-label status-sym)
+                    (propertize (number-to-string count)
+                                'face `(:foreground ,color :weight bold)
+                                'help-echo (format "%s: %s" status-label (my/prodigy-get-services-string status-sym))
+                                'mouse-face 'mode-line-highlight
+                                'local-map my/prodigy-mode-line-map)))
+          
+          (when (> failed 0) (push (make-item failed "red" "Failed" 'failed) items))
+          (when (> stopped 0) (push (make-item stopped "yellow" "Stopped" 'stopped) items))
+          (when (> running 0) (push (make-item running "green" "Running" 'running) items))
+          (when (> ready 0) (push (make-item ready "#44aaff" "Ready" 'ready) items))
+          
+          (setq my/prodigy-mode-line-string
+                (if items
+                    (concat " " (mapconcat #'identity (nreverse items) " | ") " ")
+                  ""))))
+      (force-mode-line-update t)))
+
+  ;; 5. "Hook" into Prodigy's status changes
+  ;;    Prodigy doesn't have a standard hook, so we advise the status setter function.
+  (advice-add 'prodigy-set-status :after #'my/prodigy-update-mode-line)
+
+  ;; 6. Initial update (in case you eval this while services are already up)
+  (my/prodigy-update-mode-line)
+#+end_src
+
+The entire process took less than 20 minutes. I'm not super familiar with elisp. I've done some minor tweaking and I didn't have the time to learn enough elisp to be able to pull this off.
+*** DONE A better Back to Indentation in Emacs
+CLOSED: [2025-01-17 Fri 16:23]
+:PROPERTIES:
+:EXPORT_FILE_NAME: a-better-back-to-indentation-in-emacs.md
+:END:
+When I'm on a line that is indented, I like to switch between going to the beginning of the line and the first non-whitespace charater. These have two different keybindings, ~C-a~ and ~M-m~ respectively. I wanted just one keybinding to switch between these two positions.
+
+I tried searching if this already exists in Emacs and I couldn't find it. So, I wrote a small function and bound it to ~C-a~.
+
+#+begin_src emacs-lisp
+  (defun rr/beginning-of-line ()
+    "Go to beginning of line or to first non-whitespace character
+  depending on current position of point"
+    (interactive)
+    (if (= 0 (current-column))
+        (back-to-indentation)
+      (beginning-of-line)))
+#+end_src
+
+Now whenever I hit ~C-a~, I jump between beginning of line and first non-whitespace character.
+*** DONE My favorite YouTube update
+CLOSED: [2023-08-05 Sat 10:30]
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-favorite-youtube-update.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-08-05 Sat 10:30]
+:END:
+A few days ago I visited YouTube and saw this:
+[[/images/YoutubeWatchHistory.png]]
+
+For many years, I turned off my YouTube watch history to avoid getting distracted by the recommendations that appeared on my homepage. As a result, my homepage was quite boring and contained only a few videos from my subscriptions and a few popular videos in general. Nothing was personalized. Although I still found myself clicking on a few of those videos every now and then, it had drastically reduced from when I had the watch history turned on.
+
+Recently, YouTube updated its platform and now forces me to turn on the watch history in order to show any video recommendations at all. Surprisingly, this is my favorite update yet. Now when I visit YouTube, it's always a blank screen and I can never get distracted or go down YouTube rabbit holes.
+*** DONE My information overload stats
+CLOSED: [2023-05-05 Fri 20:49]
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-information-overload-stats.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-05-05 Fri 20:49]
+:END:
+I’m no stranger to consuming information on my phone, computer, iPad, etc. I consume them in various forms - text (with newsletters, RSS feeds, read it later services), audio (with podcasts) and video (YouTube). I quit social media several years ago and I’ve always felt good that I don’t spend hours and hours scrolling through my feed on websites like Facebook, Instagram, etc. And my YouTube subscriptions are most educational anyway.
+
+Lately I’ve been feeling that even though the content I consume are all something constructive and something I can learn about, it’s been too much for me to handle. So, I’m making this post just to take a snapshot of what I call the Informational Overload Snapshot at this moment in time in order to understand how much of content I’m subscribed to, how much I’m actually reading/watching/listening to, how much value I’m getting out of all this.
+
+So, here is my Information Overload Snapshot:
+- *Newsletters*: I’m subscribed to about 20-25 newsletters and I have a total of 2000+ unread newsletters in my email. It doesn’t really tempt me to go and read it all. There’s no way I can do that anyway. It’s something I pick and choose whenever I want to read something - like [[https://hackernewsletter.com/][HackerNewsLetter]], [[https://bytes.dev/][Bytes]], [[https://fs.blog/newsletter/][Farnam Street]], etc.
+- *Podcasts*: subscribed to 33 in total. There are some I listen to as soon as an episode comes out. There are some that have so many episodes that I pick and choose what I want to listen to. There are some I hardly ever listen to, but still keep them around so that I get to it at some point, and I never listen to any of the episodes in them.
+- *RSS Feeds*: Not a lot, about a dozen subscriptions. LessWrong is one of the big ones because of the high number of posts that get submitted there. What I end up doing is, every few days I go and mark all posts on LessWrong as ’read’. So, excluding LessWrong on average I’d have about 60-80 unread posts in my RSS feed. Every time I think of unsubscribing from this RSS feed, I find some post that I get a lot of value from when I skim through it and I just end up keeping it.
+- *[[https://hq.getmatter.com/][Matter]]*: This is a read-it-later app that I’ve been using for some time and whenever I come across long articles that are interesting, I put it in here for later. I don’t have a lot here, about 26 articles but they’re all long articles. Each of them take several minutes to read.
+- *Reddit*: most of my subscriptions to subreddits are something that serve my curiosity. They all depend on my current interests. I’m not subscribed to fun subreddits like [[https://reddit.com/r/funny][/r/funny]], [[https://reddit.com/r/Unexpected][/r/Unexpected]], etc. But rather to subreddits like [[https://reddit.com/r/ExplainLikeImFive][/r/ExplainLikeImFive]], [[https://reddit.com/r/AskScience][/r/AskScience]], [[https://www.reddit.com/r/emacs][/r/emacs]], [[https://www.reddit.com/r/fishshell][/r/fishshell]], [[https://reddit.com/r/ErgoMechKeyboards][/r/ErgoMechKeyboards]], etc.
+- *Mastodon*: mostly used for informational purposes. I’m part of an emacs instance, fosstodon and indieweb instances. No time-wasters, really. No "fun" instances.
+- *YouTube*: I’m subscribed to about 20+ channels and about half of them post regular updates. And almost all of them are educational content or something that I’m interested in.
+- *Open tabs in my browsers*: Yeah, I said browsers because I’m including what I use on my laptop, phone and iPad. My phone has about 50+ open tabs. My laptop has less than a dozen open tabs. My iPad has about the same number.
+- *HackerNews*: I rarely use HackerNews since I’m subscribed to the newsletter. But every now and then I do go to Hackernews out of boredom.
+
+This will be the first part of my exercise to start cutting down on stuff I consume. My future posts will (hopefully) capture some cutbacks, unsubscribes, deletions and letting go of things.
+*** DONE Muscle memory is surprisingly malleable
+CLOSED: [2023-03-14 Tue 23:42]
+:PROPERTIES:
+:EXPORT_FILE_NAME: muscle-memory-is-surprisingly-malleable.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-03-14 Tue 23:42]
+:END:
+I recently read [[https://www.reddit.com/r/HelixEditor/comments/11n9bag/is_it_worth_it/][a reddit post on /r/HelixEditor]] where a user was asking if it was worth switching to Helix since they’d been a long time vim user. This is just one post, but there are many people who asked same or similar questions. This is a common question that I’ve seen asked in many subreddits and other communities. I’ve also faced this kind of a dilemma in the past myself.
+
+The crux of the problem is that we use a tool for many years and develop a muscle memory. A new tool comes along that’s attractive enough for us to try it. We are then hesitant to switch to it because of the switching cost - the time and effort it takes to learn the new tool (and potentially unlearn, to some extent, what we previously learned), and the opportunity cost of not using the tool we’ve been most familiar with.
+
+Let’s take vim and helix as examples, I’ve been a vim user for more than a decade and I’ve developed muscle memory to do several operations. This is emphasized by using vim plugins in other apps like web browsers, IDEs, text editors, etc. When I stumbled upon Helix, I was so intrigued by the selection->action paradigm that I really wanted to give it a go knowing full well that it’s going to mess me up in two places during this transition - both Helix (because I’ll be hitting vim keybindings) and in vim (because I’ll be hitting Helix keybindings).
+
+I really liked Helix and I wanted to switch to using it full time. [[https://rrajath.com/posts/exploring-helix-editor/][I explored Helix]], [[https://rrajath.com/posts/make-helix-use-your-workspace-prettier-config/][made it my default IDE]], even [[https://rrajath.com/posts/ditching-evil-for-meow/][changed Emacs to mimic Helix]] as much as possible. What I found after I used Helix for a few weeks was that, my muscle memory adapted to using Helix. When I do have to ssh into a remote host and open files and edit them, I /have/ to use vim. I don’t have a choice to use Helix (especially for quick edits on ephemeral remote hosts). But as soon as I opened vim, all my muscle memory of vim comes back to me and I’m just as fast in vim as I was in Helix. Do I make a few mistakes here and there? Sure, yeah, I do. But if I give myself a few minutes and power through couple of misfires, I’ll be cruising.
+
+Another example is switching between qwerty and colemak. I see many questions on keyboard subreddits where people ask if switching to colemak is worth it. People also ask if switching from a row-staggered keyboard to a columnar split keyboard worth it. And if they lose muscle memory. I went through this phase and I gotta say, it was painful initially. I swtiched from row-staggered qwerty to columnar split colemak-dh and did it cold turkey. It took me a while to get to decent typing speed with colemak that I couldn’t type on my laptop anymore. I had to take my split keyboard everywhere I went.
+
+However, I gave myself a couple of days to type on my laptop again and I did make a few mistakes. But I regained all the muscle memory I thought I had lost. It all came back and I was back to my original speed while I typed on my laptop. Now [[https://rrajath.com/posts/switching-between-qwerty-and-colemak/][I frequently switch between qwerty and colemak]] and I don’t find any issues doing so. My mind /knows/ which key to press on which keyboard.
+
+There are examples like these everywhere. Nintendo and Playstation controllers. Android and iOS. Windows/Linux/Mac. We see it everywhere. I feel we really underestimate how malleable our muscle memory is and we overthink about whether or not to switch to something completely different. Our brains know how to transition between different systems and is very efficient at it. It pulls the right set of muscle memory routines that’s needed for the task. We spend more time thinking whether or not to take a leap instead of just going for it.
+*** DONE Ditching Evil for Meow
+CLOSED: [2023-02-25 Sat 20:42]
+:PROPERTIES:
+:EXPORT_FILE_NAME: ditching-evil-for-meow.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-02-25 Sat 20:42]
+:END:
+I've been a vim user for as long as I can remember. I like vim so much that I try to incorporate vim keybindings wherever I can. Like, using [[https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en][Vimium extension]] in Firefox/Chrome, [[https://marketplace.visualstudio.com/items?itemName=vscodevim.vim][vim extention in IntelliJ/VSCode]], [[https://github.com/emacs-evil/evil][evil mode in Emacs]], etc.
+
+I recently [[https://rrajath.com/posts/exploring-helix-editor/][stumbled upon Helix Editor]] which made me rethink vim’s way of navigation. Helix was so much more intuitive for me in terms of selection->action paradigm instead of vim’s action->selection. I liked Helix so much that I started using it as an IDE. Even though I had good muscle memory of vim keybindings, I decided to spend some time and learn Helix’s keybindings.
+
+As I started using Helix more and more, I wanted to have a consistent experience in the two text editors I use the most - Helix (for IDE) and Emacs (for organizing my life). So, I wanted to get rid of Evil on Emacs since it was confusing me quite a lot. So, I started looking for packages that resembled Helix way of navigation and [[https://github.com/meow-edit/meow][Meow]] is the one that closely matched it. I did try couple of packages like [[https://github.com/jyp/boon][boon]] and [[http://xahlee.info/emacs/misc/xah-fly-keys.html][xah-fly-keys]] and found Meow to be the closest to what I was looking for in terms of ease of use and customizability.
+
+I’m pleasantly surprised with Meow and how configurable it is and I got used to it real quick. I had to do a few customizations to get it to work to my liking, but that’ll be a different post altogether. But for those that like the Helix/Kakoune way of navigating and want to have the same in Emacs, Meow is a great choice.
+
+Also, I have [[https://github.com/rrajath/dotfiles/blob/master/.emacs.d/PrivateConfig.org#meow][quite an extensive config]] in Meow where I had to port [[https://github.com/rrajath/dotfiles/blob/master/.emacs.d/PrivateConfig.org#general][most of what I had in General]]. Some of the [[https://github.com/rrajath/dotfiles/blob/master/.emacs.d/PrivateConfig.org#custom-functions][custom functions]] are to mimic Helix behaviors. [[https://github.com/rrajath/dotfiles/blob/master/.emacs.d/PrivateConfig.org#custom-keymaps][Other keymap related functions]] are to mimic what I had in General. I’ll explain some of them in future posts.
+*** DONE StoicQuotes - My first Raycast extension
+CLOSED: [2023-02-15 Wed 00:38]
+:PROPERTIES:
+:EXPORT_FILE_NAME: stoicquotes-my-first-raycast-extension.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-02-15 Wed 00:38]
+:END:
+I [[https://rrajath.com/posts/raycast-my-new-favorite-macos-app][previously wrote about Raycast]] and how it has replaced a lot of apps I use. One of the things I mentioned about Raycast is that the developer experience is excellent. This post briefly talks about my journey in creating [[https://www.raycast.com/rrajath/stoicquotes][StoicQuotes]], a Raycast extension.
+**** Background
+I’ve been practicing Stoicism for many years and one of the things I do every now and then is I read a quote by a stoic philosopher like Marcus Aurelius, Epictetus or Seneca and reflect on that quote. Pretty much all stoic quotes by these three philosophers are timeless and apply to our daily lives, and reading one and reflecting on it helps me get out of my autopilot and put things in a new perspective.
+**** How the extension came to be
+My goal was the following:
+1. The quote should be easily accessible (I shouldn’t have to search for it) and I should be able to access it /whenever I wanted/
+2. Getting the quote shouldn’t be intrusive. For example, I didn’t want to have a phone app which either sends me a notification or makes me unlock the phone, go to the app and then read the quote.
+3. It shouldn’t disrupt my workflow. Reading a quote should be a quick 2-second activity and not something I’d get into the weeds of.
+
+With this in mind and with Raycast at my fingertips, I thought it would be a nice little project to play around over a weekend.
+**** Developing the extension
+I found the [[https://stoicquotesapi.com][Stoic Quotes API]] which supports a bunch of different APIs, one of which is to get a random quote. This is exactly what I wanted. So, I built the [[https://www.raycast.com/rrajath/stoicquotes][StoicQuotes extension]] where every time the extension is invoked, I get a random quote. Raycast would display just the quote and the author. Nothing else. No fluff.
+
+Raycast’s documentation to develop an extension is excellent and developing this extension took less than an hour. And that included setting up the environment, making calls to the API endpoint, beautifying how the quote is rendered and refactoring when needed. The extension uses Typescript and React and there are lot of components that Raycast provides and they do a lot of heavy lifting for us.
+
+One really nice thing about Raycast is that all rendering is in markdown. There’s no need to deal with CSS. It’s just going to be markdown. This extension was just displaying a detail page and you don’t really need much to display a quote. Once you start the dev server while developing your extension, any changes you make is hot reloaded which makes development a breeze.
+
+It was really easy to get all of that done and commit the code and send a pull request. All that was needed was getting the extension published.
+**** Publishing the extension
+Raycast development team is really helpful and very responsive when it comes to both reviewing PRs and providing support. Their [[https://www.raycast.com/community][slack channel]] is a great community to meet other Raycast enthusiasts, discuss bugs and suggestions, get help and even provide help, and also showcase your extension there. The whole community is very supportive and has a very positive atmosphere.
+
+My PR was reviewed, approved and merged, and the extension was immediately live. I use it every single day.
+
+I really appreciate the quality of documentation, the developer experience and support here. I wish more companies gave this kind of experience to developers. I want to make more extensions 🙂
+**** StoicQuotes Extension
+Now, for the extension itself. Here are couple of screenshots. The first one shows the extension in the list of suggestions Raycast provides. The second one shows what it looks like when the extension is invoked.
+
+[[/images/RaycastScreenshot.png]]
+You can see that the extension is part of the favorites. So, once I invoke Raycast using =Cmd+Space=, I can access the extension by hitting =Cmd+2= (since it’s second in the list). To make it even more streamlined, I hit =Cmd+Space= and while I’m still holding =Cmd=, I hit =2=.
+
+[[/images/stoicquotes-1.png]]
+Here, you see the extension shows just the quote and the author. Hitting =Enter= will give you a new random quote. The extension also has the ability to copy the quote in both markdown and as plain text.
+**** Conclusion
+Developing this as an extension in Raycast seemed so perfect for me because it hit all 4 requirements I had (that I mentioned above) for getting a random stoic quote whenever I wanted without disrupting my workflow. With the extension installed, all I have to do is, invoke Raycast and invoke StoicQuotes (which can be marked as favorite for easy access), and I get a random quote. Hitting Esc will make the window go away and I’m back to whatever I was doing.
+
+I highly recommend using Raycast and even creating an extension just to see how easy it is. It’s fun!
+*** DONE Constraint relaxation as a mental model
+CLOSED: [2023-02-07 Tue 22:19] DEADLINE: <2023-01-28 Sat>
+:PROPERTIES:
+:EXPORT_FILE_NAME: constraint-relaxation-as-a-mental-model.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-02-07 Tue 22:19]
+:END:
+Like my [[http://localhost:1313/posts/every-day-is-a-knapsack-problem][previous post about knapsack problem]], constraint relaxation is another mental model I read about in book [[https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1627790365][Algorithms to Live By]]. When I read it, I again felt the same way I did for the knapsack problem - it’s common and we do it all the time.
+
+Constraint relaxation is when you encounter a problem that seems complex enough (think too many constraints) that you feel a little overwhelmed to tackle it head on. So, instead you decide to tackle a smaller/simpler version of the problem. Once you figure out how to do that, you add more and more complexities (or constraints) until you get to the original problem statement.
+
+A simple example is when you’re trying to implement a feature or a business logic that is complex for which you have to learn something new, you usually implement a smaller/simpler version of it (thereby relaxing constraints) and then work your way forward.
+
+Where this has helped me is sometimes I get stuck thinking about the problem at hand and after a while I remind myself to relax the constraints and start making progress. Again, it’s something we do automatically a lot of times. But having it as a mental model that we can pull out whenever we get stuck really does come in handy.
+*** DONE Every day is a Knapsack problem
+CLOSED: [2023-02-05 Sun 10:32] DEADLINE: <2023-01-28 Sat>
+:PROPERTIES:
+:EXPORT_FILE_NAME: every-day-is-a-knapsack-problem.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-02-05 Sun 10:32]
+:END:
+[[https://en.wikipedia.org/wiki/Knapsack_problem][Knapsack problem]], for those who don’t know, is an optimization problem that is encountered in several fields like computer science, investing, decision-making, etc. When defined in an abstract sense, the problem is to select a set of items each with a certain weight and value from a larger set such that the total weight does not exceed the volume of a sack. The problem is to optimize for the highest value that can be obtained through different combinations of the items. This can be done via several algorithms like greedy, dynamic programming, etc.
+
+This is such a common problem in everyday life that we encounter is almost on a daily basis and lot of times we don’t even realize it. We just don’t name it as a knapsack problem. For example, a rock band that has a 1-hour time slot to play a bunch of songs must decide how many songs can they fit in that slot in order to provide the best experience possible. The 1-hour slot is a knapsack. Each song has a certain weight (duration) and value (popularity/crowd favorite/something else). A band can have one or more albums and the total number of songs in their arsenal far exceeds the 1-hour limit. With each song having a different value, they must choose a small set of songs very wisely so that they give the audience the best experience possible. This is one of the examples from the book [[https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1627790365][Algorithms to Live By]].
+
+The knapsack problem I deal with on a daily basis is one of prioritization of tasks. There are a lot of things I want to get done - tasks I have to do at work, chores I have to do at home, work on a personal project and other one-off tasks I want to accomplish all in one day. I generally experience [[https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect][Dunning-Kruger effect]] where I over-estimate how much I can get done in a day but this happens only towards the end of the day and it becomes more of a realization of poor planning. However, whenever I stop and think about the day as a Knapsack Problem, prioritization becomes much clearer. The number of available hours in a day is the limit (sack), each task (item) has a certain value (in terms of urgency, importance or what I get back in return) and there are more tasks than I can fit in one day. Visualizing each day as a knapsack problem helps put things in perspective that there’s only so much I can do in a day that I must make the most out of it.
+
+Once this is understood at a micro level at one day at a time, this can also be applied for longer time scales. But we are very inaccurate when it comes to forecasting far into the future. There are too many variables at play and we can’t predict with good enough accuracy as to what we can fit in the longer time scale /and/ if it holds up until the end of that time scale. We /can/, to some extent, do this with bigger tasks like having to proritize a course we want to take that lasts a few months alongside a marathon we want to prep for, and a few other things we want to accomplish. But on a smaller timescale like a day, this works great.
+*** KILL Flight tickets refund status follow up
+CLOSED: [2023-02-06 Mon 08:53] DEADLINE: <2023-01-28 Sat>
+- State "KILL"       from "TODO"       [2023-02-06 Mon 08:53]
+*** DONE Raycast - My new favorite MacOS app
+CLOSED: [2023-02-02 Thu 23:17]
+:PROPERTIES:
+:EXPORT_FILE_NAME: raycast-my-new-favorite-macos-app.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-02-02 Thu 23:17]
+:END:
+I’ve been an [[https://www.alfredapp.com/][Alfred]] user for many many years and I’m also a Mega Supporter with a lifetime license. It provides so much value to me on a daily basis that it’s become one of the apps I install first when I set up a new laptop. I’ve used quite a few workflows an Alfred, I was using it as a clipboard manager, I had tons of dynamic snippets stored in them. I was doing everything with Alfred.
+
+This was the case until recently. I stumbled upon [[https://www.raycast.com/][Raycast]] about a month ago and I absolutely fell in love with it. The look and feel of it itself blew me away from the get-go. And once I checked out their store and the thousands of plugins they had, I was even more intrigued. I started looking at how I can replace my Alfred setup with Raycast and what I realized was, I was not only able to recreate my Alfred setup, but also do much more.
+
+[[/images/RaycastScreenshot.png]]
+
+Raycast not only replaced Alfred, but also a bunch of other apps I used to depend on to be productive.
+Here’s that list of apps/websites that Raycast replaced:
+1. [[http://rectangleapp.com/][Rectangle]]: I was using this for window management and moving things around. Raycast has several window configurtions available out of the box.
+2. [[https://apps.apple.com/us/app/amphetamine/id937984704?mt=12][Amphetamine]]: I was using this to keep my mac awake. The [[https://www.raycast.com/mooxl/coffee][Coffee plugin]] on Raycast does this. No need for another app.
+3. [[https://apps.apple.com/us/app/horo-timer-for-menu-bar/id1437226581?mt=12][Horo Timer]]: I was using this as a pomodoro timer. Raycast has the [[https://www.raycast.com/asubbotin/pomodoro][Pomodoro plugin]].
+4. [[https://news.ycombinator.com/][HackerNews]]: I was visiting hacker news a lot, but now thanks to Raycast’s [[https://www.raycast.com/thomas/hacker-news][HackerNews plugin]], I can see the post right inside Raycast.
+5. Searching Jira boards/projects/issues: Can be done directly from Raycast with the [[https://www.raycast.com/emanguy/jira-search-self-hosted][Jira Self-Hosted plugin]].
+6. Calculator, unit conversion, currency conversion, dictionary lookup, file search, and all the utilities are handled really well by Raycast.
+
+One of the nice things about Raycast is the way it holds the context. For example, if you invoke Raycast and perform an operation after which you close Raycast and proceed with your life, if you open Raycast again in the next few minutes (configurable), you can pick up where you left off instead of starting over. This is so intuitive and makes me feel great to use it.
+
+The other cool thing I really dig is the agenda feature in Raycast. I’ve pinned Agenda to the top of my Raycast results so that when I hit =Cmd+Space= to invoke Raycast, I just have to hit =Enter= and it’ll take me to the agenda. And since I have Google Meet integration, I can just hit Enter again which will directly take me to the current meeting. This has been a life-saver. Just a couple of keystrokes and I’m in the meeting. You can also configure it to show the title of the meeting in the menu bar just a few minutes before the meeting starts and it sticks around until the meeting ends. This gives a nice indicator/reminder about the upcoming/ongoing meeting.
+
+Not just this, Raycast’s developer documentation is really good. If there isn’t an extension for a use case you’re looking for, you can easily create one by referring to the documentation. Everything is very straight-forward and the devs are friendly and super helpful.
+
+This is just scratching the surface. The full set of features that Raycast offers is immense and takes way more than a blog post to explain. I recommend checking it out first hand.
+*** KILL Asking better questions
+CLOSED: [2023-01-29 Sun 00:27]
+:LOGBOOK:
+- State "KILL"       from "TODO"       [2023-01-29 Sun 00:27]
+- Note taken on [2023-01-29 Sun 00:24] \\
+  This was covered in the blog post called It Depends
+- Note taken on [2022-12-25 Sun 22:33] \\
+  Content covered in "It Depends..." blog post
+:END:
+Will get you better answers
+*** DONE Switching between qwerty and colemak
+CLOSED: [2023-01-25 Wed 22:56]
+:PROPERTIES:
+:EXPORT_FILE_NAME: switching-between-qwerty-and-colemak.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-01-25 Wed 22:56]
+:END:
+Early last year, I had some pain and discomfort in my wrists, so I decided to switch to a split keyboard. I went down an [[https://reddit.com/r/ErgoMechKeyboards][/r/ErgoMechKeyboards]] rabbit hole and ended up getting a [[https://www.zsa.io/moonlander][Moonlander Mark I]]. Around the same time, I also found that a lot of people use Colemak as the keyboard layout and that QWERTY is actually very inefficient. And down another rabbit hole I went.
+
+After doing a lot more research, I decided to go all in with both split keyboard /and/ new layout at the same time. From what I read, it apparently helps with muscle memory when transition to split keyboard + the new layout is done at the same time. Also, I picked Colemak because, it was one of the most popular for all-round typing - both coding and general typing (in English). I didn’t want to try out a bunch of layouts before deciding on one since doing so was going impact my productivity at work.
+
+Since I quickly wanted to ramp up and get better speeds with Colemak, I stopped using QWERTY completely. As my speeds improved, I was no longer able to type in QWERTY on my laptop keyboard. As I typed, I was hitting wrong keys all the time and I would immediately stop and get my split keyboard that was configured for Colemak. Now this became a little cumbersome since everywhere I went I had to take my keyboard with me.
+
+One day, I pushed through the wrong key presses and forced myself to type in QWERTY for some 10-15 minutes and I got much better at it. Turns out, the human brain is quite capable ot handling this kind of drastic change. Once I got some confidence in this switch, I now regularly switch between QWERTY and Colemak and I type fast in both. My Colemak speeds are still not great, but it’s getter better.
+*** DONE The pointlessness of the Mac Dockbar                                               :rant:
+CLOSED: [2023-01-28 Sat 20:59]
+:PROPERTIES:
+:EXPORT_FILE_NAME: the-pointlessness-of-the-mac-dockbar.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-01-28 Sat 20:59]
+:END:
+One of the things that was initially unique to Mac was the dockbar. I remember the first time I used a Mac, I was quite fascinated by it. I liked the zoom-in effect as I hovered my mouse over each item on it.
+
+[[/images/MacDockbar.png]]
+
+A fresh install of MacOS (or OSX back in the day) comes with a persistent dockbar at the bottom taking up a good chunk of the screen real estate. So, even when you maximize any app, it won’t take up the full screen because of the dockbar sitting at the bottom..
+
+After a few days of using it, I started getting pretty annoyed with it and I turned on auto-hide. That only solved the problem partially. Every time I moved my mouse to the bottom of the screen, even for a moment, it popped up, disrupting my flow. More than 90-95% of the time, they were all misfires.
+
+So, I ended up setting a delay on the dockbar to 3 seconds so that it doesn’t keep popping up when my mouse accidentally moves to the bottom edge of the screen. Instead, if the mouse stayed at the bottom for 3 seconds, only then it would popup. This made things better, but not great.
+
+The whole time, I questioned, what was the point of a dockbar anyway? I feel like it’s more eye candy and gimmicky than useful. If anything, it gets in the way more than it helps. I never understand why some people depend on it and actually use it. It’s so much slower to use the dockbar. Here’s why: You already know which app you want to open. If it’s already open, you hit ~Cmd+Tab~ and just switch to it. If it’s not open, you hit ~Cmd+Space~ to invoke Spotlight and type a few characters of the app you want to open and you just switch to it.
+
+Let’s say you’re using just your trackpad and your hand is not close to the keyboard. If you want to switch to another app with just your trackpad, doing an Exposé gesture is much better and easier than scanning the Dockbar for it. With Exposé, you get window previews which make it a lot easier to select from. Dockbar has so much fluff in it with all the apps that are statically present in it that it takes longer to sift through them and find the app you’re looking for.
+
+I guess the only use of a Dockbar is when one is looking for an app but they don’t know its name, they only know what it looks like. Other than that, I don’t see a reason to use Dockbar. I would definitely recommend getting rid of it or at least setting an autohide delay of a few seconds. To do that, run this command:
+
+#+begin_src bash
+  defaults write com.apple.Dock autohide-delay -float 3 && killall Dock
+#+end_src
+*** DONE Make Helix use your workspace prettier config
+CLOSED: [2023-01-09 Mon 13:25] SCHEDULED: <2023-01-09 Mon>
+:PROPERTIES:
+:EXPORT_FILE_NAME: make-helix-use-your-workspace-prettier-config.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-01-09 Mon 13:25]
+- State "DONE"       from "DONE"       [2023-01-09 Mon 13:24]
+- State "DONE"       from "TODO"       [2023-01-08 Sun 18:27]
+:END:
+I've been [[https://rrajath.com/posts/exploring-helix-editor/][trying out Helix Editor]] recently and loving it. I wanted to see if it could be my primary IDE and one thing I wish it did was format the file on save. By this, I don’t just mean fixing indentation, but also applying eslint fixes and running prettier. And I wanted this formatting to be applied based on the rules defined for that package. For example, I was in a nodejs workspace with typescript files and a prettier config that had rules like ~singleQuote~, ~trailingComma~, etc.
+
+I tried a few prettier configs on the web for Helix and [[https://github.com/helix-editor/helix/wiki/External-binary-formatter-configuration#prettier][none of them worked]]. This post is to document what /did/ work so that the next time I run into the same situation I don't start from scratch and end up trying a bunch of things to no avail.
+
+So, here's what worked. I found this [[https://github.com/helix-editor/helix/discussions/3198#discussioncomment-3324876][line of code as a comment on one of the GitHub issues]]:
+
+#+begin_src javascript
+  formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+#+end_src
+
+This fixed the prettier issue for me and now any double quotes in the file are converted to single quotes. Any semi-colons that were missed at the end of statements get automatically added, just like how it’s configured in the prettier config for the project.
+*** DONE Clickbaits are here to stay                                                   :clickbait:
+CLOSED: [2022-12-27 Tue 22:43]
+:PROPERTIES:
+:EXPORT_FILE_NAME: clickbaits-are-here-to-stay.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-12-27 Tue 22:43]
+:END:
+More than a decade ago I came across BuzzFeed articles like "10 things you didn't know about the Illuminati, number 7 will surprise you" for the first time. At the time, I didn't even know they were called clickbait. This reminded me of the tabloids I saw near checkout lines in grocery stores. Every time I'd see one of those magazines, I used to think, "This is beyond ridiculous. Who reads this stuff?". In my mind, I used to categorize tabloids as the lowest form of "news" and just a desperate attempt to get peoples' attention to buy those magazines, and in my opinion that's still the case.
+
+But when I started seeing more and more clickbaits online, I started becoming infuriated because now they were everywhere. I was seeing the equivalent of tabloid headlines in most of the websites I used to visit and it felt like there was no escaping them. I initially thought only sites like BuzzFeed and similar ones would be so desperate for attention and clicks, and real news sites wouldn't need clickbaits.
+
+I was wrong. I started seeing them even on websites like HackerNews or AndroidPolice. It was annoying me so much that I didn't click those links on purpose, even though I knew it had information that I was looking for. It was my way of "vote with your clicks". And then, it was all over YouTube too. The channels I subscribe to - Red Delta Project, Veritasium, etc. that have nothing to do with gossip or sensational news, but instead make educational content were also filled with titles that were very clickbait-y.
+
+I didn't like it, and I was hoping this was just a fad that would pass. I thought it would be one of those things where companies would jump on just to be part of whatever trend was going on and then drop it when it's no longer "cool". But at the back of my mind, I was thinking that clickbaits are only growing because they work. People click such links and clicks is what a service primarily measures (among other things) the popularity of its article.
+
+I recently saw a video on Veritasium titled [[https://www.youtube.com/watch?v=S2xHZPH5Sng][Clickbait Is Unreasonably Effective]]. This hit home with me. If people tend to click on clickbait articles, then there /will/ be more clickbait articles. This is one thing if a blog contains a bunch of such articles. But if a serivce like YouTube takes uploaded videos and ranks them, and happens to find clickbait-y videos perform better, it'll just rank those videos higher. And if I'm a YouTube content creator, and I want to stay in the game, I'd have to play the same game. As much as I hate clickbait, I'd still have to add a clickbait title, a clickbait thumbnail and a clickbait caption in the thumbnail. And not to forget a corny facial expression on the thumbnail.
+
+What I saw in the above video did put things into perspective as to why clickbait even exists and why everybody seems to be using it more and more. I still cringe when I see such titles. What scares me even more is, a lot of times any title I try to come up with for a blog post that I write, I start feeling like it's clickbait-y. I spend more time thinking about how to not make the title sound very clickbait-y. Or how to make the title sound as least clickbait-y as possible. Sometimes I fail. But I still try.
+
+I guess what I'm trying to say are two things:
+1. Whether anybody likes it or not, I think clickbaits will continue ot exist and thrive as long as clicks (or click-through rate) is used as one of the dominant metrics. That's just the world we live in now.
+2. I try my best to come up with titles that are not clickbait-sounding. I'd rather want the reader to not be interested to read my blogpost after looking at the headline than cringe hard at the headline.
+*** DONE Exploring Helix Editor
+CLOSED: [2022-12-25 Sun 23:10]
+:PROPERTIES:
+:EXPORT_FILE_NAME: exploring-helix-editor.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-12-25 Sun 23:10]
+:END:
+A few weeks ago, my coworker was talking about [[https://helix-editor.com][Helix Editor]]. I'm generally fascinated by CLI tools, so I decided to check it out.
+
+As soon as I tried it I was super impressed with how many features were packed in it. Tree-Sitter, Language Servers, multiple selections and many more. I have been struggling the past few months to get a good IDE experience set up on Emacs and every time I try, it falls short by just a little bit and I end up switching back to VS Code. I remember doing tons of different customizations, trying out several packages and their individual settings just so that all those packages play along together very well. But it only got me to about 90% of what I like. I'd run into all kinds of weird issues every now and then and it would take my focus away from the task at hand.
+
+Helix on the other hand required almost zero config. Pretty much every single default it came with was intuitive. It supports so many languages, and with tree-sitter integration things are a lot smoother and faster while editing code. But the thing I was most impressed with was the speed. I've never seen that level of speed and responsiveness from any editor. Not Emacs, not VSCode, definitely not IntelliJ. I tried opening a few random projects and tried editing the code a little bit and the experience was awesome. Everything, from auto-complete to opening overlay menus, filtering files from a list of hundreds, even narrowing down commands from the command palette was very smooth.
+
+Helix also deviates from vim and has its own keybindings (inspired by Kakoune). Being a long time vim user, I hated them at first, but then I really understood why things are done differently and I totally agree with it. Vim has a "do first, select later" kind of navigation which is not super efficient. With vim you first specify that you want to change or delete something and then you specify what you want to do the operation on. For example, =c2w= will delete the next two words from the cursor's position and change the cursor to insert mode. If you go wrong in specifying how many words (in this instance), you'll have to undo and start over. Helix follows a "select first, do later" approach which is great. Once you're happy with the selection, you can do whatever you want with it. To do the above operation in Helix, I'd have to do =v2wc=. There's one more keystroke here, but it's a lot more intuitive and I make fewer mistakes.
+
+There were a couple of things I really wanted in Helix - a tab bar so that I can see the open files (this was recently added and is now available), a tree explorer as a sidebar or an overlay (this was recently merged and should be available soon), and a way to automatically reload a file if that file was changed outside of Helix.
+
+I've really been enjoying Helix. I love the thriving community and the effort that goes into fixing bugs and adding features. I'm still learning the keybindings and how to efficiently navigate in the file. I'd recommend it to everyone to at least give it a try.
+*** DONE Colored Kindle Highlights
+CLOSED: [2022-12-17 Sat 18:29]
+:PROPERTIES:
+:EXPORT_FILE_NAME: colored-kindle-highlights.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-12-17 Sat 18:29]
+:END:
+A coworker of mine runs a bi-weekly tech book club where a bunch of people get together, read a couple of chapters of the ongoing tech book (like Clean Code) beforehand and discuss in the meeting how that can be applied in our existing codebase.
+
+Since he runs the meeting while sharing his screen, as he goes through the pages of the chapter, he shows his highlights that he thinks are good talking points for the meeting.
+
+I noticed that there were different colored highlights: blue, red and yellow. When asked about it, he mentioned that each color represents something:
+- *Blue*: when he agrees with the author
+- *Red*: when he disagrees with the author
+- *Yellow*: when he thinks he needs to do more research on that topic
+
+I think this convention is really good. This not only works for tech books, but also non-fiction. I'm certainly going to apply them going forward to all the tech and non-fiction books I read.
+*** DONE I enjoy doing boring, repetitive, mundane tasks
+CLOSED: [2022-11-11 Fri 23:29]
+:PROPERTIES:
+:EXPORT_FILE_NAME: i-enjoy-doing-boring-repetitive-mundane-tasks.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-11-11 Fri 23:29]
+:END:
+The title of this post seems kinda oxymoronic. Enjoyment and boredom seem to be opposites, so to speak. If we're bored, that means we're not stimulated and that means we're not enjoying whatever it is we're doing (or not doing).
+
+Most people I know hate doing mundane repetitive tasks or chores like cleaning, folding clothes, etc. I particularly like them. Not because I enjoy doing them. But because that's where a lot of my thoughts and ideas form connections. I've had a lot of epiphanies and aha moments during these times.
+
+For the longest time, I didn't connect the dots of what motivated me to actually /do/ "boring and repetitive" chores. I just did them. And when there was a choice between who in the household wanted to do the boring repetitive task, I always stepped up. After a while, I started viewing that as a negative since I thought seeking to do such boring chores meant I rather prefer doing those tasks than doing something more creative and stimulating. And that somehow by doing so, I was underachieving.
+
+However, I later realized that my mind starts wandering and inevitably starts thinking about things I read recently, a situation that happened to me recently or a recent conversation I had. A lot of times, my mind wanders into a problem at work I'd be struggling to solve. And amidst the cleaning or doing the dishes, or folding clothes, I'd suddenly find answers. This has happened so many times that I started enjoying such tasks. The main reason being, it gives my mind a break from the distraction in front of me.
+
+I constantly jump from one task to the next. Sometimes I try to multi-task, and fail miserably. I'd be working on some piece of code at the end of my workday and as soon as I'm done, I'd go to the living room to watch some TV, or play a game, or read a book, or check Reddit. Once I'm done with that task, I'd switch to another one immediately. I don't take breaks in between. I just keep hopping. This keeps my mind occupied and it's always in consumption mode. My mind never gets a break, it never gets some rest to process what it consumed. It continuously consumes.
+
+Doing chores forces our mind to disconnect from distractions and just do something "mindlessly". Those tasks are so "boring" that the brain is not required to apply logic, creativity, critical thinking or any of that. It is now free and this is when it starts to process what it consumed earlier. Connections are made, epiphanies are had, magic happens. These are the kind of feelings I long for. That moment when you figure something out. When you spend a lot of time and struggle to understand a concept, and then it finally hits you and everything makes sense. That's extremely satisfying.
+
+If you think about it, it's a win-win-win.
+- *Win 1*: you actually finish the chore. So the dishes are now clean, or the clothes are folded. Thanks to you.
+- *Win 2*: you had epiphanies, made connections, formed ideas, cultivated opinions. You grew.
+- *Win 3*: you /actually/ enjoyed doing something that's very mundane. We seek satisfaction in what we do and what we did here is take something that most people don't find any satisfaction doing, and turned it into a superpower.
+
+So, yeah. Just because a task is boring, doesn't mean that it's not worth doing. You can get a lot out of it and make your day-to-day experiences enjoyable.
+*** DONE It depends...
+CLOSED: [2022-10-01 Sat 17:11]
+:PROPERTIES:
+:EXPORT_FILE_NAME: it-depends.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-10-01 Sat 17:11]
+:END:
+Last year I went to physical therapy because I had severe lower back pain. It turned out the pain was mostly because of bad posture. As I was visiting the physical therapy place regularly, I started describing to the therapist how I sit on the couch, how I sit at a table and what my overall posture is during these times.
+
+I would ask questions like "I sit with my back straight at my desk, and for my legs I use a soft foot stool. Does that help with the posture". And he'd say, "Well, it depends..."
+Then I would ask a question like, "I sometimes sit cross-legged on the sofa and I find that to be very comfortable. Would this affect my back in the long run?". He'd again say, "Well, it depends..."
+
+Pretty much all his answers started with "it depends..." and then a caveat. At first I was annoyed that I never got direct answers and I hated any answer that started with "it depends...".
+
+I later realized that I just wasn't asking the right questions. Most of the time, the answers to many questions are not straight-forward, so it's hard to get concrete answers. Take losing weight, for example. Asking questions like "Can I do X to lose weight?" will never get you a clear cut answer, because there are so many variables involved - like food, portions, exercise, sleep, stress, and many other factors. This is why there's a plethora of information out there and people generally feel overwhelmed by it all. Our brains don't deal very well with overwhelming amount of information. So, it tries to look for shortcuts and simple explanations. We also get into this habit of looking for specific information without understanding the overall picture. And many times, given the overall picture, the answer we get may not be the right one.
+
+Back to my story, I realized I wasn't asking good questions and I was also taking similar mental shortcuts. What I should have asked was questions like, "what muscles get worked while sitting?", "what's the best way to strengthen those muscles?", "how do muscles perform while being sedentary vs. while doing a physical activity?". These and may be few other questions would have helped me get closer to the answer I was looking for.
+
+What I learned from this experience was to keep an eye out for answers that start with "It depends...". That's a good signal that my question must be refined and that may be I should approach it in a different way.
+*** DONE Write emails from bottom to top
+CLOSED: [2022-08-14 Sun 19:06]
+:PROPERTIES:
+:EXPORT_FILE_NAME: write-emails-from-bottom-to-top.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-08-14 Sun 19:06]
+:END:
+In the years I've composed emails, I was initially finding it a little hard to go through the top-down steps of adding people in the To field, CC field and coming up with the subject line. There were two problems with this workflow:
+
+*It broke my flow for composing an email*
+I'd have a vague idea of how to express my thoughts into words and that flow was broken by filling out these fields.
+*I used to be trigger happy in sending the email*.
+In most email clients, ~Option+Enter~ (or ~Alt+Enter~) is the keyboard shortcut for sending email. I'd be so used to hitting these that I'd sometimes hit them in the middle of the email. This was particularly a problem when I was using IntelliJ IDEs quite heavily. Because, ~Option+Enter~ in an IntelliJ IDE would insert the currently suggested hint.
+
+So, I figured out a simple fix for this: Write emails from bottom to top. Basically, do the following in order:
+1. Write the body of the email first and you get all your thoughts out.
+2. Then fill the subject line which is now easier to summarize.
+3. Add people in To and CC fields.
+
+The best part about this workflow is, hitting =Option+Enter= at any point during the process (except once you start filling the To/CC fields) would do nothing, because there's nobody to send the email to. This turned out to be super useful hack that I have been using ever since and has worked out really well.
+*** DONE My beorg to blog workflow
+CLOSED: [2022-09-05 Mon 22:56]
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-beorg-to-blog-workflow.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-09-05 Mon 22:56]
+:END:
+_Note_: Most part of this blog post was written using the workflow described below.
+
+Alright. This needs some explaining and prerequisites.
+
+I'm a heavy emacs user. I use it for a ton of things, one of them is to maintain and update my blog, which is a static site generated by [[https://gohugo.io][Hugo]]. There is already a great package called [[https://ox-hugo.scripter.co][ox-hugo]] which helps with blogging maintenance and workflows for Hugo-generated blogs.
+
+My emacs workflows involve adding tasks, writing down ideas, updating my journal, etc. [[https://beorgapp.com][Beorg]] is a great app for iPhone that syncs well with org files either via Dropbox (which is what I use for syncing) or by other means.
+
+Typically I don't use Beorg on my phone for adding/updating blog posts. But when I do get ideas for a blog post, I use Beorg since that's my main driver. Most of the time I just write down the outline of the blog post on my phone using Beorg, and add the rest like links, images, etc on my computer. But sometimes, I'll be in the flow and end up writing an entire blog post on my phone.
+
+What I mention below may seem a little overwhelming for someone that doesn't use emacs, so read with caution.
+**** The workflow
+So here's my workflow.
+
+1. I get an idea for a blog post and I quickly capture it. There's a capture template I've set up on beorg, that goes to a specific location with appropriate properties set.
+2. Once I capture the idea, I make whatever modifications are needed to polish it.
+3. Whenever I hop on to the computer, I go to the blog post I just created and run a function I wrote to generate the export filename for the post. As soon as I hit save, the post will be formatted to Hugo standards and will be exported to the right location.
+4. I run the Hugo server to quickly check if everything looks good.
+5. I run the ~deploy.sh~ script to commit the code in the blog directory, commit the generated files in the GitHub pages directory and push both of them. That's it.
+**** Code snippets to make everything work
+Here are some of the code snippets that are used for different part of the workflow.
+***** Beorg capture
+Below is the screenshot. The subtree can be configured in any way one sees fit.
+[[/images/beorg_blog_post_template.png][file:/images/beorg_blog_post_template.png]]
+***** Generating Hugo post filename
+This is a code snippet that is required for generating the filename for the blog post. This function parses the post title and creates a filename that ends with a '.md' extension.
+
+#+begin_src emacs-lisp
+  (defun rr/extract-hugo-post-file-name ()
+    "Create a filename out of blog post's title.
+
+This method is expected to be executed on a TODO heading on a an
+org file containing blog posts that would be exported using
+ox-hugo. Running this interactive command would set an org
+property called EXPORT_FILE_NAME that is required by ox-hugo to
+generate a Hugo-friendly markdown file in the location specified
+in HUGO_BASE_DIR property."
+    (interactive)
+    (setq-local title-line (thing-at-point 'line t))
+    (unless (not (string-match "TODO " title-line))
+      (let* ((lines (split-string title-line "TODO "))
+             (blog-post-title (nth 1 lines))
+             (file-name (replace-regexp-in-string "_+" "-" (replace-regexp-in-string "\\W" "_" (string-trim (downcase blog-post-title)))))
+             (blog-post-file-name (concat file-name ".md")))
+        (org-set-property "EXPORT_FILE_NAME" blog-post-file-name))))
+#+end_src
+
+This is an interactive function and I run it by hitting =M-x=.
+***** Turn on auto-export-mode when I visit blog.org
+All my blog posts are saved in an org file called blog.org. Whenever I open this file, =org-hugo-auto-export-mode= is turned on.
+
+The minor mode =org-hugo-auto-export-mode= enables auto export hugo posts on saving. However, this minor mode is disabled by default. It doesn't make sense to have this turned on globally. So, the following piece of code enables the minor mode only when the buffer is =blog.org=.
+Found the code in a [[https://stackoverflow.com/a/39652226][stack overflow post]].
+
+#+begin_src emacs-lisp
+  (defun rr/enable-hugo-auto-export-mode ()
+    (if (equal (buffer-name) "blog.org")
+        (org-hugo-auto-export-mode)))
+
+  (add-hook 'find-file-hook 'rr/enable-hugo-auto-export-mode)
+#+end_src
+
+With this mode enabled, every time I hit save, any edited post gets exported to a Hugo-compatible markdown and saved to the right location specified in both the header of the file as well as the ~EXPORT_FILE_NAME~ property.
+***** deploy.sh script
+Once the post is ready to be published, the blog post must be committed to the current repository and pushed. Since I'm also hosting the blog on GitHub using GitHub Pages, there's an additional repository to which I have to copy the public directory generated in this code repository. Then those files must be committed and pushed as well. All of this is done using script called ~deploy.sh~ that needs to be run once. Here's the script.
+
+#+begin_src sh
+#!/bin/sh
+
+# If a command fails then the deploy stops
+set -e
+
+printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
+
+# Build the project.
+hugo -t ezhil # if using a theme, replace with `hugo -t <YOURTHEME>`
+
+# git push committed changes in existing folder
+git push origin master
+
+# Copy public folder to the repo outside the submodule
+# The issue is, submodule does not get updated when running this script either because of incorrect setup
+# or maybe because public is part of gitignore and the remote points to blog.git instead of rrajath.github.io.git.
+# In order to make this script work properly, the public folder that is generated is copied to the repo outside
+# this folder and then committed and pushed
+cp -r public/* ../rrajath.github.io
+
+# Go To Public folder
+cd ../rrajath.github.io
+
+# Add changes to git.
+git add -A
+
+# Commit changes.
+msg="rebuilding site $(date)"
+if [ -n "$*" ]; then
+	msg="$*"
+fi
+git commit -m "$msg"
+
+# Push source and build repos.
+git push origin master
+#+end_src
+**** Conclusion
+This seems like a lot of work, but it's not. All of this works beautifully and it's a one-time setup. The satisfaction of coming up with a system that is tailored to work exactly to my needs feels great.
+
+Also, workflows are hard to explain using text or in a blog post. There are quite a lot of moving parts and different parts of the workflow need different pre-requisites. When all of them are aligned, it works smoothly.
+*** DONE Don't break the chain - hard mode
+CLOSED: [2022-01-24 Mon 22:45]
+:PROPERTIES:
+:EXPORT_FILE_NAME: dont-break-the-chain-hard-mode.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-01-24 Mon 22:45]
+:END:
+The basic concept of [[http://dontbreakthechain.com][Don't Break The Chain]] is to do an activity every day so as to "not break the chain". This is a method that enforces consistency. This is helpful to make habits stick, provide visual feedback on the progress on a daily basis and motivates us to keep going.
+
+I came up with a slight modification to this method which I call "Don't Break the Chain - hard mode". This is how it works:
+
+1. You start with one habit that you want to do every day and you start marking your calendar. For example, read a few pages in a book every day
+2. You do this for a few days and keep marking the calendar. The chain starts getting longer and longer.
+3. Now you want to add another habit like "Meditate for 10 minutes every day". Instead of creating a new chain, you just continue the existing chain.
+4. Keep adding habits like these along the way while maintaining just one chain. If you miss *any* of the habits, the whole chain resets and you have to start over.
+
+The nice thing about this is, for newer habits you get a "headstart" with a chain that's long enough already. But the flipside is, it's much harder to skip any of the habits you're tracking because it resets everything. So, it kind of is anxiety-inducing.
+
+I tried this once and I stacked about 4 habits over the course of 5-6 months and it worked surprisingly well. I want to try it again sometime soon.
+*** DONE Replacing knee-jerk reactions with new learnings
+CLOSED: [2022-01-23 Sun 21:58]
+:PROPERTIES:
+:EXPORT_FILE_NAME: replacing-knee-jerk-reactions-with-new-learnings.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-01-23 Sun 21:58]
+:END:
+Often times we come across a blog post, a portion of a book, a podcast, an interview, etc where an expert in a field is explaining something that is very counter-intuitive to us. This happens mostly because we have some strongly held beliefs about how the world works and those beliefs are challenged. This used to happen to me while I was growing up and my first reaction to this was usually, "That doesn't make sense. He's clearly wrong, because of <insert vaguely recollected poorly understood never researched supposed fact/anecdote here>". It didn't help me in any way. Some times it made me feel better about myself, but the net outcome of consuming that resource was zero at best, if not negative.
+
+As I grew up, I started realizing and asking myself - "am I really challenging someone who has a PhD in this subject they're discussing and has spent countless hours thinking about the topic where I'm going in to this with nothing more than a hunch on a subject I know nothing about?" It's definitely possible that I'm right and they're wrong, but it's also highly unlikely.
+
+Once I realized this I stopped having such knee-jerk reactions when I saw something I didn't agree with initially. My first reaction now is always, "That's interesting and doesn't conform with my beliefs. What am I missing?" I prefer to err on the side of me being wrong and learning something from it and updating my beliefs rather than doubling down on something I was already believing in without confirming the validity of it.
+
+It's easy to dismiss something just because it doesn't align with what we believe in, but it's much more fruitful to learn about a different perspective and update our beliefs.
+*** DONE 2021 - Year in Review
+CLOSED: [2022-01-16 Sun 11:32]
+:PROPERTIES:
+:EXPORT_FILE_NAME: 2021-year-in-review.md
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(year-in-review)
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-01-16 Sun 11:32]
+:END:
+I've been doing this "Year in Review" for some time now and it helps me put things in perspective as to what I spent more time on, what I enjoyed, where I fell behind, etc. It's a great exercise to do regularly and check in with yourself. So, here are the usual sections - what went well, what didn't go well, side quests and lessons learned.
+**** What went well
+***** Deleted WhatsApp
+This was another step in my journey of "caring more about privacy" and I also [[./posts/whatsapp-privacy-policy-signal][wrote a blog post about it]]. When WhatsApp introduced new terms and conditions to collect even more data than it already did, it motivated people to quit WhatsApp and move to Signal. I did too. I'm glad to not be part of all the groups with constant pings and I'm even more happy to be part of and in support of a product that actually cares about privacy.
+***** Home Automation
+I bought a home in early 2021 and I wanted to change everything to my liking. The rented apartments I lived in wouldn't let me change the switches or outlets (obviously) and owning a place gave me the freedom to turn my home into a smarthome. I used HomeAssistant as the hub with a USB stick that supports both ZWave and ZigBee protocols. I changed all the switches to smart switches that operate on ZWave, added a bunch of door sensors, motion sensors, time based automations, etc. Really enjoyed configuring and automating everything I could and I'm happy with the results.
+***** Journaling
+I took journaling more seriously in 2021. My initial approach to journaling was about building consistency. And to achieve consistency, I came up with process, structure and templates so that I could make it more "streamlined". This led to journaling become a chore instead of an activity that needs to be performed mindfully. So, my journaling habit became more intentional and I was only doing it whenever I really wanted to write something down. This removed the stress of adding an entry every day. What I did force myself to do was to write weekly and monthly reviews which gave me good checkpoints on what went well, what didn't go well and such.
+***** Built my own emacs config from scratch
+I've been using Emacs for about 1.5 years now and for the first year I used Doom Emacs which gave me pretty much everything I wanted. I hardly added anything extra in my config. But after watching SystemCrafters videos, I decided to roll my own and that was an amazing experience. I learned so much about Emacs in 3 weeks than I did in more than a year. Though laziness is what prevented me initially to create my own config, I'm glad I did it. I now know exactly what my emacs does and where to look and what to tweak. Since I made this a literate configuration, the whole config is documented and I've uploaded it on GitHub. This also made me create literate config for other applications like zsh, vim, etc.
+**** What didn't go well
+***** Health
+This includes both diet and fitness. I had pretty bad lower back issues, and I had to stop working out and get some physical therapy. That took a few months after which I started doing yoga which helped me immensely. I knew good posture and exercise were important, but I never realized how important they were until I had these issues.
+***** Making Notes
+I used to make notes a lot when I consumed information via blog posts, podcasts, books or YouTube. I've been fiddling with Obsidian for a while now, but never got the time to create a workflow to take notes in an effective way. There were technological constraints like the app not being available on the phone initially and then not being easy enough to sync the notes, etc. This is something I want to think more about.
+**** Side Quests
+***** Picked up guitar (again)
+I've been playing guitar on and off for many years and I've only played acoustic guitar. I wanted to try an electric guitar and I finally got one. I'm really enjoying it, especially with the Spark Amp which I highly recommend.
+***** Cryptocurrency
+I was not so much into cryptocurrencies and blockchain, but lately I got interested in them and started exploring the technological side of it. I've been consuming lot of videos and podcasts about cryptocurrencies and NFTs. It's been an interesting journey to say the least. I've been carving out time here and there to learn about it whenever I can.
+***** Awakening from the Meaning Crisis
+This is one of those serendipitous finds where one day I was checking the [[https://reddit.com/r/InsightfulQuestions][/r/InsightfulQuestions]] subreddit where one of the comments for a question (I don't even remember the question) was a mention of a lecture series on YouTube called [[https://www.youtube.com/watch?v=54l8_ewcOlY&list=PLND1JCRq8Vuh3f0P5qjrSdb5eC1ZfZwWJ][Awakening from the Meaning Crisis]]. I've always been really interested in philosophy, anthropology, deep thoughts and thought experiments. So, just watching one episode of this got me hooked. Each episode is dense with information and it also makes you think a lot. I've been deeply enjoying this series and already made lot of notes and will continue to do so. I've also been taking it very slow and not binging on it because I want to give myself time to think and reflect on what I've consumed.
+**** Lessons Learned
+***** Never neglect health
+Naval Ravikant said "Easy choices, hard life. Hard choices, easy life", and it could not be more true. What I thought was maybe a couple of weeks of chilling - being lazy, ordering in, lying on the couch and watching YouTube ended up becoming a lifestyle. Easy choices made me put on weight, be out of shape and be slow and sluggish. Hard choices are to correct these and get back in shape. And this involves cooking at home most of the time, thinking about macros and being more conscious about what I consume, motivating myself to workout and be active. Getting back in shape is not linear. It's harder and takes longer to get back in shape.
+***** Having few interests is better than having many
+I'm someone that's very curious about things and I easily get hooked on to learning new things. This isn't sustainable since my interests about stuff keep piling on and it either gets overwhelming or frustrating because I'm unable to give my attention to all of them. So, instead of having such varied interests, it's better to have just 2-3 things that you can go deep on and spend more time, and drop the rest. These handful of interests would be more fulfilling than trying to hit too many targets.
+*** DONE Using literate configuration for all text-based configs
+CLOSED: [2021-09-17 Fri 21:22]
+:PROPERTIES:
+:EXPORT_FILE_NAME: using-literate-configuration-for-all-text-based-configs.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2021-09-17 Fri 21:22]
+:END:
+Has it ever happened to you that you look at your config (vim, tmux, whatever) after a while and see an obscure piece of code there that you have no recollection adding and what it's even doing? This has happened to me so many times. So, what can we do about it? Add comments while adding new pieces of config? Couple of lines of comments are fine, but if you need more explanation than that, it just gets cluttered. If you want to add links, they are not clickable, unless you have an editor or terminal that can handle text links and make them clickable.
+
+So what can we do? What we /can/ do is change that config to a literate configuration.
+**** What is Literate Configuration
+Literate Configuration comes from the [[https://en.wikipedia.org/wiki/Literate_programming][literate programming paradigm]]. Simple put, you write your config like documentation where you'd have code blocks interspersed within your config. You run a simple command to "tangle" these documentation-like files and the code blocks in them get evaluated and then written to a separate file (like an actual config file). And, tangling is a process of extracting source blocks in an org file into the location specified at the top of the org file or in the source block itself.
+
+Once you follow this, you will never touch the actual config. You basically write documentation for each part of your config and let it generate your config file with your code in it. Your application understands the file your literate config generates and you understand the file you write since it's well-documented.
+**** So, why literate configuration anyway?
+Changing your configs to make them look like documentation sounds like a lot of work. But, there are many benefits to using a literate configuration:
+- *Easy to understand*. Thanks to the documentation surrounding the code snippets
+- *Easy to share*. People you share this with need no explanation as to what's in your config, your documentation takes care of that
+- *Easy to maintain*. You never touch the actual config, you only update this .org file and make it generate the actual source file
+- *Easy to publish*. If you want to publish your config online, it's super easy. GitHub, for example, natively supports org the same way it supports Markdown. So, these org files are rendered nicely, just as regular documentation.
+
+One of the issues I used to have with maintaining multiple dotfiles for my applications is that they're all in different places. If I have to check them all into a git repo, I'd either have all of them in one location and create symlinks to them in the apps that use them, or use a program like [[https://www.gnu.org/software/stow][GNU Stow]].
+
+I didn't like either of these methods. Literate configuration solves this in the most elegant way. All you have to do is have your literate configs (org files) in a git repo (used for dotfiles) and set the tangle locations in each of these files to where each of the apps needs them. Once that is done, your dotfiles will only contain org files and all your apps will contain the config files they need.
+**** How to build a literate config?
+Building a literate configuration needs just one prerequisite - Emacs, because we need a way to "tangle" the source blocks in the org files. Since Emacs ships with org mode and org babel, tangling is just a keybinding away. We only need two things in order to create a literate configuration: a source block and a tangle attribute. Here's an example to show how that's done.
+***** Example
+Enabling tangle in an org file can be done by specifying a tangle location at the top as part of the =#+PROPERTY= attribute, like this:
+
+#+begin_example
+#+PROPERTY: header-args :tangle /path/to/file-name.extension
+#+end_example
+
+Here's what a code block looks like in an org file.
+
+#+begin_example
+#+begin_src emacs-lisp
+  (setq foo "bar")
+#+end_src
+#+end_example
+
+You can write your documentation around these code blocks and hitting =C-c C-v t= (or invoking the function =org-babel-tangle=) at the top of your file would tangle them to the file specified in the =#+PROPERTY= attribute of your org file.
+**** Conclusion
+Using literate configuration for config files is great and I converted almost all my configs to literate configs. For reference, have a look at my [[https://github.com/rrajath/dotfiles/blob/master/.emacs.d/PrivateConfig.org][literate configuration for my Emacs setup]]. Look at the source blocks to see actual configs. Use the "Raw" button on github notice line 2 where it says =:tangle ./private-config.el=
+*** DONE My experience with Emacs so far
+CLOSED: [2021-09-11 Sat 21:48]
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-experience-with-emacs-so-far.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2021-09-11 Sat 21:48]
+:END:
+I've been a vim user for about 15 years and loved every aspect of it. I'm nowhere close to the vim wizards I've seen on YouTube nor some of my coworkers who spend most part of their day writing shell scripts in vim. But among my friends and my team, I was considered a power-user. I used a lot of plugins to get things done much easily, I had my shortcuts that my friends found fascinated by and some of them were kind of amazed that I would do a code walkthrough jumping from function to function and file to file using just vim where most of them were going to their IDEs to do that.
+
+But that's about it. My vim usage was just for making quick edits to code (larger edits meant opening up an IDE), editing shell scripts and viewing files quickly. I had to use a different tool for managing my tasks, journaling, saving links, etc.
+**** Using Notion
+I came across [[https://notion.so][Notion]] and I fell in love with how great it looked and how customizable it was. A lot of them were drag and drop, all the saved links had thumbnails, I could write comments, it was great for task management - I could set up dates and deadlines and get notifications accordingly, templates were great (I came up with my own journaling template since I used bullet journaling), tables were awesome and I could create different views. I used it for couple of years and I thoroughly enjoyed it.
+***** Downsides of Notion
+There were couple of downsides with my Notion setup.
+1. There was no offline support (at least at that time when I was using it). My notes were stored somewhere else and I needed internet to access it every time. This means, I couldn't use it at work.
+2. My notes were in a format that I couldn't control. If I didn't like Notion some time in the future, I couldn't just export it to a different note taking app. I should either wait for the other app to add support to import Notion docs into it or export each and every note I had to markdown and then find a way to deal with it.
+
+There were other downsides to Notion depending on the usage, but these were the ones I was affected by the most. I wanted a note taking system that would stand the test of time, something that was preferably open source, one where I had control of my notes, offline supported, customizable.
+
+As I was searching for alternatives, I saw several HackerNews posts about note-taking, I kept seeing emacs (and specifically org-mode) pop up everywhere and every single person had only postive things to say about it.
+**** My first introduction to Emacs (spacemacs)
+A couple of years ago I was talking to a coworker of mine about vim and he said he uses emacs. Until then, nobody I met talked about emacs. With all the HN posts I read before, I was curious to try it and asked him where do I start. He said, use [[https://www.spacemacs.org][spacemacs]]. So, I did.
+
+I liked some parts of spacemacs, especially [[https://orgmode.org][org-mode]]. I got pretty excited and I started using it as my daily driver, but after using it for a couple of weeks I gave up. I found spacemacs to be very clunky and slow. I didn't like the UI very much, and frankly, I didn't know how customizable emacs was at the time. Spacemacs had something called layers that I could enable. Elisp was so foreign to me that I didn't bother customizing anything because I had to learn a new language just to customize what I use and the amount of parenthesis threw me off.
+**** Doom Emacs
+About a year ago, I heard about [[https://github.com/hlissner/doom-emacs][Doom Emacs]], I think in one of the emacs subreddits. I was intrigued again and I installed it. This time I was immediately hooked. The UI was better, the application was faster, configuration was easier, what I got out of the box with Doom Emacs was perfect for me. Everything felt intuitive and I started using it more and more. I developed my own workflows to organize my tasks, take meeting notes and journal.
+
+I liked the fact that I was able to easily toggle things on and off in the config, and I didn't really need to know Elisp to make any changes mainly because I got everything I needed out of the box anyway. I was using Android at the time and [[http://www.orgzly.com][Orgzly]] was a good app for managing orgmode files as well.
+
+I was happy with the setup I had and like I mentioned before, I used it mainly for taking notes, organizing my tasks and journaling. Very minimal configuration and package setup. I honestly didn't really understand how everything fit together, how packages worked, how things can be customized by setting variables, or anything. But it worked for me, for the most part and I went with it.
+**** My Custom Configuration
+I've been following [[https://www.youtube.com/channel/UCAiiOTio8Yu69c3XnR7nQBQ][System Crafters youtube channel]] for a few months and I wanted to check out the [[https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ][Emacs from Scratch series]]. For the longest time, I used to think building an emacs config from scratch is a complete waste of time when we already have something like Doom Emacs which gives us most of the things we need.
+
+But I was wrong. About 3 weeks ago, I decided to give it a shot, followed the series and started building my own config. The amount of learning I had in the last 3 weeks is far greater than what I've learned ever since I started using Emacs. I learned so much about Emacs that I have a deep appreciation for it now. In 3 weeks I came up with a config that is a 1000+ lines long. Every day I tweak my config and make something better. I keep looking forward to using Emacs all the time.
+
+The fact that I could literally look at what a specific keybinding does, which function gets invoked when I hit the keybinding, what the implemntation of that function is and basically change it to do what I want was so mind-boggling to me. I felt a sense of freedom where I could change Emacs to literally do whatever I want and behave exactly the way I want it. No other editor even comes close to this level of customizability and that's what excited me.
+
+Every customization I was doing involved Elisp in some capacity that each such change was a new learning opportunity for me. So, with each change, my Emacs got better /and/ I learned Elisp, which is like a win-win. As soon as I started this journey, so many doors opened up for me and I found opportunities to use Emacs for something more than just journaling and taking notes.
+
+I now use it as a file manager, terminal, taking notes, organizing my life, journaling, git client, a fully functional IDE with code completions and such, manage my work calendar, quick file edits, viewing and querying json files and blogging. This very post was written in Emacs and published using [[https://ox-hugo.scripter.co][ox-hugo]] - a package used for exporting org files to markdown files that Hugo understands.
+**** Obligatory XKCD comic about emacs
+Now that I've said all this about emacs, I /have/ to use the obligatory xkcd comic about emacs:
+
+[[/images/xkcd_emacs.png][file:/images/xkcd_emacs.png]]
+**** Conclusion
+If you have never tried Emacs before, I highly recommend you try it. It has a steep learning curve, but it's totally worth it. The more you learn about it, the more appreciation you'd have. If you're an absolute beginner, Doom Emacs is a great place to start. However, once you have familiarized yourself with Emacs via Doom Emacs, I encourage you to build your own config. This would ensure you'll know exactly what's going on in your config and it's compeltely in your control. Your emacs will be truly personalized to your liking.
+*** DONE 2022 - Year in Review
+CLOSED: [2023-01-08 Sun 18:23]
+:PROPERTIES:
+:EXPORT_FILE_NAME: 2022-year-in-review.md
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(year-in-review)
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-01-08 Sun 18:23]
+:END:
+I’ve been doing the "Year in Review" series for a few years now. At the end of every year, I take some time to think about what went well, what didn’t go well, any side quests I ventured into to get a perspective on how my life is going and what kind of changes it needs.
+**** What went well
+***** Reading
+I read quite a few books in 2022. Some of the notable ones are [[https://www.goodreads.com/book/show/34376766-blood-sweat-and-pixels][Blood, Sweat and Pixels]], [[https://www.goodreads.com/book/show/59616977-building-a-second-brain][Building a Second Brain]], [[https://www.goodreads.com/book/show/57423646-immune][Immune]], [[https://www.goodreads.com/book/show/66354.Flow][Flow]] and [[https://www.goodreads.com/book/show/35957157-thinking-in-bets][Thinking in Bets]]. I read few more books that I didn’t end up finising. However, I did make it a habit to read every single day and right now I’m on a reading streak (30 weeks / 142 days in a row). Kindle’s gamification has certainly helped me read more. I don’t like the idea of setting a reading goal in terms of number of books. I’ve been a victim of trying to finish a dense and dry book and then having the dissatisfaction of not finishing it nag me for weeks. That’s one thing I really want to overcome.
+***** Working out
+After having couple of incidents of lower back issues and a bunch of physical therapy sessions, I finally decided to join a gym, get personal training and be regular. That’s what happened in Q4 2022 where I started working out regularly and also eating healthier. I see a huge difference health wise and I only wish I started sooner. Nevertheless, this is something I want to keep doing my whole life. Cardiovascular fitness only gets more and more important as we get older.
+***** Journaling
+I have been very regular with journaling and it’s one of the things that’s very underrated, but adds a lot of value. Whenever I’m stressed/overwhelmed, journaling has always been my goto. Doing a weekly, monthly and quarterly review really helped me identify areas for improvement that I would have otherwise missed.
+***** 12-week year
+I read a book in Jan 2022 called [[https://www.goodreads.com/book/show/10009377-the-12-week-year][The 12 Week Year]] and I really liked the idea behind it. It’s basically what the title says. Instead of planning for an entire year, you plan for 12 weeks at a time (plus one week buffer) and then do a review at the end of 12 weeks. The main reason for this is that humans are not great at projecting far into the future. Long term goals get more and more unlikely to get done and it’s easier to project what you can do in the next 12 weeks. This has been a game changer for me and I’m still doing it.
+***** Awakening from the Meaning Crisis
+This is a [[https://www.youtube.com/watch?v=iu9fa4TkWE0&list=PLND1JCRq8Vuh3f0P5qjrSdb5eC1ZfZwWJ][lecture series on YouTube]] and it’s absolute gold. Somebody on [[https://www.reddit.com/r/InsightfulQuestions/][/r/InsightfulQuestions]] subreddit mentioned this in one of the comments for a question I don’t even remember and I’m in love with this series. John Vervaeke is so passionate about the topic and is so great at explaining things. There are 50 episodes of about 1 hour each and every single episode is packed with so much information. I couldn’t binge on it because after each episode, I had to take some time to think about what was explained. I really like thinking about philosophical topics and I’m very curious to learn and understand how people in the ancient times thought about things. I highly recommend this series. I’m only on episode 18. I’m planning to complete the series this year. I also take lot of notes for each episode I watch and I publish them online.
+***** Started 2 other blogs
+I started 2 blogs. One is called [[https://github.com/rrajath/knowledge][Knowledge]] which contains book notes or lecture notes (as mentioned above) which is published in a documentation format. The other is called [[https://github.com/rrajath/CodexVitae][Codex Vitae]] which means Book of Life. I [[https://github.com/busterbenson/public/blob/master/ideas.md#codex-vitae-aka-book-of-life-or-book-of-beliefs][got this idea from Buster Benson]] and I really liked it. They’re both very rudimentary at the moment. I haven’t thought much about hosting and theming. But I’ll make some improvements and contributions to them. With Codex Vitae, it’s probably going to stay as a GitHub repository since there’s lot of value in tracking version history. Because, especially in this context it shows how my thinking has changed over the course of time.
+**** What didn’t go well
+***** Guitar Practice
+This is a weird one. I practiced guitar in the beginning of the year and didn’t touch it for months. Then picked it back up at the end of the year. While I’m not happy about the lack of practice for the most part, I’m glad I picked it back up and now I’m seriously trying to practice at least thrice a week.
+***** Reading
+As mentioned in the above section, I’ve been on a reading streak for more than half a year and most of that is quite effective. However, I’ve never been super happy with the way I read. I’m the happiest when I read without any distraction for a good chunk of time (at least an hour), make notes, make connections with older notes and form ideas. With a busy lifestyle, I never really got a chance to do all of that. While my reading has been consistent, I do want to take it to the next level and improve it.
+***** Respecting the Plan
+I’m not very strict with myself about sticking to the plan I make at the beginning of every week. Lot of times, I won’t be able to do things that I planned. Some of them are due to other priorities creeping up and some due to my own laziness. What I didn’t do a good job of was being aggressive about it - by both reflecting on what I didn’t do and could have done, and also tweak the plans as soon as I notice that I won’t be able to achieve them. I basically gotta be more mindful about it.
+***** Laziness
+This is more of a root cause than a specific thing that didn’t go well. It was due to laziness that I didn’t practice guitar much, didn’t workout much (initially), didn’t meditate enough and didn’t do 100 other things. Again, being mindful of the failures and really digging deep to figure out why it happened would definitely help.
+***** Phone Usage
+This year, my phone usage was quite high. I was averaging at almost 5 hours per day. That’s a lot! Most of this was reading newsletters, blogposts. certain subreddits and also watching TV shows sometimes. I still want to reduce it and keep it under 3 hours.
+***** Meditation
+Very irregular at it. I know the value it provides and I really like meditating, since it gives me immense clarity and helps me calm down. But never made time for it.
+**** Side Quests
+***** Ergo Mech Keyboards
+I fell down the [[https://www.reddit.com/r/ErgoMechKeyboards/][ergo mech keyboards rabbithole]] and quite the rabbithole that was. I was obsessed wih everything about it and ordered a [[https://www.zsa.io/moonlander][Moonlander]]. I also ordered a bunch of tools to build one myself and ended up building 3 split keyboards. I love using them and each keyboard I built was progressively better than the previous one. I also learned a ton along the way. Not only this, I evangelized it at work so much that I made 4 of my teammates get into building keyboards as well. I consider that more than a win.
+***** Colemak-DH
+While I was going down the split keyboard rabbithole, I also saw many posts about how QWERTY is the least efficient keyboard layout, and lot of people suggesting [[https://colemakmods.github.io/mod-dh/][Colemak-DH]] to be a better one. I obviously wanted to make that improvement in my life since I use keyboard every single day for several hours and investing some time in learning a new and more efficient layout would pay off in the long run, even though it would slow me down drastically while learning it. I’m glad I made the switch to Colemak. It’s very ergonomic and efficient. This switch happenend sometime in mid-2022. My speed in QWERTY was ~100 wpm and when I switched to Colemak it dropped to 8 wpm. Now I’m getting closer and closer to my QWERTY speeds. Highly recommend Colemak. Also recommend [[https://www.keybr.com/][keybr]] and [[https://monkeytype.com/][MonkeyType]] for typing practice. And Tarmak if you want to progressively move away from QWERTY instead of going all in.
+***** More Emacs
+As with keyboards, I was also evangelizing about Emacs and got couple of people at work obsessed with it as well. I also kept tinkering the Emacs config and a notable package to callout is [[https://github.com/meow-edit/meow][Meow]]. This made me move away from [[https://github.com/emacs-evil/evil][evil]] and made everything more ergonomic.
+***** Learning stuff
+Learned quite a few things this year. I dove into [[https://www.gatsbyjs.com/][Gatsby]], then [[https://nextjs.org/][NextJs]] and finally CSS. I’ve always been bad at CSS and never had the inclination towards learning it. This time I decided to learn it and it’s still ongoing. The [[https://www.internetingishard.com/][Interneting Is Hard]] tutorial has been really good and I’ve been learning a lot. Besides that, I also discovered Helix Editor which is blazing fast with a different modal approach compared to vim and I really like it. That’s what prompted me to move away from evil mode in Emacs and switch to Meow.
+**** Lessons Learned
+***** Taking weekly plan very seriously
+Like I mentioned in a previous section, I make plans every week but don’t analyze the failures at all. I just push them to next week. Digging deeper will help with many things - getting clarity on why I don’t feel like doing something I had planned, maybe my estimations weren’t right and I took on much more that I could handle, maybe some of the tasks weren’t needed to be done in the first place. Being more mindful while planning, doing the tasks and doing the weekly review will help with both better planning and better execution.
+***** Doing tasks mindlessly is just time wasted
+There’s difference between "meditating" (read sitting quietly with eyes closed) for 5 minutes just for the heck of it to check that task off the list and really being fully present. There’s difference between reading things just to keep the streak going vs really diving deep into the subject and understanding the core idea. The former results in a waste of time; time that we’d never get back and time that didn’t yield us anything useful. Even if it’s just doing 2 things in a day, if it’s done mindfully it’ll make the experience so much better.
+*** Dependencies
+- we develop a dependency on things. Like I have to have my phone when I go to the bathroom. Or I have to wear earphones when I run. I can't function otherwise. 
+- what happens when we remove them? 
+- why are we so dependent on them? 
+- why do we do this to ourselves? 
+- 
+** Micros
+:PROPERTIES:
+:ARCHIVE:  archive.org::* Blog Posts
+:EXPORT_HUGO_SECTION: micro
+:END:
+*** DONE Futurepedia
+CLOSED: [2022-12-27 Tue 22:48]
+:PROPERTIES:
+:EXPORT_FILE_NAME: futurepedia.md
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-12-27 Tue 22:48]
+:END:
+Directory of AI tools containing free/freemium/paid services
+
+https://www.futurepedia.io
+** NowNowNow
+*** Now
+:PROPERTIES:
+:EXPORT_FILE_NAME: now.md
+:EXPORT_HUGO_SECTION: 
+:END:
+:LOGBOOK:
+- State "KILL"       from "DONE"       [2022-06-26 Sun 13:21]
+- State "DONE"       from "TODO"       [2022-06-26 Sun 12:51]
+:END:
+**** Jan 15, 2026
+***** Reading
+- [[https://www.amazon.com/Essays-That-Will-Change-Think/dp/B07G3GLPZ8?nsdOptOutParam=true][101 Essays That Will Change the Way You Think: Brianna Wiest]]
+- [[https://www.amazon.com/Psychology-Money-Timeless-Lessons-Happiness/dp/B08D9WJ9G8?s=audible][The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness: Morgan Housel]]
+***** Health
+- Getting back into working out
+***** Learning
+- Guitar
+  - Last of Us theme
+  - Fix You by Coldplay
+  - Dark Souls Firelink Shrine
+**** 
+----
+This is a Now page, based on the [[https://sivers.org/nowff][concept by Derek Sivers]]. Visit [[https://nownownow.com][nownownow.com]] for more inspiration. Visit the [[/now-archive][Now Archive]] to check out things that used to be on this page
+*** Now Archive
+:PROPERTIES:
+:EXPORT_FILE_NAME: now-archive.md
+:EXPORT_HUGO_SECTION: 
+:END:
+This page contains everything that was moved from the [[https://rrajath.com/now/][Now page]]
+-----
+**** Aug 24, 2024
+***** Reading
+- [[https://www.amazon.com/Clear-Thinking-Turning-Ordinary-Extraordinary/dp/B0BVP84J94?crid=1LIVX2T8T2WMY&dib=eyJ2IjoiMSJ9.IVDv8d6zei_6tBZWVKMvzd20A-aK02Y9L_tLittFG6NL7lzttUEi2qxRigwkOz4om7E41PqIq2BSclZnzoS0RR2qvnKep7ft8mCBNT-2SDhr3e6Gj3SrE4Z7hvuT9b4OPuk4TFCe8QpmT4o1LX0NQXkl3oozKhtx8JTeCNvUsbHQzNOJm_YSglRqj0AzBEzOGXvLV2qN5PbsHREmbI6gsmigrs6G35hjWdwMES2z7G8.sRXphyX3mi3ouWg25abP3DBV6a64gwuopDGlLW7B3Vw&dib_tag=se&keywords=clear+thinking+shane+parrish&qid=1724559730&sprefix=clear+thinking,aps,164&sr=8-1][Clear Thinking: Turning Ordinary Moments into Extraordinary Results]]
+- [[https://www.amazon.com/Brief-History-Intelligence-Humans-Breakthroughs/dp/B0BCC76563?crid=17NB05VAG7XLW&dib=eyJ2IjoiMSJ9.DBmhWFwRVO0JHcBuVdZ6RNGf_tPhfP15JqBC87hDadeRSv7bFVrZWb8QOCfA-nRwqfJ90hap37eBAigH9F_tcBe3sJw8dEmeeEcUpQSquxcJJh_a3S1mi5mIk5YBxLKZhA-C5zfoJKfLgolxcA5XSSjr2LX4Sb9_L_NCgX_--cG_qUKq0MYCBFGaIj_zKVxrCRAyt6B0f8M_YonBX0iH-UUdCMvbGZ1na8Vv3U5rASk.g79-IJzwvcUh_PMwph2Mf51ZOH47DpJTITaQUFVPQyo&dib_tag=se&keywords=a+brief+history+of+intelligence+book&qid=1724559778&sprefix=a+brief+history+of+intell,aps,144&sr=8-1][A Brief History of Intelligence: Evolution, AI, and the Five Breakthroughs That Made Our Brains]]
+***** Health
+- Working out
+- Meditating
+***** Learning
+- Guitar
+  - Nothing Else Matters - Metallica
+  - Mellowing - All Them Witches
+  - Breathe - Pink Floyd
+- Drawing
+**** Aug 24, 2022
+***** Reading
+- [[https://www.amazon.com/dp/B098PGCSXT/ref=cm_sw_r_cp_api_5GVD160NQV7KHC41TVXT][Self-Sovereign Identity]]
+- [[https://www.amazon.com/gp/aw/d/B074DG9LQF][Thinking in Bets]]
+- [[https://www.amazon.com/Code-Language-Computer-Developer-Practices-ebook/dp/B00JDMPOK2][Code]]
+***** Watching
+- [[https://www.youtube.com/watch?v=54l8_ewcOlY&list=PLND1JCRq8Vuh3f0P5qjrSdb5eC1ZfZwWJ][Awakening from the Meaning Crisis]] (16 episodes in)
+***** Projects
+- Building split ergo mech keyboards (built a corne choc, a microdox bud mx and a 3x5 cantor so far)
+***** Health
+- Working out
+- Running
+- Meditating
+***** Learning
+- NextJs
+- Building keyboards, soldering, debugging
+**** Sep 22, 2022
+- [[https://www.amazon.com/dp/B08XTNHRR5][Immune]]
+**** Sep 5, 2022
+- [[https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202][Flow]]
+**** Jul 31, 2022
+- [[https://www.amazon.com/dp/B09LVVN9L3/ref=cm_sw_r_cp_api_ADKEAC3M8TS8DNTXXCEN][Building a Second Brain]]
+**** Jun 26, 2022
+- [[https://www.amazon.com/The-Three-Body-Problem-audiobook/dp/B00P00QPPY][The Three-Body Problem]]
+- [[https://www.amazon.com/Masters-Doom-Created-Transformed-Culture-ebook/dp/B000FBFNL0][Masters of Doom]]
+- [[https://www.amazon.com/Good-They-Cant-Ignore-You-ebook/dp/B0076DDBJ6][So Good They Can't Ignore You]]
+- [[https://www.amazon.com/12-Week-Year-Others-Months/dp/1118509234][The 12 Week Year]]
+**** Jan 23, 2022
+- [[https://www.goodreads.com/book/show/4948826-sum?ac=1&from_search=true&qid=4nUZPNXCOw&rank=1][Sum: Forty Tales from the Afterlives]]
+**** May 30, 2021
+- Finished reading The Great Mental Models Vol. 1
+**** Jan 9, 2021
+- Adding more blog posts
+- Configured some YASnippets on my Emacs
+- Added a bunch of dotfiles as literate configs
+**** Oct 18, 2020
+- Setting up a sustainable sync for my org files on my phone and laptop
+  (since Orgzly is a bit of a pain when it comes to this)
+- Learning Emacs and org-mode. Loving it
+**** Aug 29, 2020
+- [[https://acesounderglass.com/2020/06/10/what-to-write-down-when-youre-reading-to-learn/][What to write down when you're reading to learn]]
+**** Jul 25, 2020
+- [[https://maggieappleton.com/basb/][Building a second brain]]
+- Self-hosting my data using Nextcloud on my Raspberry Pi
+**** Jun 24, 2020
+- Moved my blog from Jekyll to Hugo and now customizing some templates
+- Indieweb integration
+- Self-hosting my data using Nextcloud on my Raspberry Pi
+* Footnotes
+* COMMENT Local Variables                                                                  :ARCHIVE:
+# Local Variables:
+# eval: (org-hugo-auto-export-mode)
+# End:

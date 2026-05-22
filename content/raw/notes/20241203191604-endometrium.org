@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:       4779E410-C7AC-4F6D-891F-F2F647A5D6E7
+:END:
+#+title: Endometrium
+#+filetags: :ivf:floating-note:
+
+* This is the innermost layer of the uterus
+* Consists of two layers:
+** Basal layer
+*** composed of stem cells
+*** serves to regenerate the functional layer
+*** remains relatively constant throughout the menstrual cycle
+** Functional layer
+*** adjacent to the uterine cavity
+*** lined by a single layer of columnar epithelium
+*** undergoes cyclic changes in response to hormones
+* Functions of Endometrium:
+** preparation of embryo implantation
+*** thickens and becomes more vascular during the menstrual cycle
+*** creates an optimal environment for the implantation of a fertilized egg
+** support of pregnancy
+*** if fertilization occurs, the endometrium transforms into a decidua
+*** provides support and protection for the developing fetus
+** menstruation
+*** in the absence of pregnancy, the functional layer is shed
+** maintenance of uterine integrity
+*** prevents adhesions between opposed walls of the myometrium
+*** maintains the patency of the uterine cavity
+** regulation of menstrual cycle
+*** responds to hormonal cycle, particularly estrogen and progesterone
+*** undergoes cyclic regeneration from stem cells in the basal layer
+* Endometrium undergoes cyclic changes throughout the menstrual cycle - with [[id:6BB6C3BB-1963-4DDE-9782-32A817F6B239][Proliferative Phase]] and [[id:5B745668-F3C6-43A5-9271-E05E68D4A305][Secretory Phase]]
+* If pregnancy doesn't occur, the endometrium is shed during menstruation and the cycle starts over.

@@ -1,0 +1,88 @@
+:PROPERTIES:
+:ID:       80518A58-814C-4C6E-8020-EB0EE9F8ADC3
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/deep-dives/redis
+:END:
+#+title: Redis
+#+filetags: :reference:moc:
+
+* Basics
+** Data structures supported by Redis
+- Strings
+- Hashes (objects)
+- Lists
+- Sets
+- Sorted Sets (Priority Queues)
+- Bloom Filters
+- Geospatial Indexes
+- Time Series
+** Communication patterns supported
+- pub/sub
+- streams
+** Commands
+- Readable commands like ~SET~, ~GET~, ~INCR~
+- ~SET~-like operations are named appropriately:
+  - ~SADD~ (add element to set)
+  - ~SMEMBERS~ (list elements in a set)
+  - ~SISMEMBER~ (check existence of element in a set)
+  - etc.
+** Infrastructure Configurations
+- can run as a single node with high availability, or as a cluster
+- when operating as a cluster, Redis clients cache a set of "hash slots" which map keys to a specific node. This way, clients can directly connect to a node which contains the data they're requesting
+
+#+CAPTION: Redis Infrastructure Configurations  
+[[file:~/SynologyDrive/org-roam/images/RedisInfraConfigurations.png]]
+
+- each node maintains info about other nodes using [[id:92D01C6F-3D1A-44D8-91F4-1A1942B511CF][Gossip Protocol]]
+- Redis clusters are surprisingly basic. Rather than solving scaling problems for you, Redis can be thought of as providing you some basic primitives on which you can solve them. For example, Redis expects all the data for a given request to be on a single node. *Choosing how to structure your keys is how you scale Redis*.
+* Performance
+- Read latency: in the microseconds
+- Write throughput: 100k writes per second
+* Capabilities (use Redis as...)
+** Cache
+- this is the most common deployment scenario. Here, root keys and values of Redis map to keys and values in our cache. This hashmap is distrubuted to all the nodes in the cluster. Scaling is easy: just add nodes to the cluster
+- when employing Redis as a cache, it's common to use a TTL - helps with avoiding stale reads, eviction and helps manage cache size
+** Distributed Lock
+- this is typically used when we need to maintain consistency updates (ticket booking on Ticketmaster, for example) or to make sure multiple people aren't performing an action at the same time (Uber, for example)
+- *Note: if your database provides consistency, don't rely on Redis distributed lock as it adds complexity to the design*
+- a simple distributed lock with a timeout might use the atomic increment with a TTL. When we try to acquire the lock, we run ~INCR~. If we get ~1~ as a response, we own the lock. Anything more than that, somebody else owns it.
+- more sophisticated locks use the Redlock algorithm.
+** Leaderboards
+- sorted sets are used for maintaining the ordered data that can be queried in =log time=.
+  
+#+begin_example shell
+ZADD tiger_posts 500 "SomeId1" # Add the Tiger woods post
+ZADD tiger_posts 1 "SomeId2" # Add some tweet about zoo tigers
+ZREMRANGEBYRANK tiger_posts 0 -5 # Remove all but the top 5 posts
+#+end_example
+
+** Rate Limiting
+- most common algorithm: fixed window rate limiter - number of requests do not exceed ~N~ over a time window ~W~.
+- implementing this in Redis involves running the ~INCR~ on the key we use for rate limiter. If the response is greater than ~N~, we wait. Else, we can proceed. We call ~EXPIRE~ on our key after a time period ~W~, the value is reset.
+  - My notes: we can also create the key with a TTL set to the value of ~W~
+** Proximity Search
+- natively supports geospatial indexes with commands like ~GEOADD~ and ~GEORADIUS~.
+- the search command runs in ~O(N+log(M))~ time where N is the number of elements in the radius and M is the number of members in our index
+  
+#+begin_example shell
+GEOADD key longitude latitude member # Adds "member" to the index at key "key"
+GEORADIUS key longitude latitude radius # Searches the index at key "key" at specified position and radius
+#+end_example
+
+** Event Sourcing
+- Redis streams are append-only logs like Kafka's topics
+- the idea is to durably add items to a log and then have a distributed mechanism to consume items from these logs. This is managed by streams with commands like ~XADD~ and consume them using consumer groups (commands like ~XREADGROUP~ and ~XCLAIM~)
+* Shortcomings and Remediations
+** Hot key issue
+Assume we have multiple nodes in our Redis cluster and we're appropriately scaled. We suddenly get a surge or requests to one specific key that exists on a node. This will put heavy load on that node and will start failing
+** Remediations
+- Client-side in-memory cache
+- store the same data in multiple keys and randomize the requests so that they are spread across the cluster
+- we can add read replica instances and dynamically scale these with load
+* Interesting Features
+** Single threaded with atomic operations
+This forces serialization. So, user 1 writes, then user 2 writes. Then user 1 reads and then user 2 reads.
+
+If you take the system design of Tinder as an example, assume that Redis is used for temporary storage of swipe information before writing to DB. The key here would be ~user1:user2~ and the value would be may be ~true~ if swiped right or ~false~ if swiped left. When a user swipes right and this record is added to Redis, the inverse (~user2:user1~) is checked to see if it exists.
+
+So, if two users swipe right on each other at the exact same time, those writes would go to Redis and will be executed in a single thread in serial manner.
+

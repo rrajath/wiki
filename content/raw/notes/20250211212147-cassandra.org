@@ -1,0 +1,123 @@
+:PROPERTIES:
+:ID:       F7F14052-A562-4E6B-87C1-4601E1168A12
+:END:
+#+title: Cassandra
+#+filetags: :moc:
+
+* Interesting Features
+- NoSQL database
+- wide-column database: specified columns can vary per row in a table
+- DOES NOT offer transaction support or ACID guarantees
+- Optimized for write-heavy workloads
+- Eventually consistent
+- Writes data as an append only log
+- Batches multiple writes
+- First stores the writes in memory and then flushes it to disk when full
+- Runs compaction jobs regularly to optimize storing data
+* Data Model
+- Keyspace :: this is similar to databases, they contain many tables. They contain a configured replication strategy for managing data redundancy/availability.
+- Table :: contains rows
+- Row :: represented by a primary key and contains columns
+- Column :: represented by name, type and value
+  - every column has timestamp associated with it denoting when it was written
+  - when a column has a conflict between replicas, the last write wins
+    
+* Example data representation (as a large JSON)
+#+begin_src js
+{
+  "keyspace1": {
+    "table1": {
+      "row1": {
+        "col1": 1,
+        "col2": "2"
+      },
+      "row2": {
+        "col1": 10,
+        "col3": 3.0
+      },
+      "row3": {
+        "col4": {
+          "company": "Hello Interview",
+          "city": "Seattle",
+          "state": "WA"
+        }
+      }
+    }
+  }
+}
+#+end_src
+
+* Primary Keys
+:PROPERTIES:
+:ID:       DB5BA1F3-56CE-48F3-B68E-30E4E59DFA6B
+:ROAM_ALIASES: "Cassandra Primary Keys"
+:END:
+** Partition Key
+One or more columns used to determine what partition the row is in.
+** Clustering Key
+Zero or more columns used to determine the sorted order of rows in a table.
+
+The Primary Key concept is very similar to [[id:FE41EF54-6DBC-4BE1-8BF1-BD0FD81D56C3][DynamoDB Primary Keys]]
+
+* Partitioning
+Horizontally scales using [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]]
+* Replication
+- keyspaces have replication configurations specified
+- Cassandra chooses what nodes to replicate data to. If the replication configuration is set to 3, it hashes a value to a node and scans clockwise in the consistent hash ring and replicates data to the next 2 nodes.
+** Replication Strategies
+- SimpleStrategy
+  - described above with [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]]
+  - used for simple deployments and testing
+- NetworkTopologyStrategy
+  - recommended for prod
+  - data replicas stored across multiple data centers
+  - goal is to have physical separation to avoid many replicas being affected by a real world outage
+* Consistency
+- Cassandra offers different levels of [[id:2B17D96B-6E66-4690-8FBE-3F54C264270D][Consistency]] vs [[id:6EE33772-83EE-4051-BDF2-3AAB3F36165A][Availability]] trade-offs.
+  - ~ONE~: single replica needs to respond
+  - ~ALL~: all replicas need to respond
+  - ~QUORUM~: requires a majority (~n/2 + 1~) of replicas to respond. For example, if there are 3 nodes, 2 out of 3 nodes need to be written to and read from in order for writes and reads to succeed.
+- Cassandra DOES NOT offer transaction support or ACID guarantees
+- only supports atomic and isolated writes at a row level in a partition
+* Query Routing
+- all nodes in Cassandra can assume the role of a query coordinator. So, queries can be routed to different nodes.
+- nodes share cluster information via [[id:92D01C6F-3D1A-44D8-91F4-1A1942B511CF][Gossip Protocol]]
+- nodes know where in the cluster any information lives by hashing the value using [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]] and knowing the replication strategy.
+* Storage Model
+- Cassandra leverages a data structure called [[id:1E08FBF1-1C0B-41E8-9CA7-888FC9E92BEE][Log Structured Merge Tree]] (LSM Tree). This is used in place of B-Tree which is the most popular indexing strategy for most databases (relational DBs like [[id:508e37b4-4fb8-471a-9ac3-4684b84cd9bc][PostgreSQL]], and non-relational like [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]])
+- Cassandra favors write speed over read speed
+- Every create/update/delete is a new entry. Ordering of these updates are used to determine the "state" of the row
+- Cassandra writes tombstone entry for row deletions and [[id:1E08FBF1-1C0B-41E8-9CA7-888FC9E92BEE][LSM Tree]] enables Cassandra to efficiently understand the state of a row, while writing data to the database as almost entirely "append on" writes.
+
+A memtable houses recent writes, consolidating writes for a key into a single row, and is occasionally flushed to a disk as an immutable SSTable. A commit log serves as a [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] to ensure data isn't lost if it's only in the Memtable and the node goes down. This is basically how an [[id:1E08FBF1-1C0B-41E8-9CA7-888FC9E92BEE][LSM Tree]] works.
+
+When reading data for a particular key, Memtable is checked first which will have the latest data. Cassandra uses [[id:7AEE35B8-81A8-46A1-8314-1B7CFDA705A0][Bloom Filter]] to determine which SSTables on disk might have the data. It then reads the SSTables from newest to oldest to find the latest data for the row.
+
+** Compaction
+Cassandra runs compaction regularly to consolidate data into smaller set of SSTables - removes rows that were deleted while also removing rows that were previously tombstoned and prevent bloat with many row updates/deletions.
+** SSTable Indexing
+Cassandra stores files that point to byte offsets in SSTable files to enable faster retrieval of data on-disk. This is similar to how B-Tree does things.
+* Gossip
+- Cassandra nodes routinely pick other nodes to gossip with, with a probabilistic bias towards "seed" nodes
+- Seed nodes are designated by Cassandra to bootstrap the cluster and serve as guaranteed "hotspots" for gossip so all nodes are communicating across the cluster.
+* Fault Tolerance
+Cassandra leverages [[id:FBE8D2AC-4B53-4C26-9734-A78406316988][Phi Accrual Failure Detector]] to detect failure during gossip. Each node independently makes a decision on whether a node is available or not. When a node gossips with a node that doesn't respond, Cassandra's failure detection logic "convicts" that node and stops routing writes to it. The convicted node can re-enter the cluster when it starts heartbeating again.
+
+Cassandra also leverages a technique called [[id:DE4DABC0-762E-453C-A39F-45B03D095E7A][Hinted Handoff]]. This is a short-term way to prevent a node that is offline to lose writes. If a node is offline for a long duration, then it has to go through read repairs. Hints have a short lifespan
+* How to use Cassandra
+- Unlike relational databases that focus on entities, relationships and joins, Cassandra is query-driven.
+- Cassandra's query efficiency is tied to the way the data is stored. So, it lacks query flexibility of relational databases.
+
+The main areas to consider are:
+- Primary key: what determines the partition that the data is on
+- Partition size: how big a partition is in the most extreme case, whether partitions have the capacity to grow indefinitely
+- Clustering key: how the data should be sorted (if at all)
+- Data denormalization: whether certain data needs to be denormalized across tables to support the app's queries
+* When to use Cassandra (in an interview)
+- use it in systems that prioritize [[id:6EE33772-83EE-4051-BDF2-3AAB3F36165A][Availability]] over [[id:2B17D96B-6E66-4690-8FBE-3F54C264270D][Consistency]] and have high scalability needs
+- Cassandra can perform fast writes and reads at scale, but is an especially good choice for systems with high write throughput, given its write-optimized storage layer based on [[id:1E08FBF1-1C0B-41E8-9CA7-888FC9E92BEE][LSM Tree]] indexing
+- its wide-column design makes it a great choice as a database for flexible schemas or schemas that involve many columns that might be sparse
+- Cassandra succeeds when you have several clear access patterns for an application or use-case that the schema can revolve around
+* When NOT to use Cassandra
+- it isn't good for designs that prioritize strict [[id:2B17D96B-6E66-4690-8FBE-3F54C264270D][Consistency]], given its heavy bias towards [[id:6EE33772-83EE-4051-BDF2-3AAB3F36165A][Availability]]
+- it isn't a good choice for systems that require advanced query patterns such as multi-table joins, adhoc aggregations, etc.

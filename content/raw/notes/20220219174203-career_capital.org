@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       BA2618D2-8EE2-4F58-BA7C-BE1B4B8FA18B
+:END:
+#+title: Career Capital
+#+filetags: :literature-note:
+
+Career Capital is a skill you have or build to be successful in a career. For example, in order to be successful in television writing, you must be good at screen writing. This goes hand in hand with what kind of [[id:F4101EF9-70CB-4C67-AEA2-A76556E279E4][Career Capital Market]] you want to see yourself in.
+
+- Source: [[https://www.amazon.com/Good-They-Cant-Ignore-You/dp/1455509124][So Good They Can't Ignore You]] (chapter 3)

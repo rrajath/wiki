@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       986E5183-66A6-42C1-9C96-79868B90C544
+:BACKLINKS: [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]]
+:END:
+#+title: DynamoDB Single Table Design
+#+filetags: :database:
+
+This is where all entities share the same table. The partition keys and sort keys are carefully chosen.
+* When should one use the single table design?
+Mainly applicable in the following scenarios:
+- the access patterns are consistent and stable
+- no crazy joins
+- no transactions that involve more than 10 items
+
+More details from this [[https://www.perplexity.ai/search/briefly-explain-single-table-d-sHuC6VfaQp6Lg.LnOg_dDg][perplexity discussion]].  

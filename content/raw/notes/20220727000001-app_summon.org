@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       0EB24815-8590-4BAE-9BFB-FA8CA1876C13
+:ROAM_REFS: https://www.youtube.com/watch?v=Px0_8J0Wb-s
+:END:
+#+title: App Summon
+#+filetags: :reference:
+
+Found this out from Ben Vallack's YouTube video where =Cmd+Tab= can essentially be replaced with some combination of Meh (or Hyper) and another key. We hit =Cmd+Tab= hundreds of times every day and a lot of times we waste time navigating back and forth in that list trying to get to the app we want to use. Using this productivity tip, we can directly "summon" the app to the foreground thus making the action an immense [[id:A7DB3825-9436-4EA3-9584-4867B4DE1876][Productivity Improvement]].
+
+This can be combined with other actions to have efficient [[id:61944557-D299-4184-85A3-0542A7070424][Workflow]]s.
+

@@ -1,0 +1,35 @@
+:PROPERTIES:
+:ID:       32AE166E-B72D-4D76-B8F4-5EDE5416AFEB
+:BACKLINKS: [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]]  [[id:60B589A9-C760-43F4-A0B2-52B21B878CA6][DynamoDB Data Model]]  [[id:6EE33772-83EE-4051-BDF2-3AAB3F36165A][Availability in Distributed Systems]]  [[id:E51445A5-5221-4D39-B75A-8054B6C3DD60][DynamoDB Indexing]]
+:END:
+#+title: DynamoDB
+#+filetags: :moc:
+
+DynamoDB has 3 key concepts:
+- Tables: collections of related data
+- Items: individual records, each with a unique primary key
+- Attributes: actual data within each item, for example, name, age, etc.
+
+Other concepts:
+- [[id:60B589A9-C760-43F4-A0B2-52B21B878CA6][DynamoDB Data Model]]
+- [[id:E51445A5-5221-4D39-B75A-8054B6C3DD60][DynamoDB Indexing]]
+- [[id:986E5183-66A6-42C1-9C96-79868B90C544][DynamoDB Single Table Design]]
+- [[id:1B5759CD-4E13-47C3-9D5E-00CC740FA8E7][DAX (DynamoDB Accelerator)]]
+- [[id:3B50B3AA-1B95-45FA-892D-AC9E73F320B4][DynamoDB Streams]]
+
+* Architecture
+DynamoDB uses consistent hashing to store partition keys. This makes DynamoDB scale really well.
+
+* Fault Tolerance
+DynamoDB uses asynchronous replication. All writes come to a single leader node. Then the leader node forwards those writes to different replicas that are in different physical locations (or availability zones).
+
+DynamoDB also support strong consistency. So, strongly consistent reads will come off of the leader and will have no replication lag.
+
+* When to use DynamoDB?
+It works most of the time.
+
+* When NOT to use DynamoDB?
+Think about the following 3 cases:
+1. Complex query patterns - like joining multiple tables, sub queries, etc.
+2. Multi-table transactions - DDB has quite a low limit on how many items can be updated in a transaction
+3. Using too many GSI and LSI - if we're doing this, we might be better off using a traditional RDBMS

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       D4162C38-3AEE-4FC0-A4B5-45964488EC64
+:END:
+#+title: Saga Pattern in Distributed Systems
+
+This pattern is to fix the problem of transactions that span multiple services. For example, if you write to a cache and then to a database, but the DB write fails, then the cache and the database are not in sync.
+
+The saga pattern dictates that you implement each business transaction that spans multiple services as a saga. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. If a local transaction fails because it violates a business rule then the saga executes a series of rollbacks to undo the changes that were made by the preceeding local transactions.

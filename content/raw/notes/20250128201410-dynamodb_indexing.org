@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       60B589A9-C760-43F4-A0B2-52B21B878CA6
+:END:
+#+title: DynamoDB Data Model
+#+filetags: :database:
+
+- [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] is schema-less. It doesn't have to conform to a rigid schema
+- Pros:
+  - more flexible
+  - only pay for what you need
+  - add attributes whenever you need them
+  - no need to think about migrations
+- Cons:
+  - it is up to the application to enforce the data consistency
+  - the application needs to handle missing attributes

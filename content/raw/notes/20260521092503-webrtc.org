@@ -1,0 +1,28 @@
+:PROPERTIES:
+:ID:       AB6C5275-D594-4372-8002-6DB38FC12A1A
+:END:
+#+title: WebRTC
+
+* Details
+Also known as peer to peer communication. WebRTC enables direct peer-to-peer communication between browsers without requiring intermediary server for the data exchange.
+
+Perfect for real-time applications like document editors, audio/video calling and conferencing applications.
+
+It's the only protocol that uses UDP.
+
+* How it works
+With WebRTC, clients talk to a single "signaling server" that keeps track of which peers are available together with their connection information. Once a client has the connection information for another peer, they can try to establish a direct connection without going through any intermediary servers.
+
+Most clients don't allow inbound traffic for security reasons and most of the time, clients are behind a NAT device that prevents inbound traffic. This makes it hard for any client to establish and use a p2p connection with another client.
+
+WebRTC standard includes two methods to work around these limitations.
+1. *STUN*: "Session Traversal Utilities for NAT" is a protocol that enables peers to establish publically routable addresses and ports. It's a standard way to deal with NAT traversal and involves repeatedly creating open ports and sharing them via the signalling server with peers.
+2. *TURN*: "Traversal Using Relays around NAT" is effectively a relay service, a way to bounce requests through a central server which can then be routed to the appropriate peer.
+
+There are 4 steps to a WebRTC connection:
+1. Clients connect to a central signalling server to learn about their peers
+2. Clients reach out to a STUN server to find publically addressable addresses and ports
+3. Clients share this information via the signaling server
+4. Clients establish a direct peer-to-peer connection and start sending data
+
+Sometimes when connections fail, the clients have to reach out to the TURN server to connect to their peers.

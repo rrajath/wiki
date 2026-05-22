@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       457AAF51-3C89-4ACD-8E47-DE47D280829B
+:END:
+#+title: Levels of Understanding in Systems Thinking
+#+filetags: :literature-note:
+
+- *events* (reactive): what is the fastest way to react to this event now?
+- *patterns of events* (proactive): what kinds of trends or patterns of events seem to be recurring?
+- *systemic structure* (creative): what are the mental organizational structures that create the patterns?
+- *shared vision* (generative): what are the stated/unstated visions that generate the structures?
+
+- Source: Systems Thinking (p9)

@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       964C0218-81F0-4C35-9EB9-E5FC5588C633
+:END:
+#+title: Systems Thinking as a Language
+#+filetags: :literature-note:
+
+Languages we use for speaking and conversations are linear signifying "x causes y". This linearity causes one-way relationships. In the real world, systems and interdependencies inside of a system are much more complex where "x" and "y" have some kind of effect on each other. This causes circular relationships and feedback loops.
+
+- Source: Systems Thinking Tools (p6)

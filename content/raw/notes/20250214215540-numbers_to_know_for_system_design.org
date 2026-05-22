@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       e013a981-d8b2-4b80-bf1c-996e36de2426
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/deep-dives/numbers-to-know
+:END:
+#+title: Numbers to know for system design
+
+|-------------+---------------------------------+---------------------------------|
+| Component   | Key Metric                      | Scale Trigger                   |
+|-------------+---------------------------------+---------------------------------|
+| Caching     | - ~1 millisecond latency        | - Hit rate < 80%                |
+|             | - 100k+ operations/second       | - Latency > 1ms                 |
+|             | - Memory-bound (up to 1TB)      | - Memory usage > 80%            |
+|             |                                 | - Cache churn/thrashing         |
+|-------------+---------------------------------+---------------------------------|
+| Databases   | - Up to 50k transactions/second | - Write throughput > 10k TPS    |
+|             | - Sub-5ms read latency (cached) | - Read latency > 5ms uncached   |
+|             | - 64 TiB+ storage capacity      | - Geographic distribution needs |
+|-------------+---------------------------------+---------------------------------|
+| App Servers | - 100k+ concurrent connections  | - CPU > 70% utilization         |
+|             | - 8-64 cores @ 2-4 GHz          | - Response latency > SLA        |
+|             | - 64-512GB RAM std, up to 2TB   | - Connections near 15k/instance |
+|             |                                 | - Memory > 80%                  |
+|-------------+---------------------------------+---------------------------------|
+| Msg Queues  | - Up to 1MM msgs/sec per broker | - Throughput near 800k msgs/sec |
+|             | - Sub-5ms end-to-end latency    | - Partition count ~200k/cluster |
+|             | - Up to 50TB storage            | - Growing consumer lag          |
+|-------------+---------------------------------+---------------------------------|
+
+#+CAPTION: Numbers to know
+[[attachment:clipboard-20250221T170558.png]]
+

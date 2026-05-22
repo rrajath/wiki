@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       F4D4B0AC-B1FF-4791-84D6-3E97C1229ED6
+:END:
+#+title: Databases
+#+filetags: :moc:
+
+- [[id:508e37b4-4fb8-471a-9ac3-4684b84cd9bc][PostgreSQL]]
+- [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]]
+- [[id:F7F14052-A562-4E6B-87C1-4601E1168A12][Cassandra]]
+- [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]]

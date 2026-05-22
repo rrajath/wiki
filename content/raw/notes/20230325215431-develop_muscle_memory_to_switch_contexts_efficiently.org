@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       21908633-cbb9-42a8-8420-446042d7a4b5
+:END:
+#+title: Develop muscle memory to switch contexts efficiently
+
+We switch between systems with different environments that include different set of operations, ways of thinking, etc. For example, switching from driving a Tesla to Subaru involves a certain shift in [[id:61517BF2-B659-495B-8155-7CBA4D540595][Awareness]] because changing between Neutral/Reverse/Drive in Tesla is the same stick that’s used for windshield wipers in Subaru. We know that [[id:cab9b04f-c4ed-444b-8f06-112c8433dc79][Muscle Memory is very malleable]], and that muscle memory would kick in after couple of failures/misfires. But what we should really optimize for is to develop muscle memory to improve [[id:61517BF2-B659-495B-8155-7CBA4D540595][Awareness]]. As soon as you get into a Subaru, the muscle memory should kick in to load all the "Subaru subroutines."

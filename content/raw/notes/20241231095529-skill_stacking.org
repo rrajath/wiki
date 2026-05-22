@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       9E0A877F-ECD0-4B24-99E7-F1DDE1296A8E
+:URL:      https://critter.blog/2020/09/30/skill-stacking/
+:END:
+#+title: Skill Stacking
+#+filetags: :blog-post:literature-note:
+
+This is where you combine two or more skills you're reasonably good at and use that combination to your advantage. For example, you can't be the best programmer in the world. And you can't be the best runner in the world. But you can combine the two and get leverage. You'll be in a unique position that not a lot of people can compete with.
+
+Identifying what you're good at and finding combinations take time. But once you find it or once you develop those skills, you will have leverage.
+
+#+begin_quote
+[...] astronomers figure he must be an exceptional programmer, since he’s clearly a mediocre astronomer. While programmers figure he must be an exceptional astronomer, since his programming is strictly middle-of-the-road!
+#+end_quote

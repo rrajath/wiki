@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       F9B0D899-1538-468A-9977-D298815DE6EA
+:END:
+#+title: Progesterone
+#+filetags: :floating-note:ivf:
+
+* Responsible for:
+** preparing the uterus for potential pregnancy by promoting endometrial thickening and vascularization
+** supporting pregnancy by reducing uterine contractions and promoting gestation
+** inhibiting lactation during pregnancy
+** [[id:6F782B51-31B9-40E4-99B9-A9416F76EA69][Regulating the menstrual cycle]], particularly the [[id:5B745668-F3C6-43A5-9271-E05E68D4A305][Secretory Phase]]
+** balancing the effects of estrogen on the [[id:4779E410-C7AC-4F6D-891F-F2F647A5D6E7][Endometrium]]

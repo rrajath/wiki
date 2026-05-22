@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       1B5759CD-4E13-47C3-9D5E-00CC740FA8E7
+:END:
+#+title: DAX (DynamoDB Accelerator)
+
+This an in-memory cache that provides microsecond response times for read-heavy workloads with automatic read/write-through caching.
+
+* Example
+While designing a Yelp-like service where a client connects to a backend service that uses [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] as the database, you get single-digit millisecond latency for most of the queries. But for complex queries that involve something like getting all the ratings for a business and calculating the average, we can cache the results using DAX.
+

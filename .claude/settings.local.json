@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/rrajath/Library/CloudStorage/Dropbox/org-roam/**)",
+      "Bash(done)",
+      "Bash(cd:*)",
+      "Bash(ls ~/Library/CloudStorage/Dropbox/org-roam/*.org)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(ls /Users/rrajath/wiki/raw/notes/*.org)",
+      "WebFetch(domain:sive.rs)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260521075825-websockets.org /Users/rrajath/wiki/raw/notes/20260521075825-websockets.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260521092503-webrtc.org /Users/rrajath/wiki/raw/notes/20260521092503-webrtc.org)"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       66FA09D8-66B5-40CE-81B0-134C0BA21B33
+:URL:      https://yoo2080.wordpress.com/2014/07/04/it-is-not-hard-to-read-lisp-code/
+:END:
+#+title: It is not hard to read Lisp code
+#+filetags: :elisp:literature-note:explore:
+
+Use this to improve reading elisp code. 

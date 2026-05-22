@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       3A5B369A-520F-4E94-9A6C-5E80CFD65A9E
+:END:
+#+title: Applying slow thinking to regular projects
+#+filetags: :floating-note:
+
+Going by the [[id:FF52C317-5E2F-4F84-A949-A927E2E58330][Think Slow, Act Fast]] methodology, it only makes sense to go with the idea of thinking slow in order to collect all the information about a project and execute it quickly. Having a good mental clarity before even starting the project would provide a great deal of confidence that can be used to quickly and thoroughly execute a project. Not succumbing to the [[id:47CB8B88-ED74-44F1-B36A-AE063098C7D8][Commitment Fallacy]] will help avoid most of the pitfalls associated with it and the overall output of the project will be of much higher quality.
+
+This was also something that some of the best scientists (like Nikola Tesla) used to follow. He would not start a project until it made complete sense on paper. Only then he would start to implement it. I used the same technique to smaller tasks like cooking and saw really good result. I was less confused, more focused and the food turned out amazing!

@@ -1,0 +1,40 @@
+:PROPERTIES:
+:ID:       2B17D96B-6E66-4690-8FBE-3F54C264270D
+:ROAM_ALIASES: Consistency
+:END:
+#+title: Consistency in Distributed Systems
+
+Consistency is where all clients see the same data at the same time no matter which node they connect to.
+
+* Example
+There are two servers - one in US and one in EU.
+User A updates their profile and that request hits the US server.
+The update then gets replicated to the EU server.
+User B then reads User A's profile (after update)
+
+If the system is strongly consistent, User B will not see stale data.
+If for some reason, the replication did not happen or if the EU server went down before getting updated, then User B will be seeing stale data.
+
+* When to choose consistency?
+Typically, consistency is chosen if not being consistent leads to catastrophic results.
+For example, two users booking the last plane ticket. Or a financial system. Or an ecommerce platform that ships physical goods. If two users are looking at the same item and one of them happens to click and purchase an item, we want the system to be strongly consistent.
+
+* When is it okay not to choose consistency?
+Social media apps, Yelp reviews, etc.
+If a user updates their profile on a social media app, other users seeing stale data for a few seconds or even up to a minute would not be the end of the world.
+Same with Yelp reviews or restaurant menu updates.
+
+* How would Strong Consistency influence the design of a distributed system?
+- need to implement distributed transactions: for example, if the writes happen to a database and a cache, we need to make sure that they remain consistent with each other
+- limit to a single instance: if there's only one instance of a database, then there's no question of replicating data
+- accept higher latency: show a spinner when the page is loading or when an operation is being performed.
+
+* Nuances
+Different parts of our system can prioritize Consistency vs. Availability.
+For example, in Ticketmaster, the CRUD use cases can be eventually consistent, but the order booking cases must be strongly consistent.
+
+* Types of consistency
+1. Strong consistency: all reads reflect most recent write
+2. Causal consistency: related events appear in order
+3. Read-your-writes consistency: user sees their own updates
+4. Eventual consistency: updates will propagate eventually

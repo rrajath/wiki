@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       DE4DABC0-762E-453C-A39F-45B03D095E7A
+:END:
+#+title: Hinted Handoff
+
+When a node is considered offline by a coordinator node attempting to write to it, the coordinator temporarily stores the write data in order for the write to proceed. This temporary data is called a "hint". When the offline node comes back up, it sends the data.

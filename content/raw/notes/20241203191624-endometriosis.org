@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       D31028DE-1B18-4AB3-BFE5-836115045236
+:END:
+#+title: Endometriosis
+#+filetags: :ivf:floating-note:
+
+* chronic [[id:C1F531B2-3BB4-4BA2-93D6-96CE3EA06971][Estrogen]]-dependent condition where the growth of endometrial-like tissue happens outside the uterus.
+

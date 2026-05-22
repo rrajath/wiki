@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       BBB3ADBE-597B-4CED-8233-A283E210D476
+:END:
+#+title: Jujutsu
+
+This is a distributed version control system that seems to solve a lot of headaches that git creates. It uses a different paradigm compared to git and is highly regarded by developers that use jujutsu that using it is a pleasant experience.
+
+There are some resources that help explain what it does:
+- [[https://v5.chriskrycho.com/essays/jj-init/#appendix-kaleidoscope-setup-and-tips][jj init — Sympolymathesy, by Chris Krycho]]
+- [[https://steveklabnik.github.io/jujutsu-tutorial/introduction/how-to-read.html][Steve's Jujutsu Tutorial]]
+- [[https://github.com/jj-vcs/jj/blob/main/docs/config.md][jj/docs/config.md at main · jj-vcs/jj · GitHub]]
+- [[https://jj-vcs.github.io/jj/][Jujutsu docs]]
+- [[https://github.com/jj-vcs/jj/wiki/Starship][Starship prompt for jujutsu]]

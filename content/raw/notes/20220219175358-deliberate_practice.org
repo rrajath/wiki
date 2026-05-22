@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       F0708B5B-AD38-406F-9CC5-692A78B71E8B
+:END:
+#+title: Deliberate Practice
+#+filetags: :literature-note:
+
+An approach to work where you deliberately stretch your abilities beyond where you're comfortable and then receive ruthless feedback on your performance.

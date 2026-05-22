@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       574D0744-16BC-42F2-A5AD-C97EA8245E9D
+:END:
+#+title: Nix Resources
+
+Resources:
+- [[https://nixos.org/][NixOS Homepage]]
+- [[https://nixos-and-flakes.thiscute.world/][Nix & Flakes book]]
+- [[https://nixos.org/guides/nix-pills/][Nix Pills]]
+- [[https://rycee.gitlab.io/home-manager/options.xhtml][Home Manager Option Search]]
+- [[https://search.nixos.org/packages][NixOS Package Search]]
+- [[https://nix.dev/manual/nix/2.23/introduction][Nix Reference Manual]]
+- [[https://rycee.gitlab.io/home-manager/index.xhtml][Home Manager Manual]]
+- [[https://nixos.org/manual/nixos/stable/][NixOS Official Manual]]
+- [[https://youtu.be/FcC2dzecovw?si=BT0PRtqRrfwX8Vsx][Vimjoyer on YouTube]]
+- [[https://nixos.org/manual/nixpkgs/stable/][Nixpkgs Reference Manual]]
+- [[https://nix.dev/manual/nix/2.18/language/builtins.html][Built-in Functions]]
+- [[https://nix.dev/manual/nix/2.18/command-ref/command-ref][Command Reference]]
+- [[https://mynixos.com/][MyNixOS]]
+- [[https://www.reddit.com/r/NixOS/comments/1hvwk3b/share_your_nixoshomemanager_quality_of_life_tips/][Home Manager tips and QoL improvements]]
+- [[https://home-manager-options.extranix.com/][Another Home Manager Option Search]]

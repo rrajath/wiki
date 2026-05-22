@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       41F41379-5022-46FB-BB1D-EA00126C5BCC
+:END:
+#+title: The dichotomy of control
+#+filetags: :floating-note:
+
+This states that the world around us and everything that happens to us can be split into two categories - what we can control and what we cannot control. [[id:2DB690BD-3E8B-4227-8F6D-F5E79350453F][Stoicism]] has this as one of its main principles. And honestly, it's one of the best ways to view the world. When we really stop and think about it, we realize that a /huge/ percentage of things are outside our control. But we tend to think that either they /are/ in our control, or that we /wish/ they were in our control.
+
+All of this is to get to an [[id:6B3D20B9-B9E9-44EC-9368-84B609895690][arbitrary future state of supposed happiness]], which we are 1) not sure of because it's not clearly defined, and 2) not going to be satisfied with since we continue to chase other things that lead to a different "supposed happiness".

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       A4B110C8-760E-4EBC-B2BE-660E56F85477
+:END:
+#+title: Generalized Inverted Index
+
+This works like the index at the back of a book. For each word, [[id:508e37b4-4fb8-471a-9ac3-4684b84cd9bc][PostgreSQL]] stores all the locations where it appears.
+
+For many applications, the built-in search capability  this is sufficient compared 

@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       30FCF534-6D66-491A-86BF-5ECC41DFE016
+:END:
+#+title: Emacs Resources
+
+* On YouTube
+This reddit post has links to some [[https://www.reddit.com/r/emacs/comments/1i0n6ty/what_are_your_favourite_emacs_lectures/][good YouTube channels]].

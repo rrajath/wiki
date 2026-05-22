@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       218154D2-4D4C-4D23-9180-34712BD66853
+:END:
+#+title: Instant gratification vs deep satisfaction
+#+filetags: :floating-note:
+
+The brain seems to look for little dopamine hits. These can come in any form - scrolling social media, browsing reddit, checking emails, etc. This leads to [[id:C305E2F4-1F19-4B77-B352-8FB045E7F67C][Information Overload]] and [[id:FD488C0A-9EC8-4642-A520-E5C6D7157FF5][Decision Fatigue]] where after spending several minutes or hours we feel really tired and yet not feel satisfied with how the time was spent. This form of consumption is essentially [[id:A387F6E5-10AE-49B2-BB91-B6D6026A622E][Mental Junk Food]].
+
+At the other end of this is deep satisfaction. This is when you work really hard on something and finally figure it out and it perfectly fits your mental model. This is what we value more long term.
+
+The brain seems to always gravitate towards instant gratification. This ends up becoming [[id:0FE3DE53-DB54-468F-996F-E0F3C8ED9669][Our Defaults]], which takes a lot of effort to get rid of. [[id:99630C5C-811F-4FD1-937B-7E127A67EA43][We run on autopilot]] all the time. The tiny decisions of saying no to instant gratification requires [[id:61517BF2-B659-495B-8155-7CBA4D540595][Awareness]] and doing so repeatedly.
+
+- my brain always looks for instant gratification, but once I engage with it I feel shitty.
+- longer term, my brain values deep satisfaction and I get those by doing activities that are meaningful to me, the ones that help me grow.
+- there's always a moment of this split second decision before I engage with something that gives instant gratification and as soon as I say no to it, I feel great.
+- I also feel great when I do something that gives me deep satisfaction - like reading a book, playing guitar, etc.
+- this is such a constant battle and there's an ongoing effort to make the latter my default.

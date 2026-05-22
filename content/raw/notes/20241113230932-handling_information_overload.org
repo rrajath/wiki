@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       D7D6E4EF-3B61-4C7E-B35C-973626075680
+:END:
+
+#+title: Handling information overload
+[2022-02-27 Sun 13:13]
+Split your information intake into 3 categories:
+1. Fixed number of books to read each month
+2. Have only one obsession at a time (instead of getting overwhelmed by all the things you want to do)
+3. Schedule time slots of frivolous things like watching YouTube, newsletters, etc.
+

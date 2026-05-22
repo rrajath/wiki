@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       FF52C317-5E2F-4F84-A949-A927E2E58330
+:END:
+#+title: Think Slow, Act Fast
+#+filetags: :literature-note:
+
+This is the opposite of [[id:e590314a-2c78-4d61-ac82-6c7241417bf2][Think Fast, Act Slow]]. The objective is to carefully consider all possibilities before starting a project, spend a lot of time planning and once everything is locked down, move really fast and get things done. When this is followed, the project usually completes on time, if not early. There will be far fewer unknowns and a lot of clarity.
+
+- Source: [[https://www.amazon.com/How-Big-Things-Get-Done-ebook/dp/B0B3HS4C98][How Big Things Get Done]] (chapter 1)

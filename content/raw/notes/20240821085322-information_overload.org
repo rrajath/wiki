@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       C305E2F4-1F19-4B77-B352-8FB045E7F67C
+:END:
+#+title: Information Overload
+
+Information Overload takes a toll on cognition and leads to poor decision making. It also leads to [[id:FD488C0A-9EC8-4642-A520-E5C6D7157FF5][Decision Fatigue]]. When our brain is bombarded with a ton of information, it find it hard to figure out which of it is salient. [[id:D7D6E4EF-3B61-4C7E-B35C-973626075680][Handling information overload]] becomes crucial to keep things sustainable.

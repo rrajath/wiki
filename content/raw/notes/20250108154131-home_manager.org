@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       5BAA8FF6-7361-42D7-AD1D-5AE0867DDF27
+:END:
+#+title: Home Manager
+
+This seems to be a great addon to nix config where packages and options in each package can be configured and modified. The allure is that everything stays in one place and the program will be configured (based on the options provided) automatically as soon as it's installed. No manual configuration will be needed.

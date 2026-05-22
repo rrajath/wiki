@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       E7FFA172-1C8C-49F3-BF47-D615F67C7474
+:END:
+
+#+title: R and B loops
+[2022-02-24 Thu 20:46]
+Reinforcing loops compound change in one direction. Employee does well if his manager is supportive and does badly if manager is unsupportive.
+
+Balancing loops try to maintain the state of a system by making adjustments. For example, too much or too little inventory is maintained by adjusting it with desired inventory.
+
+These loops can coexist. In the employee-supervisor example, the employee's performance cannot infinitely grow. After a point it becomes a game of diminishing returns where the employee puts in longer hours and performance degrades. A balancing loop can come into picture and add breaks, vacations and other incentive to "maintain" the performance.
+

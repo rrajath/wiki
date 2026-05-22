@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       B30BD547-35D9-4EE0-8455-8C3933E963CC
+:END:
+#+title: Write Ahead Log
+
+This is where writes to a database are written to a file on disk. This is a sequential write operation and as soon as this is written, the transaction is considered successful. Even if the server crashes, the log file on the disk can be used to recover the data.

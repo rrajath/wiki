@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       8C8BB8BC-D63D-4A01-BC76-FBB212DD62A5
+:END:
+#+title: Programmed FET Cycle
+#+filetags: :ivf:floating-note:
+
+* Ovarian Suppression
+** The goal of FET is to prepare the uterine lining so that it's ready to accept the embryo. To prepare the uterus, the lining must be exposed to [[id:C1F531B2-3BB4-4BA2-93D6-96CE3EA06971][Estrogen]] and then [[id:F9B0D899-1538-468A-9977-D298815DE6EA][Progesterone]] (which happens in menstrual cycle)
+** Birth control pills are taken at the start of the cycle. They prevent ovulation, help regulate the timing of the cycle and are usually taken for 20 days in preparation for the FET cycle.
+** After two weeks of BC pills, luprolide acetate (Lupron) injection is taken.
+** It's a [[id:FA8C90EC-BE21-4AAC-9DF3-C0DED4405A95][GnRH agonist]] and will suppress the pituitary gland preventing the natural hormones from interfering with building up the endometrial lining.
+* Development of mature uterine lining
+** Ultrasound and blood draw are done to make sure the ovaries are quiet and the uterine lining is thin.
+** Start of estrogen patches. Increase in vaginal discharge as estrogen increases.
+** Estrogen patches for 2 weeks - replacing them every other day and slowly increasing the dosage. This helps thicken the uterine lining (goal: >8mm). After 2 weeks, there'll be another ultrasound and blood draw and maybe another week of estrogen patches to ensure the lining is thick enough.
+* Progesterone for Luteal Phase Support
+** Intramuscular injections
+** Started 6 days prior to transfer and taken every day for 10 weeks.
+* Embryo Transfer
+** Arrive 30 minutes prior with full bladder
+** Procedure takes 10 minutes
+** Limit activity the day of the transfer and the next day. Resume normal activity after 3 days
+* Pregnancy
+** First [[id:21848837-D835-4D50-8529-A023F4D1B9B4][HCG Blood Test]] will be 10 days after the transfer and repeated 2 days later.

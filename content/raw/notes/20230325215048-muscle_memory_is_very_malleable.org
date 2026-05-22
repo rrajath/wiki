@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       cab9b04f-c4ed-444b-8f06-112c8433dc79
+:END:
+#+title: Muscle Memory is very malleable
+
+We tend to underestimate muscle memory and get afraid to try something new. But we fail to understand that our brain adapts to the new thing really quickly once we get past the initial learning curve. One example is moving from vim that has a action->selection paradigm to helix that has a selection->action paradigm. Even though when we switch from one to the other we end up making a few mistakes due to remnants of ’muscle memory’, we quickly adapt and use the new keybindings.

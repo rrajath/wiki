@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       350CB574-5704-4EE5-9E08-368AFBAB76B3
+:END:
+#+title: Balancing Loop
+#+filetags: :literature-note:
+
+A balancing loop maintains the state of the system by making adjustments. For example, too much demand may exhaust the supply. So maintaining the inventory at a desired state would help deal with fluctuations.
+
+A Balancing Loop can coexist with a [[id:CD0CF0BA-62CB-4502-A5E5-5ADA60D6B3DC][Reinforcing Loop]]. For example, an employee's performance cannot infinitely grow. As the employee's productivity keeps increasing because of a supportive manager, there comes a point where the employee experiences burnout. It is during times like these a balancing loop can be formed where the manager provides incentives like encouraging the employee to take a few days off and perhaps other incentives to "maintain" the performance..
+
+- Source: Systems Thinking Tools

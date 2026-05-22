@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       6BB6C3BB-1963-4DDE-9782-32A817F6B239
+:END:
+#+title: Proliferative Phase
+#+filetags: :floating-note:ivf:
+
+* This is also known as follicular phase - occurs during the first half of the menstrual cycle.
+** it usually begins after menstruation ends, around days 4-7 and continues until ovulation (approx. day-14 or 28-day cycle)
+** primarily driven be rising estrogen levels produced by developing ovarian follicles.
+** [[id:4779E410-C7AC-4F6D-891F-F2F647A5D6E7][Endometrium]] changes:
+*** endometrium thickens and regenerates after menstruation
+*** glands in the endometrium elongate and become more curved
+** purpose: to prepare the uterine lining for potential implantations of a fertilized egg

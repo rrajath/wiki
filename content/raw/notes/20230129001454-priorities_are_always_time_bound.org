@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       8837A745-226E-4D25-BBD7-5B4F858B05CD
+:END:
+#+title: Priorities are always time-bound
+#+filetags: :permanent-note:
+
+Any task you take, if you assign a priority to it, it is time-bound. In fact, every single task is time-bound. Something that’s higher priority literally means it must be done sooner rather than later. This seems obvious, but when put into these words, you’ll start thinking about tasks and priorities a little differently.

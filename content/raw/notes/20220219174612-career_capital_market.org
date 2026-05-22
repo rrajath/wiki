@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       F4101EF9-70CB-4C67-AEA2-A76556E279E4
+:END:
+#+title: Career Capital Market
+#+filetags: :literature-note:
+
+There are two types of market:
+1. *Winner take all*: there's only one type of [[id:BA2618D2-8EE2-4F58-BA7C-BE1B4B8FA18B][Career Capital]] available and lot of people are competing for it. For example, television writing has only one capital - writing good scripts.
+2. *Auction*: there are different types of [[id:BA2618D2-8EE2-4F58-BA7C-BE1B4B8FA18B][Career Capital]] and each person can generate a unique collection.

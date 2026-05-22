@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       1823035B-2731-4916-8B19-BEC2E044E13D
+:ROAM_ALIASES: "Partition Tolerance"
+:END:
+#+title: Partition Tolerance in Distributed Systems
+
+A partition indicates communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions.

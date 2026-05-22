@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       99630C5C-811F-4FD1-937B-7E127A67EA43
+:END:
+#+title: We run on autopilot
+

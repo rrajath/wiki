@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       24563986-8A95-4D93-AD8B-B12F25B3F253
+:URL:      https://github.com/emacs-tw/awesome-elisp
+:END:
+#+title: Awesome Elisp
+#+filetags: :elisp:explore:
+
+This contains a ton of resources about elisp.

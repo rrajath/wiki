@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       FD488C0A-9EC8-4642-A520-E5C6D7157FF5
+:END:
+#+title: Decision Fatigue
+

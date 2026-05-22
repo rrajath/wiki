@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       CD0CF0BA-62CB-4502-A5E5-5ADA60D6B3DC
+:END:
+#+title: Reinforcing Loop
+#+filetags: :literature-note:
+
+A reinforcing loop compounds change in one direction. An employee does well if the manager is supportive, and does badly if the manager is unsupportive.
+
+- Source: Systems Thinking (p9)

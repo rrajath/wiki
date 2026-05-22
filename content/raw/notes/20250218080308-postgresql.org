@@ -1,0 +1,120 @@
+:PROPERTIES:
+:ID:       508e37b4-4fb8-471a-9ac3-4684b84cd9bc
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/deep-dives/postgres
+:END:
+#+title: PostgreSQL
+#+filetags: :moc:
+
+* Important features
+- uses B-tree indexes
+- full-text search using GIN ([[id:A4B110C8-760E-4EBC-B2BE-660E56F85477][Generalized Inverted Index]]) indexes.
+* Postgres Indexes
+** Full text search using GIN
+- for many applications, this built-in search capability is sufficient instead of setting up an Elasticsearch cluster. It supports:
+  - word stemming (finding/find/finds all matches)
+  - relevance ranking
+  - multiple languages
+  - complex queries with AND/OR/NOT
+- However, this cannot fully replace Elasticsearch because it doesn't have the following advanced features that Elasticsearch supports:
+  - more sophisticated relevancy scoring
+  - faceted matching and "search as you type" features
+  - real-time index updates
+  - distributed search across very large datasets
+  - advanced analytics and aggregations
+** JSONB columns with GIN
+- useful for querying flexible metadata. For example, in a social media application, a post can have metadata like location, mentioned users, hashtags, media, etc. Instead of having these as separate columns, they can all be combined into a single JSONB column
+** Geospatial search with PostGIS
+- this extension is useful for querying location data. It can handle:
+  - different types of spatial data (points, lines, polygons)
+  - various distance calculations (as-the-crow-flies, driving distance)
+  - spatial operations (intersections, containment)
+  - different coordinate systems
+- the index type used here is GIST that's specifically optimized for geometric data, using R-Tree indexing under the hood.
+** Covering Indexes
+When Postgres uses an index, it must do two things:
+1. Look up the value in the index to find the row's location
+2. Fetch the actual row from the table and get other columns you need
+
+With a covering index, you can specify which columns you need as part of the index.
+#+begin_src sql
+  SELECT title, created_at
+  FROM table
+  WHERE user_id = 123
+  ORDER BY created_at DESC
+
+  CREATE INDEX idx_posts_user_include
+  ON posts(user_id) INCLUDE (title, created_at)
+#+end_src
+** Partial Indexes
+This is useful when querying for only a subset of records in a table. For example, we only care about active users and not the inactive ones.
+
+#+begin_src sql
+  CREATE INDEX idx_active_users ON users(email) WHERE status = 'active';
+#+end_src
+
+* Write Performance
+** [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] [Disk]
+** Buffer Cache Update [Memory]
+Changes are made to the data pages in PostgreSQL's shared buffer cache, where the actual tables and indexes live in memory. When pages are modified, they're marked as "dirty" to indicate they need to be written to disk eventually.
+** Background Writer [Memory -> Disk]
+Dirty pages in memory are periodically written to disk. This happens async in the background either when memory pressure becomes too high or when a checkpoint occurs. This allows Postgres to batch writes together.
+** Index Updates [Memory & Disk]
+Each index needs to be updated to reflect changes. Like table data, indexes also go through [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] for durability. This is why having too many indexes slows down writes since each index requires additional [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] entries and memory updates.
+* Replication
+This is mainly needed for two use cases:
+1. Scaling reads by distributing incoming traffic to different replicas
+2. Providing high availability in case of node failures
+
+Postgres supports two types of replication: synchronous and asynchronous.
+With synchronous replication, the primary writes to replicas and waits for confirmation from replicas before returning to the caller.
+With asynchronous replication, the primary writes to replicas, but does not wait for the writes in the replicas to complete.
+
+Synchronous - strong consistency, high latency
+Asynchronous - potential inconsistency, low latency
+** Scaling Reads
+Create multiple read replicas and send all the reads to the replicas, while sending the write requests to the primary.
+One caveat here is the replication lag. Data that is written may not have reached all replicas by the time it is read. This is also called "read-your-writes" consistency.
+** High Availability
+This is to ensure that there is no data loss in case a node goes down. So, if the primary goes down, one of the replicas will be promoted to primary.
+* Data Consistency
+Postgres provides strong consistency guarantees through ACID transactions.
+** Transactions
+...guarantee that operations happen atomically to avoid inconsistent states. But when two transactions try to update a row at the same time, this will fail. Here are some of the ways to combat it.
+*** Row-level locking
+While reading from a row, mentioning ~FOR UPDATE~ in the read query will ensure this read operation to wait until any existing transactions complete. That way, it always gets the latest value and if there's a conflict, the second transaction would fail.
+*** Higher isolation level
+Postgres supports 3 isolation levels:
+1. *Read Committed (Default)*: only sees data that was committed before the query began. As transactions execute, each query within a transaction can see new commits made by other transactions that completed after the transaction started. This can lead to non-repeatable reads where the same query can return different results within a transaction.
+2. *Repeatable Reads*: creates a snapshot of the data as of the start of the transaction. Not only will the same query return the same results within the transaction, but no new rows will appear to match your query conditions - even if other transactions commit such rows.
+3. *Serializable*: strongest isolation level that makes transactions behave as if they were executed one after another in sequence. This prevents all consistency anomalies, but comes with the trade off to handle retries to handle transaction conflicts.
+* When to use PostgreSQL?
+Start with Postgres and then switch to something else if need be. It offers:
+- strong ACID guarantees while still scaling effectively with replication and partitioning
+- handles both structured and unstructured data with JSONB support
+- includes built-in solution as well as extensions like full-text and geospatial search
+- can scale reads effectively through replication
+
+Postgres shines when you need:
+- complex relationships between data
+- strong consistency guarantees
+- rich querying capabilities
+- a mix of structured and unstructured data (JSONB)
+- built-in full text search
+- geo-spatial queries
+
+Perfect for applications like:
+- e-commerce platforms (inventory, orders, user data)
+- financial systems (transactions, accounts, logs)
+- content management systems (posts, comments, users)
+- analytics platforms
+* When NOT to use PostgreSQL?
+- extreme write throughput
+  - use [[id:F7F14052-A562-4E6B-87C1-4601E1168A12][Cassandra]] or [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] instead
+- global multi-region requirements: it has a single-primary architecture, means one region must be designated as primary writer, while others act as read replicas. Synchronous replication across regions introduces significant latencies.
+  - CockroachDB for ACID compliance
+  - [[id:F7F14052-A562-4E6B-87C1-4601E1168A12][Cassandra]] for eventual consisteny at global scale
+  - [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] for managed global tables
+- simple key-value access patterns: postgres would be an overkill if all you need is a value given a key without needing complex joins. Instead, use:
+  - [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] for in-memory data store
+  - [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] for managed scalability
+  - [[id:F7F14052-A562-4E6B-87C1-4601E1168A12][Cassandra]] for write heavy workloads

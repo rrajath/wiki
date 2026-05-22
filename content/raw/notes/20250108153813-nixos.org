@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       075CB7D2-EB5F-44A1-90EE-CD9F41B4C52C
+:END:
+#+title: NixOS
+
+[[https://nixos.org/][NixOS]] is an actual operating system and the essence of it is to have the entire operating systems, the drivers, apps, packages, settings, everything can be configured in one settings file (or multiple, if needed).
+
+Got interested about nixos because people on Reddit kept asking for a nix flake for different applications. I didn't know that nix could be installed as a configurable system on MacOS via something called nix-darwin. This really makes installing apps and packages a breeze when setting up a new system.
+
+[[id:5BAA8FF6-7361-42D7-AD1D-5AE0867DDF27][Home Manager]] is an alternative to what I currently have in my dotfiles folder as literate configuration for different apps like emacs, helix, vim, nushell, fish, zsh, aerospace, etc.
+
+Some of the [[id:574D0744-16BC-42F2-A5AD-C97EA8245E9D][Nix Resources]] are extremely useful.
+

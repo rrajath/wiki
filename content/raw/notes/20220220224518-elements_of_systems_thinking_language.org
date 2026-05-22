@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       6BBD908C-FC27-44B5-A30C-D6769E926DE2
+:END:
+#+title: Elements of Systems Thinking Language
+#+filetags: :literature-note:
+
+- focuses on "closed interdependencies": with circular relationships
+- offers a visual language: loop diagrams and other similar diagrams represent pictorially what the system looks like in a snapshot
+- adds precision: reduces ambiguities and miscommunications with properly labeled parts by enforcing syntactical rules
+- forces an "explicitness" of mental models
+- allows examination and inquiry: by fostering a collective understanding of the problem, and defuses much of the defensiveness that arises from high-level debate
+- emboies a worldview that looks at whole rather than parts: there's no us vs them kind of mentality, we're all part of the same system.
+
+- Source: Systems Thinking Tools (p6)

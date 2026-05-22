@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       310078E1-F045-4394-BF0E-1F541356A0E5
+:END:
+#+title: Reference Class Forecasting
+#+filetags: :literature-note:
+
+This is a concept where you estimate how long a task takes by taking an average of all the estimates of similar tasks in that class. That will be the [[id:F12A50C7-72EC-481A-8FB2-C161090CDF26][Anchor]] for your estimate. If you think there are any variables in your task that will significantly reduce or increase your estimate, that will be your [[id:E10EB97E-829A-49FB-BFAF-CEA09A97C010][Adjusting]].
+
+- source: [[https://www.amazon.com/How-Big-Things-Get-Done-ebook/dp/B0B3HS4C98][How Big Things Get Done]]

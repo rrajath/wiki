@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       B92D2F31-4806-4EBF-AA7C-01796A8BF665
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/in-a-hurry/key-technologies#load-balancer
+:END:
+#+title: Load Balancer
+#+filetags: :moc:literature-note:
+
+Common rule of thumb for selecting L4 vs L7 load balancer: if you're using sticky sessions or persistent connections like web sockets, use L4 load balancer. Else, use L7 load balancer.

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Redis</title>
+	<meta name="type" content="concept"/>
+	<meta name="created" content="2026-05-12"/>
+	<meta name="updated" content="2026-05-12"/>
+	<meta name="sources" content="- raw/notes/20250211211636-redis.org"/>
+	<meta name="tags" content="[distributed-systems, redis, cache, in-memory, database]"/>
+</head>
+<body>
+
+<h1 id="redis">Redis</h1>
+
+<p>In-memory data store. Single-threaded with atomic operations. Read latency in microseconds; write throughput <sub>100k</sub> ops/second. AP system.</p>
+
+<h2 id="datastructures">Data structures</h2>
+
+<table>
+<colgroup>
+<col />
+<col />
+</colgroup>
+
+<thead>
+<tr>
+	<th> Structure </th>
+	<th> Use </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td> Strings </td>
+	<td> Simple key-value cache </td>
+</tr>
+<tr>
+	<td> Hashes </td>
+	<td> Object storage </td>
+</tr>
+<tr>
+	<td> Lists </td>
+	<td> Ordered collections, queues </td>
+</tr>
+<tr>
+	<td> Sets </td>
+	<td> Unique member collections </td>
+</tr>
+<tr>
+	<td> Sorted Sets </td>
+	<td> Ordered by score (leaderboards, priority queues) </td>
+</tr>
+<tr>
+	<td> Bloom Filters </td>
+	<td> Probabilistic membership testing </td>
+</tr>
+<tr>
+	<td> Geospatial Indexes </td>
+	<td> Proximity search </td>
+</tr>
+<tr>
+	<td> Time Series </td>
+	<td> Time-ordered metrics </td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="communicationpatterns">Communication patterns</h2>
+
+<ul>
+<li><strong>Pub/Sub</strong>: broadcast messages to subscribers.</li>
+<li><strong>Streams</strong>: append-only log, like Kafka topics; consumed via consumer groups (<code>XADD</code>, <code>XREADGROUP</code>, <code>XCLAIM</code>).</li>
+</ul>
+
+<h2 id="infrastructureconfigurations">Infrastructure configurations</h2>
+
+<ul>
+<li>Single node or cluster.</li>
+<li>In cluster mode, Redis clients cache &#8220;hash slot&#8221; → node mappings for direct routing.</li>
+<li>Nodes share cluster state via [[Distributed Systems/Distributed Primitives#Gossip Protocol|gossip protocol]].</li>
+<li><strong>Key principle</strong>: Redis doesn&#8217;t solve scaling for you. How you structure your keys determines how you scale.</li>
+</ul>
+
+<h2 id="capabilities">Capabilities</h2>
+
+<h3 id="cache">Cache</h3>
+
+<p>Most common use. Keys and values map to a distributed hashmap across nodes. TTL prevents stale reads and manages memory.</p>
+
+<h3 id="distributedlock">Distributed Lock</h3>
+
+<p>Used for consistency on concurrent operations (Ticketmaster seat booking, Uber ride assignment).</p>
+
+<ul>
+<li>Simple lock: <code>INCR</code> key atomically. If response is <code>1</code>, you own the lock; otherwise someone else does. Add TTL to avoid deadlock.</li>
+<li>Complex locks: Redlock algorithm.</li>
+<li><strong>Note</strong>: if your DB already provides consistency, don&#8217;t add Redis locks — it adds complexity without benefit.</li>
+</ul>
+
+<h3 id="leaderboards">Leaderboards</h3>
+
+<p>Sorted Sets maintain ordered data queryable in O(log n):</p>
+
+<pre><code>ZADD tiger_posts 500 &quot;SomeId1&quot;
+ZREMRANGEBYRANK tiger_posts 0 -5  # keep top 5
+</code></pre>
+
+<h3 id="ratelimiting">Rate Limiting</h3>
+
+<p>Fixed window: <code>INCR</code> on rate-limiter key. If count &gt; N, reject. Set <code>EXPIRE</code> at window boundary W to reset.</p>
+
+<h3 id="proximitysearch">Proximity Search</h3>
+
+<p>Native geospatial with <code>GEOADD</code> and <code>GEORADIUS</code>. Uses geohashes under the hood. O(N+log(M)) search time.</p>
+
+<h3 id="eventsourcing">Event Sourcing</h3>
+
+<p>Redis Streams as append-only durable logs. Consumer groups enable distributed consumption.</p>
+
+<h2 id="hotkeyproblem">Hot key problem</h2>
+
+<p>When a single key receives massive traffic, the node hosting it becomes a bottleneck.</p>
+
+<p><strong>Mitigations</strong>:</p>
+
+<ul>
+<li>Client-side in-memory cache.</li>
+<li>Store same data under multiple keys; randomize routing.</li>
+<li>Add read replicas for the hot node; dynamically scale with load.</li>
+</ul>
+
+<h2 id="single-threadedatomicity">Single-threaded atomicity</h2>
+
+<p>All operations serialize. Useful for race conditions:</p>
+
+<p><strong>Example</strong> (Tinder swipe match): key <code>user1:user2</code> = swipe result. Two simultaneous right-swipes serialize in Redis: write 1 → check inverse → write 2 → check inverse. No race condition.</p>
+
+<h2 id="whentouseredis">When to use Redis</h2>
+
+<ul>
+<li>Caching (primary use case).</li>
+<li>Distributed locks where DB doesn&#8217;t provide consistency.</li>
+<li>Real-time leaderboards, rate limiting, proximity search.</li>
+<li>Simple event streaming (if Kafka is overkill).</li>
+</ul>
+
+<h2 id="whennottouse">When NOT to use</h2>
+
+<ul>
+<li>Primary data store for persistence-critical data (risk of data loss).</li>
+<li>Complex query patterns (use a proper DB instead).</li>
+</ul>
+
+</body>
+</html>
+

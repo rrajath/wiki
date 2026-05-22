@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       F49D3F4E-B55B-46AB-9B49-18434994652C
+:END:
+#+title: Frozen Embryo Transfer Protocols
+#+filetags: :floating-note:ivf:
+
+* [[id:8C8BB8BC-D63D-4A01-BC76-FBB212DD62A5][Programmed FET Cycle]]
+* [[id:7EA65002-1811-4ABD-8F23-CCB97A8B84D8][Ovulatory FET Cycle]]

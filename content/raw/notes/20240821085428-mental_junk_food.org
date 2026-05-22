@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       A387F6E5-10AE-49B2-BB91-B6D6026A622E
+:END:
+#+title: Mental Junk Food
+
+Just like how we feel shitty after eating junk food, we feel shitty after we consume junk information. This includes information that you don't seek out and are not part of a specific topic, but instead is a stream of information that is quickly entering our brains. This also includes information that's neither informative nor useful to us in any shape or form.
+
+There's high chance of such junk food to enter our brains when there's [[id:C305E2F4-1F19-4B77-B352-8FB045E7F67C][Information Overload]].

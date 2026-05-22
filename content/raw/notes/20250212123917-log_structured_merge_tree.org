@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       1E08FBF1-1C0B-41E8-9CA7-888FC9E92BEE
+:ROAM_ALIASES: "LSM Tree"
+:END:
+#+title: Log Structured Merge Tree
+
+* 3 core constructs
+1. Commit Log - this is a [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] to ensure durability of writes for Cassandra nodes.
+2. Memtable - this is an in-memory, sorted data structure that stores write data. It's sorted by primary key of each row.
+3. SSTable - a.k.a "Sorted String Table". Immutable file on disk containing data that was flushed from a previous Memtable

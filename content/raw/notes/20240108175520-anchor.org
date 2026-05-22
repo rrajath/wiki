@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       F12A50C7-72EC-481A-8FB2-C161090CDF26
+:END:
+#+title: Anchor
+#+filetags: :literature-note:
+
+Anchoring is where you come up with initial estimate. Sizeable adjustments can be done using the concept of [[id:E10EB97E-829A-49FB-BFAF-CEA09A97C010][Adjusting]].
+
+- source: [[https://www.amazon.com/How-Big-Things-Get-Done-ebook/dp/B0B3HS4C98?crid=S19EDFIBIVR2&keywords=how+big+things+get+done&qid=1704260889&sprefix=how+big+things,aps,145&sr=8-1][How Big Things Get Done]]

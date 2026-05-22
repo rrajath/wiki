@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       E10EB97E-829A-49FB-BFAF-CEA09A97C010
+:END:
+#+title: Adjusting
+#+filetags: :literature-note:
+
+
+This is a concept of making alterations to an estimate for a task after it has been anchored by looking at similar projects in its class. This will help with being much more accurate and realistic with estimates rather than depending on intuition or blindly coming up with estimates without any basis. Having an [[id:F12A50C7-72EC-481A-8FB2-C161090CDF26][Anchor]] is a must before making any adjustments.
+
+- source: [[https://www.amazon.com/How-Big-Things-Get-Done-ebook/dp/B0B3HS4C98?crid=S19EDFIBIVR2&keywords=how+big+things+get+done&qid=1704260889&sprefix=how+big+things,aps,145&sr=8-1][How Big Things Get Done]]

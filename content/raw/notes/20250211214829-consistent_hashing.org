@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       7EB73C76-345C-4DC8-A865-38224306EFE9
+:ROAM_REFS: https://bytebytego.com/courses/system-design-interview/design-consistent-hashing
+:END:
+#+title: Consistent Hashing
+
+Say you have a server that serves requests. You get a lot of requests, so now you have to buy another server to serve that traffic. How will you load balance this?
+
+Say, you bought 3 more servers (you have 4 servers in total) and you create a load balancer with a hash function on request id. Each request id will map to a server and the request will be routed to the server
+requests are randomly generated and hashes are randomly generated. So, the server load will be 1/N where N is the number of servers.
+
+In reality, the requests are not truly random, but instead contain a part of your userid or something. So, if your hash function always sends your request to the same server, it makes sense to keep some things on that server (like cached user profile information or something)
+Now, if you decide to add another server to your already existing set of servers, your hash function will now send all the requests to other servers. All the caching done on each server is useless.
+
+So, use consistent hashing. This means, you imagine your array to be a ring going from 0 to M-1 and starts over at 0. Your requests will get converted to hashed values and occupy places in that ring.
+Now consider another hash function for your servers. They also occupy spots (not the ones used by requests) in that ring. When a request comes in, it'll find the nearest server and that server serves the request
+This scales well when you add more servers, the load on other servers decrease and everything works fine.
+However, if you lose a server, it may happen that half the requests will go to only one server. So, how do we solve this? Have more hash functions on the servers.
+If you have K hash functions, then K*N spots in that ring will be taken up by servers. So, even though there are more spots taken up by servers, they'll all still point to the same servers.
+
+This is used behind the scenes in:
+- [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]]
+- [[id:F7F14052-A562-4E6B-87C1-4601E1168A12][Cassandra]]
+- [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]]

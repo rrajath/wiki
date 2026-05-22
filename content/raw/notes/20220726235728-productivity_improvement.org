@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       A7DB3825-9436-4EA3-9584-4867B4DE1876
+:END:
+#+title: Productivity Improvement
+#+filetags: :permanent-note:
+
+A productivity improvement is where a mundane task is accomplished with less effort due to partial/full automation, fewer steps, custom scripts, aliases, etc. Anything that helps do the same task faster or with less cognitive load is considered to be productive. These are typically referred individually - like git productivity, command line productivity. But lot of these can be combined to form [[id:61944557-D299-4184-85A3-0542A7070424][Workflow]]s which become powerful drivers of productivity.
+

@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       887D6451-5EC8-40DB-96C8-8549D3807B5C
+:END:
+#+title: WebSockets
+
+* Details
+WebSockets provide persistent TCP-style connection between client and server allowing for real-time bidirectional communication. WebSockets are initiated via the HTTP upgrade protocol which allows existing TCP connection to change L7 protocols. This is convenient because you can use some of the existing HTTP session information to your advantage.
+
+* How it works
+1. Client initiates WebSocket handshake over HTTP (with a backing TCP connection)
+2. Connection upgrades to WebSocket protocol, WebSocket takes over the TCP connection
+3. Both client and server send binary messages to each other over the connection
+4. The connection stays open until explicitly closed

@@ -1,0 +1,160 @@
+:PROPERTIES:
+:ID:       56FCD097-9540-48A6-AA3E-167BD0456FAA
+:END:
+#+title: Database Indexing
+
+* Basics
+DB content is utlimately stored on disk as files. Accessing it involves putting those files into RAM first.
+* Cost of Indexing
+- Every index we create comes with the need for additional disk space, almost as much as the original table
+- write performance takes a hit since the database now has to write to both the table and every single index
+* Types of Indexes
+** B-Tree                                                                                          :ATTACH:
+:PROPERTIES:
+:ID:       8E1206FA-26AA-4BB7-8C82-6428D57149A4
+:END:
+- most common type of index used by most [[id:F4D4B0AC-B1FF-4791-84D6-3E97C1229ED6][Databases]]
+- it's a self-balancing tree that maintains sorted data and allows for efficient insertions, deletions and searches
+- unlike binary trees where each node has two children, B-trees can have hundreds of children
+- each node contains an array of keys and pointers, structured to minimize disk reads
+- every node in a B-Tree follows the same rules:
+  - all leaf nodes must be at the same depth (balanced)
+  - each node can contain between ~m/2~ and ~m~ keys (where ~m~ is the order of the tree)
+  - a node with ~k~ keys must have exactly ~k+1~ children
+  - keys within a node are kept in sorted order
+
+[[attachment:clipboard-20250305T114340.png]]
+*** Real World Examples
+Say, you create a table like this in [[id:508e37b4-4fb8-471a-9ac3-4684b84cd9bc][PostgreSQL]]
+
+#+begin_src sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE
+);
+#+end_src
+
+Postgres immediately creates two indexes. One for the primary key and one for the uniqueness constraint.
+[[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] uses B-Tree to create indexes on its sort key.
+*** Why B-Trees are the default choice
+Because they excel at everything a database needs:
+1. They maintain sorted order, making range queries and ORDER BY operations efficient
+2. They're self-balancing, ensuring predictable performance even as data grows
+3. They minimize disk I/O by matching their structure to how databases store data
+4. They handle both equality searches (email = 'x') and range searches (age > 25) equally well
+5. They remain balanced even with random inserts and deletes, avoiding the performance cliffs you might see with simpler tree structures
+** Hash Indexes
+- they excel at exact-match queries
+- they're simply a persistent hashmap implementation - trading flexibility for O(1) lookups
+*** How hash indexes work
+- they're a hashmap of key to row locations
+- the database maintains an array of buckets, where each bucket stores multiple key-location pairs
+- when indexing a value, the database hashes it to determine which bucket should store that data
+- hash collisions are handled through linear probing. If a collision occurs, the database checks the next bucket until it finds an empty spot
+*** Real world examples
+- very rare in databases, since B-Tree does a good job at both exact match and range queries
+- they're particularly useful in in-memory databases like [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]]
+*** When to choose hash indexes
+Choose hash indexes when:
+- you need an absolute fastest exact-match lookups
+- you'll never need range queries or sorting
+- you have plenty of memory (hash indexes tend to take more space than B-Tree indexes)
+** Geospatial Indexes
+Most common in most databases that support geospatial indexes
+3 main approaches for geospatial indexing
+*** Geohash
+Converts a 2D location into a 1D string that preserves proximity. This is how it works:
+- divide the world into 4 squares
+- divide each of those 4 squares into 4 squares and so on
+- use base32 encoding that creates strings like "dr5ru" for locations
+  - "dr" might represent San Francisco
+  - "dr5" might represent Mission District
+  - "dr5ru" may be a specific city block
+- locations closer to each other share the same prefix
+- after converting 2D locations into ordered strings, it uses B-Tree to search through them
+- how B-Trees excel at prefix matching and range queries is exactly what is needed for proximity based searches
+
+[[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] uses geohashes under the hood
+**** Limitations
+- locations near each other in reality might not share similar prefixes if they happen to fall on different sides of a major grid division.
+*** Quadtree
+Less common in production databases
+Unlike geohashes that transform coordinates into strings, quadtrees directly partition space by recursively subdividing regions into 4 quadrants
+How it works:
+- start with one square covering the entire area
+- once a square contains more than a threshold of points (typically 4-8), it's split into 4 equal quadrants
+- continue this recursive division until reaching a max depth or achieving the desired point density per node
+
+Google Maps uses quadtrees for organizing map tiles at different zoom levels
+**** Advantages
+- adaptive resolution: denser areas get subdivided more, while sparse regions maintain larger quadrants
+*** R-Tree
+These have become the default spatial index in modern databases like [[id:508e37b4-4fb8-471a-9ac3-4684b84cd9bc][PostgreSQL]]/PostGIS and MySQL.
+How it works:
+- R-Tree doesn't divide the world into quadrants. Instead, it works with flexible, overlapping rectangles.
+- they adapt their rectangles to actual data
+- so, while searching for restaurants in SF, R-tree would start with a large rectangle in SF and then go through smaller overlapping rectangles until reaching individual restaurant locations
+**** Advantages
+- can efficiently handle both points and larger shapes in the same index structure. A single r-tree can index everything from individual restaurant to delivery zone polygons and road networks. The rectangles simply adjust their size to bound whatever shapes they contain
+**** Limitations
+- overlapping rectangles sometimes force the index to search multiple branches of the tree
+** Inverted Indexes
+How it works:
+Consider a blogging platform with these posts
+
+#+begin_example
+doc1: "B-trees are fast and reliable"
+doc2: "Hash tables are fast but limited"
+doc3: "B-trees handle range queries well"
+#+end_example
+
+The inverted index creates a mapping like this:
+
+#+begin_example
+b-trees  -> [doc1, doc3]
+fast     -> [doc1, doc2]
+reliable -> [doc1]
+hash     -> [doc2]
+tables   -> [doc2]
+limited  -> [doc2]
+handle   -> [doc3]
+range    -> [doc3]
+queries  -> [doc3]
+#+end_example
+
+Mainly used in Elasticsearch and similar products
+*** Limitations
+- large storage overhead
+- when a document is updated, you need to update entries for every term it contains
+* Index Optimization Strategies
+** Composite Indexes
+- most common optimization pattern
+- instead of creating separate indexes for each column, you create one index that contains multiple columns in a specific order
+- when we're creating a composite index, we're really creating a B-tree where each node's key is a concatenation of our indexed columns. B-tree maintains these keys in sorted order
+
+For example,
+#+begin_src sql
+CREATE INDEX idx_user_time ON posts(user_id, created_at);
+#+end_src
+
+*** Order matters
+Our index on ~(user_id, created_at)~ is great for queries that filter on ~user_id~ first and not if the queries are filtered on ~created_at~ first. This follows from how B-Trees work since they're efficient at prefix matching.
+
+So, order of columns in a composite index must be from most selective to least selective.
+
+Consider common interview scenarios like:
+- Order history lookups: (customer_id, order_date)
+- Event processing: (status, priority, created_at)
+- Activity feeds: (user_id, type, timestamp)
+
+** Covering Indexes
+A covering index is one that includes all the columns needed by your query, not just the one you're filtering on. For example, you may have an index on ~(user_id, created_at)~ and when you search for such users, you also automatically want to retrieve the ~likes~ count.
+
+*Note*: covering indexes is more of a niche optimization than a go-to solution.
+*** Limitations
+- storage overhead
+* Flow chart                                                                                        :ATTACH:
+:PROPERTIES:
+:ID:       3A58ACCF-8A51-4B7C-9BB7-1782996BB0BF
+:END:
+[[attachment:clipboard-20250305T114129.png]]

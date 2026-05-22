@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       61944557-D299-4184-85A3-0542A7070424
+:END:
+#+title: Workflow
+#+filetags: :permanent-note:
+
+A workflow is where a sequence of [[id:A7DB3825-9436-4EA3-9584-4867B4DE1876][Productivity Improvement]]s come together and make the entire set of steps seamless and easy. For example, turning on DND mode on MacOS using a shortcut is a [[id:A7DB3825-9436-4EA3-9584-4867B4DE1876][Productivity Improvement]]. But, combining that with the [[id:0EB24815-8590-4BAE-9BFB-FA8CA1876C13][App Summon]], closing unwanted apps, maybe making the current app full screen would be a workflow that takes productivity to the next level.
+
+Another example would be, just having git aliases would be considered highly productive since those commands are run several times a day every day. However, hitting just a few keystrokes in emacs to stage files, diff them, commit/amend, and then send out code reviews, all within the same window would be considered a highly efficent workflow.
+
+[[id:A7DB3825-9436-4EA3-9584-4867B4DE1876][Productivity Improvement]]s are great and they stand alone. But combining them make workflows very powerful. Many seemingly trivial improvements in productivity, when seen in context of a workflow can spark new ideas on how to accomplish mundane tasks more efficiently.

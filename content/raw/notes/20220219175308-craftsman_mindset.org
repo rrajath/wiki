@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       5192CB14-A6D5-46AE-993B-AC64656E8F81
+:END:
+#+title: Craftsman Mindset
+#+filetags: :literature-note:
+
+A Craftsman mindset is where one focuses relentlessly on what they offer to the world. This is opposite to [[id:4DC4CE76-6B44-4DC2-9D4E-E30031C905E2][Passion Mindset]]. [[id:F0708B5B-AD38-406F-9CC5-692A78B71E8B][Deliberate Practice]] is what a Crafstman indulges themselves in in order to be successful.

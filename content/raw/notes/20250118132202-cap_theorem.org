@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       0858A664-2994-458D-812E-10AF43287EA3
+:END:
+#+title: CAP Theorem
+
+In a distributed system, it is impossible to achieve more than two of the following three guarantees:
+- [[id:2B17D96B-6E66-4690-8FBE-3F54C264270D][Consistency]]
+- [[id:6EE33772-83EE-4051-BDF2-3AAB3F36165A][Availability]]
+- [[id:1823035B-2731-4916-8B19-BEC2E044E13D][Partition Tolerance]]
+
+Systems are generally classified based on which of the CAP attributes they support: CP, AP or CA, and the third attribute is sacrificed.

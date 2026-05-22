@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:       E51445A5-5221-4D39-B75A-8054B6C3DD60
+:END:
+#+title: DynamoDB Indexing
+#+filetags: :database:
+
+* Primary Keys
+:PROPERTIES:
+:ID:       FE41EF54-6DBC-4BE1-8BF1-BD0FD81D56C3
+:ROAM_ALIASES: "DynamoDB Primary Keys"
+:END:
+[[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] has primary keys in the form of Partition Key and Sort Key.
+
+Partition Key is a unique identifier that stores the /physical/ location of the data through consistent hashing.
+Sort Key (optional) is a range key that enables ordering and range queries within a partition. For each Sort Key, we end up having a B-Tree index in memory and we use this for range queries or to sort the results (like get all posts in reverse chronological order)
+
+So, primary key is a combination of ~{partitionKey}:{sortKey}~
+
+* Example
+In a chat app, the partition key must be the ~chatId~. So, all the messages in a group chat must be colocated in the same physical node. We don't want to go around searching other nodes to find the chats.
+
+|--------------+---------------+----------------------------|
+| System       | Partition Key | Sort Key                   |
+|--------------+---------------+----------------------------|
+| Chat App     | Chat ID       | Message ID                 |
+|              |               | (monotonically increasing) |
+|--------------+---------------+----------------------------|
+| E-commerce   | User ID       | Order ID                   |
+|              |               | (monotonically increasing) |
+|--------------+---------------+----------------------------|
+| Social Media | User ID       | Post ID                    |
+|              |               | (monotonically increasing) |
+|--------------+---------------+----------------------------|
+
+* Secondary Indexes
+There are two types
+
+** Global Secondary Index
+A use case for the chat app is where a new page is added to show all the messages sent by a user. This means we have to go to different physical storage locations because each ~chatId~ has a different partition key and combine them all together.
+
+Instead of doing this, we can create a Global Secondary Index on ~userId~. So, the partition key for this index would be ~userId~ and the sort key would be ~messageId~.
+
+** Local Secondary Index
+This is where we use the existing partition key, but a different sort key. For example, in the chat app, a local secondary index would be a combination of ~userId~ (partitionKey) and ~numAttachments~ (sortKey).

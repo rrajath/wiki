@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       DB705F57-A998-4E0B-A1DD-FA482752F890
+:END:
+#+title: Prioritization is a Knapsack Problem
+#+filetags: :mental-models:permanent-note:
+
+[[https://en.wikipedia.org/wiki/Knapsack_problem][Knapsack Problem]] is where you have a sack with a limited capacity and you have a bunch of items each of which have a certain weight and value. The problem is to fit some of them in the bag in order to maximize the value.
+
+Our daily lives contain tasks each taking a certain amount of time to complete and each providing certain value. We can think of this as a mental model where we want to schedule only those tasks in a day that give us the maximum value. There’s always a mismatch in how much time we have and how many tasks we have to get done. So, since we can’t do everything, treating it as a knapsack problem helps us apply the "greedy approach" and optimize for max value.
+
+Having said that, [[id:8837A745-226E-4D25-BBD7-5B4F858B05CD][priorities are always time-bound]]. That means, the "value" of a task almost always directly correlates with its priority. A higher priority task has an earlier completion time and must be done sooner rather than later. So, that task goes into the knapsack.

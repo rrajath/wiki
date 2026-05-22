@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       874AE1A4-3E09-4FA6-A657-D16E03E203D8
+:END:
+#+title: Easy Plug-and-Play
+
+Whenever we think of a problem and break it down into components, we want to create reusable components that can be picked up and dropped anywhere. For example, contents of a blog that are in markdown format will help us move to a different static site generator easily. Most static site generators support pretty much the same frontmatter, so migrating to a new one involves copy pasting the notes folder into the new blog.
