@@ -11,7 +11,20 @@
       "Bash(ls /Users/rrajath/wiki/raw/notes/*.org)",
       "WebFetch(domain:sive.rs)",
       "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260521075825-websockets.org /Users/rrajath/wiki/raw/notes/20260521075825-websockets.org)",
-      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260521092503-webrtc.org /Users/rrajath/wiki/raw/notes/20260521092503-webrtc.org)"
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260521092503-webrtc.org /Users/rrajath/wiki/raw/notes/20260521092503-webrtc.org)",
+      "Bash(sort ls:*)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260523071945-sharding.org /Users/rrajath/kb-wiki/content/raw/notes/20260523071945-sharding.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260526084555-kafka.org /Users/rrajath/kb-wiki/content/raw/notes/20260526084555-kafka.org)",
+      "Read(//Users/rrajath/kb-wiki/**)",
+      "Bash(ls /Users/rrajath/kb-wiki/content/raw/notes/*.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250128201341-dynamodb.org /Users/rrajath/kb-wiki/content/raw/notes/20250128201341-dynamodb.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250211214829-consistent_hashing.org /Users/rrajath/kb-wiki/content/raw/notes/20250211214829-consistent_hashing.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250212123917-log_structured_merge_tree.org /Users/rrajath/kb-wiki/content/raw/notes/20250212123917-log_structured_merge_tree.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250216221225-dax_dynamodb_accelerator.org /Users/rrajath/kb-wiki/content/raw/notes/20250216221225-dax_dynamodb_accelerator.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250218080308-postgresql.org /Users/rrajath/kb-wiki/content/raw/notes/20250218080308-postgresql.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250222100446-load_balancer.org /Users/rrajath/kb-wiki/content/raw/notes/20250222100446-load_balancer.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250305091929-database_indexing.org /Users/rrajath/kb-wiki/content/raw/notes/20250305091929-database_indexing.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260513210409-grpc.org /Users/rrajath/kb-wiki/content/raw/notes/20260513210409-grpc.org)"
     ]
   }
 }

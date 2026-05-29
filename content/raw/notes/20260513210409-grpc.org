@@ -4,3 +4,5 @@
 #+title: gRPC
 
 This is mainly used for internal service-to-service communication because it's a lot more efficient by doing binary serialization, which makes it significantly faster than JSON over HTTP. This is not used in public facing APIs because most browsers don't natively support gRPC.
+
+It has strong typing that catches errors during compile time rather than runtime.

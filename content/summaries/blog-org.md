@@ -2,7 +2,7 @@
 title: blog.org — Blog Post Drafts & Ideas
 type: summary
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-05-28
 sources:
   - raw/notes/blog.org
 tags: [writing, blog, decisions, tools, productivity]
@@ -52,6 +52,12 @@ Personal journey from Keychron K1 → Moonlander → Corne → Microdox Bud. Int
 - *No absolutes, only trade-offs*
 - *Confidence with a range*
 - *Lessons Dark Souls taught me* — embrace repeated failure; expectation-setting changes frustration.
+- *App releases* — after publishing posts about apps I built, write follow-up posts whenever new features ship.
+- *My gripes about Amazon Alexa* — whisper mode with a ding; "Did that answer your question?"; same few dozen songs on music requests; baby-shushing behavior with Alexa vs Alexa+.
+
+## Completed
+
+- *Bloggo: an android app to blog on the go* — DONE 2026-05-14.
 
 ## Key concepts referenced
 

@@ -4,7 +4,28 @@
 :END:
 #+title: Log Structured Merge Tree
 
-* 3 core constructs
+* Details
+This is a type of index used for write-heavy databases. The LSM Tree is the storage format for the entire table, sorted by primary key. Instead of updating data in place like [[id:8E1206FA-26AA-4BB7-8C82-6428D57149A4][B-Tree]], LSM Trees use an append-only approach that's built for write-heavy workloads.
+
+* How LSM Trees work
+- batch writes to memory and then write them to disk
+- instead of immediately writing each update to disk like B-Trees do, LSM Trees buffer changes in memory and write them out in large chunks. This converts many small random writes to fewer large sequential writes, increasing efficiency.
+
+** 3 core constructs
 1. Commit Log - this is a [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] to ensure durability of writes for Cassandra nodes.
 2. Memtable - this is an in-memory, sorted data structure that stores write data. It's sorted by primary key of each row.
 3. SSTable - a.k.a "Sorted String Table". Immutable file on disk containing data that was flushed from a previous Memtable
+
+** What happens when you write data to a database that uses LSM Trees
++ *Memtable (Memory Component)*: new writes go to an in-memory structure called a memtable, typically implemented as a stored data structure like red-black tree or skip list. This is extremely fast since it's all in RAM.
++ [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]]: To ensure durability, every write is also appended to a write-ahead log on disk. This is a sequential append operation, which is much faster than random writes.
++ *Flush to SSTable*: Once the memtable reaches a certain size, it is frozen and flushed to disk as an immutable Sorted String Table (SSTable). This is a single sequential write operation that can write megabytes of data at once.
++ *Compaction*: Over time you accumulate several SSTables on disk. A background process runs periodically that merges these files, removes duplicates and deleted entries. This keeps the number of files manageable and maintains read performance.
+
+* Read optimizations
+LSM Trees are really bad for reads since each lookup would first check the memtable, then the immutable memtable to see if it's waiting to be flushed, then the SSTables starting from the newest. Worst case, each lookup could check dozens of files. So, some read strategies are implemented.
+
+- *Bloom Filters*: Each SSTable has bloom filter implemented which is a probabilistic data structure that can quickly tell if you a key is definitely NOT in the data structure. This will eliminate checking a lot of SSTables.
+- *Sparse indexes*: Since SSTables are sorted, they implement sparse indexes that tell you the ranges in each block. If you're looking for a user_id = 500 and the SSTable only has user ids between 1000 and 2000, that SSTable can be skipped entirely.
+- *Compaction Strategies*: different compaction strategies work for different workloads. Size-tiered compaction might lead to write amplification but lead to more files to check. Leveled compaction maintains fewer files but requires more frequent writes.
+

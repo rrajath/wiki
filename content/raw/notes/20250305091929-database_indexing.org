@@ -9,7 +9,7 @@ DB content is utlimately stored on disk as files. Accessing it involves putting 
 - Every index we create comes with the need for additional disk space, almost as much as the original table
 - write performance takes a hit since the database now has to write to both the table and every single index
 * Types of Indexes
-** B-Tree                                                                                          :ATTACH:
+** B-Tree                                                                                  :ATTACH:
 :PROPERTIES:
 :ID:       8E1206FA-26AA-4BB7-8C82-6428D57149A4
 :END:
@@ -43,6 +43,7 @@ Because they excel at everything a database needs:
 3. They minimize disk I/O by matching their structure to how databases store data
 4. They handle both equality searches (email = 'x') and range searches (age > 25) equally well
 5. They remain balanced even with random inserts and deletes, avoiding the performance cliffs you might see with simpler tree structures
+** [[id:1E08FBF1-1C0B-41E8-9CA7-888FC9E92BEE][LSM Tree]]
 ** Hash Indexes
 - they excel at exact-match queries
 - they're simply a persistent hashmap implementation - trading flexibility for O(1) lookups
@@ -153,7 +154,7 @@ A covering index is one that includes all the columns needed by your query, not 
 *Note*: covering indexes is more of a niche optimization than a go-to solution.
 *** Limitations
 - storage overhead
-* Flow chart                                                                                        :ATTACH:
+* Flow chart                                                                                :ATTACH:
 :PROPERTIES:
 :ID:       3A58ACCF-8A51-4B7C-9BB7-1782996BB0BF
 :END:

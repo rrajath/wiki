@@ -20,6 +20,8 @@ Other concepts:
 * Architecture
 DynamoDB uses consistent hashing to store partition keys. This makes DynamoDB scale really well.
 
+DynamoDB supports two [[id:2B17D96B-6E66-4690-8FBE-3F54C264270D][Consistency]] models for read operations - Eventual Consistency and Strong Consistency. Importantly, this is *not* a table-level configuration - you choose the consistency model on each individual read request by setting the ~ConsistentRead=true~ in your ~GetItem~, ~Scan~ and ~Query~ calls.
+
 * Fault Tolerance
 DynamoDB uses asynchronous replication. All writes come to a single leader node. Then the leader node forwards those writes to different replicas that are in different physical locations (or availability zones).
 

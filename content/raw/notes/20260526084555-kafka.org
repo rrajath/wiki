@@ -1,0 +1,82 @@
+:PROPERTIES:
+:ID:       9C0DF38D-A6AE-4570-9FF8-1398FECA89AF
+:END:
+#+title: Kafka
+#+filetags: :reference:moc:
+
+* Basics
+- can function as both a message queue as well as a stream processing system
+- the server that puts events on the queue is called a *Producer*
+- the server that consumes these events is called a *Consumer*
+- messages sent and received through Kafka are distributed across partitions using a partitioning strategy. Kafka provides sensible defaults, but choosing the right key is crucial for order guarantees
+- a bunch of consumers can be grouped together into a consumer group. With consumer groups, each partition is assigned to exactly one consumer in the group, so under normal operation each event is delivered to a single consumer.
+- Each event is associated with a *Topic*, and consumers can subscribe to specific topics.
+
+* Terminology and Architecture
+- Brokers :: A Kafka cluster is made up of multiple *Brokers*. These are just individual servers. Each broker is responsible for storing data and serving clients. The more brokers you have, the more data you can store and the more clients you can serve.
+- Partitions :: Each broker has a number of *Partitions*. Each partition is an ordered immutable sequence of messages that is continually appended to, like a log file. Partitions are the way Kafka scales as they allow for messages to be consumed in parallel.
+- Topics :: A *Topic* is just a logical grouping of partitions. Topics are the way you publish and subscribe to data in Kafka. When you publish a message you publish to a topic, and when you consume a message you consume from a topic. Topics are always multi-producer - that is, a topic can have zero, one or more producers that write data to it.
+- Producers :: are the ones that write data to topics
+- Consumers :: are the ones that read data from topics.
+
+** Difference between topic and partition
+A topic is a logical gropuing of messages, a partition is a physical grouping of messages.
+A topic can have multiple partitions, and each partition can be on a different broker.
+Topics are just a way to organize your data, while partitions are a way to scale your data.
+
+* How Kafka works
+When an event occurs, the producer formats a message (a.k.a record) and sends it to a Kafka topic. A message consists of 4 fields - key, value, timestamp, headers. The key is used to determine which partition the message is sent to. The timestamp is the ingestion timestamp. Headers are key-value pairs like HTTP headers.
+
+When a message is published, Kafka determines the appropriate partition for the message. The partition selection is critical because it influences the distribution of data across the cluster. This is a two-step process:
+1. *Partition Determination*: Kafka uses a partitioning algorithm that hashes the message key to assign the message to a specific partition. If no key in the message, round robin algorithm or follow another partitioning algorithm defined in producer configuration. This ensures that messages with the same key always gets delivered to the same partition.
+2. *Broker Assignment*: Once partition is determined, Kafka identifies which broker holds that particular position. The mapping of partitions to specific brokers is managed by the Kafka cluster metadata, which is maintained by the Kafka controller (a role within the broker cluster). The producer uses this metadata to send the message directly to the broker that hosts the target partition.
+
+Each message in Kafka partition is assigned a unique offset, which is a sequential identifier indicating the message's position in the partition. This offset is used by consumers to track their progress in reading messages from the topic.
+
+* When to use Kafka in interviews?
+They can be used as both message queues as well as stream processing.
+
+Consider using it as a message queue when:
+- you have processing that can be done asynchronously. For example, when a video is uploaded on YouTube, the standard definition format is made available immediately while async processing of the video into different formats is kicked off via message queues.
+- you need to ensure messages are processed in order. For example, use it as a virtual wait queue in ticket booking on Ticketmaster.
+- you want to decouple producer and consumer so that they can scale independently
+
+Consider using it as a stream when:
+- you require continuous and immediate processing of events. For example, ad click aggregator.
+- messages need to be processed by multiple consumers simulatneously. For example, live chat.
+
+* Kafka features
+
+** Scalability
+- no hard limit on size of a message, but recommended to keep under 1MB
+- a single broker can store about 1TB of data and process 1M messages per sec. If you need to scale, there are a couple of approaches:
+  1. Brokers can be horizontally scaled by just adding more brokers to the cluster. While adding new brokers, it's important to ensure that you have sufficient partitions to take advantage of the additional brokers. More partitions allow more parallelism and better load distribution.
+  2. Partitioning strategy: you need to decide how to partition your data across your brokers. This is done by choosing a key for your messages. The partition is defined by hashing the key using a hash function and taking the modulo of the number of partitions.
+- you typically scale topics instead of the entire cluster. Some topics may have high throughput and may need multiple brokers while others may have low throughput and need a single broker. To scale a topic, increase the number of partitions, which will allow you to take advantage of more brokers.
+
+*** Hot partitions
+Example: ad click aggregator, partitioned by ad id. Nike launches a new ad that gets significantly more ad clicks, creating a hot partition. Few strategies to handle this:
+- No key: Kafka distributes messages across partitions using default algorithm. Downside is you lose the ability to guarantee ordering of related messages. If ordering isn't important in your design, this is a good option.
+- Random salting: add a random number or timestamp to the ad ID when generating a partition key. Load gets distributed more evenly.
+- Use a compound key: instead of using just the ad ID, use it in combination with something else like region ID or user ID segments.
+- Back pressure: one easy solution is to slow down the producer.
+
+** Fault Tolerance and Durability
+Durability is maintained using data replication mechanisms. Each partition is replicated across multiple brokers, with one broker acting as a leader and the rest as followers. When a producer sends a message, it is first written to the leader and then replicated to the followers.
+
+*Kafka is always available, sometimes consistent.*
+
+Consumers can go down and if that happens, there are a couple of strategies:
+- offset management: consumers maintain which offests they've processed and if they go down and restart, they process messages from their last saved offset.
+- rebalancing: when part of a consumer group goes down, Kafka rebalances and redistributes partitions.
+
+** Handling retries and errors
+- producer retries
+- consumer retries: Kafka doesn't support this out of the box. One approach is to move failed message to a separate topic and have a consumer process them. 
+
+** Performance optimizations
+- batch messages by sending mutiple messages in a single ~send()~. Or call the ~sendBatch()~ to send messages across multiple topics.
+- another option is to compress messages. This can be done by using the ~compress~ option when sending messages. 
+
+** Retention policies
+- messages can be kept up to 7 days

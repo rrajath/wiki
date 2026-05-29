@@ -60,6 +60,14 @@ Changes are made to the data pages in PostgreSQL's shared buffer cache, where th
 Dirty pages in memory are periodically written to disk. This happens async in the background either when memory pressure becomes too high or when a checkpoint occurs. This allows Postgres to batch writes together.
 ** Index Updates [Memory & Disk]
 Each index needs to be updated to reflect changes. Like table data, indexes also go through [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] for durability. This is why having too many indexes slows down writes since each index requires additional [[id:B30BD547-35D9-4EE0-8455-8C3933E963CC][Write Ahead Log]] entries and memory updates.
+
+* Write Performance Optimizations
+- Vertical scaling :: upgrading hardware is sometimes the easiest way to achieve much better performance - NVMe disks for better WAL performance, adding more RAM for increasing buffer cache size, upgrading CPUs with more cores to handle parallel operations more efficiently.
+- Batch processing :: instead of processing each write separately, we collect multiple write operations and batch them into a single transaction. This means we're buffering writes in our server's memory before committing them to disk. *The risk is, if we crash in the middle of a batch, we'll lose all the writes in that batch.*
+- Write offloading :: sometimes analytics data, aggregated metrics can be written asynchronously. So, instead of writing to PostgreSQL directly, we write it to a queue like [[id:9C0DF38D-A6AE-4570-9FF8-1398FECA89AF][Kafka]], have background workers process the messages from this queue and then write to the database.
+- Table partitioning :: performance can be improved by splitting a large table into smaller tables. Most common is time-based partitioning. The reason this works is because different database sessions can write to different tables simultaneously, and when data is inserted, the indexes only need to be updated on that specific partition.
+- [[id:3238FB60-8EE9-4F3B-93DA-B39FF461394B][Sharding]] :: lets you distribute data across multiple nodes. Sharding by userID is most common so that all the data specific to a userID will remain on the same node. PostgreSQL doesn't have a built-in sharding solution. You'll need to implement it manually or use a solution like Citus.
+
 * Replication
 This is mainly needed for two use cases:
 1. Scaling reads by distributing incoming traffic to different replicas
@@ -87,6 +95,8 @@ Postgres supports 3 isolation levels:
 1. *Read Committed (Default)*: only sees data that was committed before the query began. As transactions execute, each query within a transaction can see new commits made by other transactions that completed after the transaction started. This can lead to non-repeatable reads where the same query can return different results within a transaction.
 2. *Repeatable Reads*: creates a snapshot of the data as of the start of the transaction. Not only will the same query return the same results within the transaction, but no new rows will appear to match your query conditions - even if other transactions commit such rows.
 3. *Serializable*: strongest isolation level that makes transactions behave as if they were executed one after another in sequence. This prevents all consistency anomalies, but comes with the trade off to handle retries to handle transaction conflicts.
+** Concurrency Control
+*Optimistic Concurrency Control* is where instead of locking up rows upfront, you read data with a version number or a timestamp and then at commit time check if the version number or timestamp has changed on that row. If so, then someone must have modified that row, so you need to retry.
 * When to use PostgreSQL?
 Start with Postgres and then switch to something else if need be. It offers:
 - strong ACID guarantees while still scaling effectively with replication and partitioning

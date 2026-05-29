@@ -2,7 +2,7 @@
 title: Distributed Systems — Index
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-05-26
 sources:
   - raw/notes/20250220100347-databases.org
 tags: [distributed-systems, system-design, databases]
@@ -27,6 +27,8 @@ Notes captured during system design interview preparation. Covers databases, dis
 - [[Distributed Systems/gRPC]] — binary RPC for internal service-to-service communication
 - [[Distributed Systems/WebSockets]] — persistent full-duplex TCP connection for real-time bidirectional communication
 - [[Distributed Systems/WebRTC]] — peer-to-peer UDP communication; STUN/TURN for NAT traversal
+- [[Distributed Systems/Sharding]] — partitioning data across machines; shard key selection, strategies, hot spots
+- [[Distributed Systems/Kafka]] — distributed event streaming; topics, partitions, consumer groups, fault tolerance
 
 ## Database comparison
 

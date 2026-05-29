@@ -2,7 +2,7 @@
 title: PostgreSQL
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-05-28
 sources:
   - raw/notes/20250218080308-postgresql.org
   - raw/notes/20250218084743-generalized_inverted_index.org
@@ -60,6 +60,16 @@ Smaller index, faster writes, efficient queries for the common case.
 3. **Background Writer**: async flush of dirty pages to disk (checkpoint or memory pressure).
 4. **Index Updates**: every index must be updated on write — more indexes = slower writes.
 
+## Write performance optimizations
+
+When raw write throughput becomes a bottleneck:
+
+- **Vertical scaling**: NVMe disks improve WAL performance; more RAM increases buffer cache size; more CPU cores help parallel operations.
+- **Batch processing**: buffer multiple writes in application memory and commit them as a single transaction. Trade-off: a crash mid-batch loses all buffered writes.
+- **Write offloading**: send analytics or aggregated metrics to a queue (e.g. Kafka) and have background workers flush to Postgres asynchronously. Decouples write spikes from DB pressure.
+- **Table partitioning**: split a large table into smaller partitions (most commonly by time). Different sessions can write to different partitions simultaneously; index updates touch only the relevant partition.
+- **Sharding**: distribute data across multiple Postgres nodes. Postgres has no built-in sharding — use Citus or implement manually. Shard by user ID so all data for a user lives on one node.
+
 ## Replication
 
 | Type | Consistency | Latency |
@@ -81,6 +91,8 @@ ACID transactions. Three isolation levels:
 | Serializable | Full serial ordering; prevents all anomalies; requires retry on conflict |
 
 Row-level locking with `SELECT ... FOR UPDATE` prevents concurrent writes to the same row.
+
+**Optimistic Concurrency Control (OCC)**: instead of locking upfront, read the data along with a version number or timestamp. At commit time, check whether the version has changed. If it has, another transaction modified the row — retry. Lower contention than pessimistic locking for read-heavy workloads.
 
 ## When to use
 

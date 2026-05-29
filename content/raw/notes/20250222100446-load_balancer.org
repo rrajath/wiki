@@ -6,3 +6,23 @@
 #+filetags: :moc:literature-note:
 
 Common rule of thumb for selecting L4 vs L7 load balancer: if you're using sticky sessions or persistent connections like web sockets, use L4 load balancer. Else, use L7 load balancer.
+
+* Layer 7 Load Balancer
+Layer 7 load balancer operate at application level and can route based on the actual HTTP request content. You can send API calls to one service and web page requests to another. L7 load balancer receive an application-layer request (like an HTTP GET) and forward /that request/ to the appropriate backend server.
+
+L7 load balancers have some key characteristics:
+- terminate incoming connections and create new ones to backend servers
+- can route based on request content (URL, headers, cookies, etc)
+- more CPU intensive due to packet inspection
+- provide more flexibility and features
+- better suited for HTTP based traffic
+* Layer 4 Load Balancer
+Layer 4 load balancer operate at the TCP level and are faster but dumber. If a client establishes a TCP connection through an L4 load balancer, that same server will handle all subsequent requests within that TCP session. It's as if we have a direct TCP connection between client and server which we can use to communicate at higher layers. They distribute connections without looking at content. For websockets, you need Layer 4 load balancing because you're maintaining a persistent connection.
+* Other features
+- they perform health checks
+- load balancing algorithms:
+  - random
+  - round robin
+  - least connections
+  - least response time
+  - IP hash

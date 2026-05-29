@@ -8,3 +8,5 @@ This an in-memory cache that provides microsecond response times for read-heavy 
 * Example
 While designing a Yelp-like service where a client connects to a backend service that uses [[id:32AE166E-B72D-4D76-B8F4-5EDE5416AFEB][DynamoDB]] as the database, you get single-digit millisecond latency for most of the queries. But for complex queries that involve something like getting all the ratings for a business and calculating the average, we can cache the results using DAX.
 
+* How it works
+An important nuance is that you're expected to replace DynamoDB client with DAX client. And DAX only auto-invalidates cache items for writes that go through DAX itself. For example, if a record is updated in DynamoDB directly, then that record in DAX will be stale and will not get updated.

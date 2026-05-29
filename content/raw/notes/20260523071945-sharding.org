@@ -1,0 +1,64 @@
+:PROPERTIES:
+:ID:       3238FB60-8EE9-4F3B-93DA-B39FF461394B
+:END:
+#+title: Sharding
+
+* What is Partitioning?
+It's to split data into smaller (more logical) chunks on the same machine. For example, a huge Orders table can be split into small tables. Two types:
+- *Horizontal Partitioning*: split by number of rows. Like, splitting orders by year.
+- *Vertical Partitioning*: split by columns. Frequently accessed columns while fetching Orders could be moved to a new table.
+* How's Sharding different from Partitioning?
+It's a way to split data *across multiple machines*, compared to partitioning where data is split into multiple tables on the same machine. Two considerations while sharding data:
+- *What to shard by*: choosing the field/column is crucial. It defines how the data is grouped.
+- *How to distribute it*: the rule for assigning groups to shards. It defines how data gets distributed across machines. 
+  
+* Choosing the Shard Key
+Bad shard keys lead to uneven data distribution, hot spots where the same node gets pounded by a lot of requests and querying every shard to search for the data the query is looking for.
+
+A good shard key distributes your data evenly, aligns with your query patterns, and scales as your system grows.
+
+** What makes a good shard key?
+1. *High cardinality*: the key should have many unique values, like sharding by user id
+2. *Even distribution*: values must be spread evenly across shards. Sharding by country would make the shards very disproportional.
+3. *Aligns with queries*: your most common queries should ideally hit just one shard.
+
+* Sharding strategies
+- *Range based sharding*: Works pretty well. Groups records by continuous range of values. May not always result in even distribution because sharding by creation date on Orders table would lead to users only accessing the most recent shard since most users care only about recent orders. Older shards sit idle.
+- *Hash based sharding*: uses a hash function to calculate which shard the data must go to. This leads to even distribution. Downside is when shards need to be added or removed. This is where [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]] is useful.
+- *Directory based sharding*: uses a lookup table to figure out where each record lives. Advantage is flexibility - if a particular user generates a ton of requests, you can move that user to a different shard. Downside is every request needs this lookup which adds to the latency. And if this critical directory service goes down, then the entire system stops working.
+
+* Challenges of sharding
+** Hot spots and load balancing
+If you shard by user id and a lot of requests query that user id, then you have a bottleneck. For example, if a lot of users query Taylor Swift, then the shard that contains this user id gets pounded by requests. For time based sharding where you shard by creation date, the shard that contains the most recent creation dates (Orders, for example) will get pounded by requests and you have a bottleneck.
+*** Solutions
+1. Isolate hot keys to dedicated shards
+2. Use compound shards. Instead of sharding by user id, shard by (user_id, date). This will move that user's records across multiple shards.
+3. Dynamic shard splitting. Some databases offer shard splitting when data in a shard gets too large.
+** Cross shard operations
+This problem shows up when queries don't align with your shard key. If you shard by user id and the query just asks for a user's profile, it's fast as it only hits one shard. But if a query asks for the top 10 most popular posts, then every single shard will be hit because the posts are spread across all shards. And results from each shard needs to be aggregated before returning to the user.
+*** Solutions
+1. Cache the results: cache it for 5 minutes. First query is expensive. Subsequent queries will be fast.
+2. Denormalize to keep related data together. If you frequently need to query posts along with user data, store some of the posts data on the user shard. This will lead to duplicate data, but the queries will be fast.
+3. Accept the hit for rare queries: this is okay since the query is rare. As long as it's acceptable.
+** Maintaining consistency
+Transactions on a single database is straightforward since all the data lives on the same database. With sharding, if the user information lives on one shard and their transaction information lives on a different shard, you can't perform a transaction since you'll be trying to execute a transaction across two different databases that don't know about each other.
+* When to Mention Sharding
+Be careful not to make the mistake of prematurely sharding. You need to establish why a single database won't work first.
+Bring up sharding when you're discussing capacity planning and hit one of these limits:
+
+- *Storage*: "We have 500M users with 5KB of data each, that's 2.5TB. A single Postgres instance can handle that, but if we grow 10x we'll need to shard."
+- *Write throughput*: "We're expecting 50K writes per second during peak. A single database will struggle with that write load, so we should shard."
+- *Read throughput*: "Even with read replicas, if we're serving 100M daily active users making multiple queries each, we'll need to distribute the read load across shards."
+
+The formula is simple:
+- Identify the bottleneck
+- Explain why single database won't scale
+- Propose sharding
+* What to Say
+Here's how to walk through sharding in an interview using a social media app as an example:
+1. Propose a shard key based on your access patterns "For this social media app, most queries are user-centric. When someone loads their feed, we're querying their posts, their followers, their likes. That's all scoped to a single user. So I'd shard by user_id."
+2. Choose your distribution strategy "I'd use hash-based sharding with consistent hashing. Hash the user_id to distribute users evenly across shards."
+3. Call out the trade-offs "The trade-off is that global queries become expensive. If we need 'trending posts across all users' we have to query all shards and aggregate results. We can handle that by caching trending content and pre-computing it with a background job rather than calculating it on every request."
+4. Address how you'll handle growth "We'll start with 64 shards, which gives us room to grow. Consistent hashing makes it easier to add shards later without resharding all the data. If we need more capacity, we can add shards and only a fraction of the data moves."
+
+Notice how this flows naturally. You're not just listing facts, you're walking through your reasoning and showing you understand the trade-offs.

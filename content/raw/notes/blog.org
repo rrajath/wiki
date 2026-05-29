@@ -432,9 +432,20 @@ Then write a blog post
 - vibecoding feels like playing a game with cheat codes on. You progress and maybe even finish the game, but the magic is lost. It's not as fun anymore once you start using cheat codes
 - My stance on vibecoding is, I'll absolutely use it if I need something quick and I don't have the skillset and/or the time to build it. I only get a couple of hours a day to myself and I have so many commitments that I cannot possibly spend months learning a new language, framework, UI design guidelines, etc. In that case, I can just vibecode an app to get moving. It's far more likely that I'll give up halfway due to life getting in the way if I happen to go it alone. So, vibecoding would at least give me what I want in an hour. Sure, the magic is kinda lost and it's not as fun as learning to build it. But if it's not something I want to invest time learning, I'd just want to get it done quick.
 - for languages or frameworks that I do want to learn, I don't vibecode. I'd want to improve myself and my skillset and make sure I get better at it instead of completely depending on the AI tools.
-*** TODO Bloggo: an android app to blog on the go
+*** TODO App releases
+After I make posts about the apps I built, whenever I add new features, I should make a blog post about it.
+*** TODO My gripes about Amazon Alexa
+- whisper mode with a ding
+- did that answer your question?
+- the same couple dozen songs whenever I ask Alexa to play music
+- baby shushing sounds with Alexa vs Alexa+
+*** DONE Bloggo: an android app to blog on the go
+CLOSED: [2026-05-14 Thu 08:04]
 :PROPERTIES:
 :EXPORT_FILE_NAME: bloggo-an-android-app-to-blog-on-the-go.md
+:END:
+:LOGBOOK:
+- State "KILL"       from "TODO"       [2026-05-14 Thu 08:04]
 :END:
 This website ([[https://rrajath.com][rrajath.com]]) is built using a static site generator ([[https://gohugo.io][Hugo]]). I specifically like static site generators for the control, simplicity and the lack of need for deploying on a host and maintaining it. I can write blog posts in markdown format and push it to a github repo and they get built and deployed either via GitHub Pages, Cloudflare Pages, Netlify or other similar solutions. For free!
 

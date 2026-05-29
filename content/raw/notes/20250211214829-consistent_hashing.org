@@ -16,7 +16,9 @@ So, use consistent hashing. This means, you imagine your array to be a ring goin
 Now consider another hash function for your servers. They also occupy spots (not the ones used by requests) in that ring. When a request comes in, it'll find the nearest server and that server serves the request
 This scales well when you add more servers, the load on other servers decrease and everything works fine.
 However, if you lose a server, it may happen that half the requests will go to only one server. So, how do we solve this? Have more hash functions on the servers.
-If you have K hash functions, then K*N spots in that ring will be taken up by servers. So, even though there are more spots taken up by servers, they'll all still point to the same servers.
+If you have K hash functions, then K*N spots in that ring will be taken up by servers. So, even though there are more spots taken up by servers, they'll all still point to the same servers. These are also called virtual nodes.
+
+The key distinction to make is this: virtual nodes prevent structural imbalance (uneven key distribution), while replication and key salting prevent workload imbalance (uneven traffic).
 
 This is used behind the scenes in:
 - [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]]

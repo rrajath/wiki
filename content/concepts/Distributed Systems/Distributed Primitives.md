@@ -2,7 +2,7 @@
 title: Distributed Primitives
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-05-28
 sources:
   - raw/notes/20250211214829-consistent_hashing.org
   - raw/notes/20250212123516-gossip_protocol.org
@@ -30,6 +30,8 @@ Solves the problem of efficiently distributing keys across nodes when the number
 **The solution**: imagine a ring from 0 to M-1. Both keys and servers are hashed to positions on this ring. A key is served by the nearest server clockwise. Adding a server affects only the keys between the new server and its predecessor — minimizing reshuffling.
 
 **Virtual nodes**: if one server goes down, its load concentrates on the next clockwise server. To distribute the load more evenly, use multiple hash functions per server (K virtual nodes per physical server). K×N positions are occupied by servers, spreading the load when any one server drops.
+
+**Key distinction**: virtual nodes prevent *structural imbalance* (uneven key distribution across nodes); replication and key salting prevent *workload imbalance* (uneven request traffic). These are separate problems requiring separate solutions.
 
 **Used by**: Redis (cluster), Cassandra (partitioning), DynamoDB.
 
@@ -61,7 +63,12 @@ Write-optimized storage structure. Cassandra uses this instead of B-tree.
 
 **Compaction**: periodic job that merges SSTables, removes tombstoned (deleted) rows, prevents unbounded growth.
 
-**Trade-off**: excellent write throughput (mostly sequential); reads may require multiple SSTable scans (mitigated by bloom filters and in-memory indexes).
+**Read optimizations** (reads are expensive by default — must check memtable, then SSTables newest-to-oldest):
+- **Bloom filters**: each SSTable has a bloom filter; if it says "definitely not here," skip that file entirely.
+- **Sparse indexes**: SSTables are sorted, so each carries a sparse index of key ranges. Skip any SSTable whose range doesn't overlap the target key.
+- **Compaction strategies**: size-tiered compaction batches similar-sized SSTables (good for write-heavy loads but produces more files to check); leveled compaction maintains fewer, non-overlapping files (better reads, more frequent compaction writes).
+
+**Trade-off**: excellent write throughput (mostly sequential); reads may require multiple SSTable scans, mitigated by the above.
 
 ---
 
