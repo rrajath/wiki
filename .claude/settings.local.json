@@ -30,7 +30,11 @@
       "Bash(jj log:*)",
       "Bash(ls /Users/rrajath/Library/CloudStorage/Dropbox/org-roam/*.org)",
       "Bash(cp /Users/rrajath/Library/CloudStorage/Dropbox/org-mode/resources.org /Users/rrajath/kb-wiki/content/raw/notes/resources.org)",
-      "Bash(cp /Users/rrajath/Library/CloudStorage/Dropbox/org-mode/blog.org /Users/rrajath/kb-wiki/content/raw/notes/blog.org)"
+      "Bash(cp /Users/rrajath/Library/CloudStorage/Dropbox/org-mode/blog.org /Users/rrajath/kb-wiki/content/raw/notes/blog.org)",
+      "WebFetch(domain:www.hellointerview.com)",
+      "Bash(jj status *)",
+      "Bash(jj describe *)",
+      "Bash(jj bookmark *)"
     ]
   }
 }

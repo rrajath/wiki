@@ -4,6 +4,7 @@
 :END:
 #+title: Numbers to know for system design
 
+
 |-------------+---------------------------------+---------------------------------|
 | Component   | Key Metric                      | Scale Trigger                   |
 |-------------+---------------------------------+---------------------------------|
@@ -29,3 +30,18 @@
 #+CAPTION: Numbers to know
 [[attachment:clipboard-20250221T170558.png]]
 
+* Common mistakes in interviews
+** Premature Sharding
+Single biggest mistake is to assume that sharding is always necessary. For example, while designing Yelp, there are about 10M businesses, each with 1KB data: ~10M x 1KB = 10GB~. If you ~10x~ the data size to include reviews, then the total size would be ~100GB~. There's no need to shard.
+
+Same with designing Leetcode. If you take Leetcode leaderboard where there are up to 100k competitions and up to 100k users per competition. We're looking at ~100k * 100k * 4B float ratings = 400GB~. This can easily be handled in a single database. This can still fit on a single large cache.
+
+** Overestimating Latency
+We tend to overestimate latency to query SSD (Database) for a row based lookup. This happens in sub-millisecond to a few milliseconds for indexed lookups. There's no need to add caching for this kind of lookup. However, caching is necessary for non-index based queries.
+
+** Over-engineering given a high write throughput
+If we have a system with 5k writes per second, candidates often add a message queue to buffer this high "write" throughput.
+
+A well-tuned Postgres database can handle 20k+ writes per second. What actually limits write capacity is complex transactions spanning multiple tables, write amplification from excessive indexes, writes that trigger expensive cascading updates, or heavy concurrent reads competing with writes. If you're just inserting rows at 5k writes per second, there's no need for a message queue.
+
+Message queues become valuable when you need guaranteed delivery in case of downstream failures, event sourcing patterns, handling write spikes that exceed your database's capacity (e.g. above 20k+ WPS for a single Postgres instance), or decoupling producers from consumers. But they add complexity and should be justified by actual requirements. Before reaching for a message queue, consider simpler optimizations like batch writes, optimizing your schema and indexes, using connection pooling effectively, or using async commits for non-critical writes.

@@ -9,6 +9,7 @@ Run the `ingest` operation as defined in `.claude/SKILL.md`.
    - Update or create relevant wiki pages in `wiki/concepts/`, `wiki/entities/`, or `wiki/summaries/`.
 4. Update `wiki/index.md` to reflect any new or changed pages.
 5. Append a session entry to `log/YYYYMMDD.md` listing what was ingested.
+6. Commit all changes and push to remote using jj commands.
 
 If no new or modified org files are found, say so and stop.
 If there are many files, offer to ingest in batches of 5 to stay within context window limits.
