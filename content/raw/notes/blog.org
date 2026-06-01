@@ -439,6 +439,10 @@ After I make posts about the apps I built, whenever I add new features, I should
 - did that answer your question?
 - the same couple dozen songs whenever I ask Alexa to play music
 - baby shushing sounds with Alexa vs Alexa+
+*** TODO Setting up llm-wiki with org files
+- write about how you modified the skill to work with org files, like what changes you made in SKILL.md
+- explain your workflow 
+- potentially create a command that triggers the ingest operation from emacs 
 *** DONE Bloggo: an android app to blog on the go
 CLOSED: [2026-05-14 Thu 08:04]
 :PROPERTIES:
@@ -457,28 +461,23 @@ I like the fact that the posts are in GitHub because of a couple of reasons:
 This very setup became a kind of friction for me because whenever I had to post something, I had to be on my laptop to commit the changes and push to GitHub. This was not always feasible because I would not be near my personal laptop most of the time. I did play around with writing posts in my notes app on my phone (Orgzly) and later transferring them to the GitHub repo (via ox-hugo on emacs). But that workflow was a little clunky as well. It was the closest I came to having a seamless workflow.
 
 What I really needed was an app on my phone that I could write blog posts in, preview the markdown files and push to GitHub - all from my phone. This was not available and I ended up vibecoding one a couple of weeks ago. It's simple and does the job well. It's exactly what I need; nothing more, nothing less. The app basically needs a GitHub Personal Access Token in order to be able to push files to the repo. It also needs the name of the repo, the name of the branch and the folder where the files get pushed. You can also configure the frontmatter that gets added to every post so that you don't have to add them manually. That's pretty much it.
-
 **** Screenshots
 Here are some screenshots:
 <main page screenshot>
 <blog post page screenshot>
 <blog post preview screenshot>
-
 **** How the app works
 The main page shows all the posts that are in the remote and published. There are two sections - one for published posts and one for unpublished. The unpublished posts are the ones that are started on the phone and are in draft mode. The blog post page shows a simple text editor to write down content. The preview button at the top switches between editor mode and markdown preview mode to show how the post looks. Hitting back button on the blog post page would auto-save the file.
 
 The title of the post updates the frontmatter accordingly (by setting the value for the ~title~ attribute). And the filename gets generated from the title of the post with appropriate changes to make the slug short and not have any special or repeated characters. The Publish to GitHub button does literally that. It pushes the file to GitHub.
 
 The app is extensible-ish since all it cares about is where to push the files. So, it doesn't really matter if you're using Hugo as your static site generator. You can use Jekyll, Zola or any other SSG.
-
 **** My Workflow
 Now, my workflow has changed. I write my blog posts directly in this app. And I may take multiple sittings to write a blog post. I can always preview what I wrote to see if the formatting looks good. Once I'm ready, I just hit a button and the blog gets published. I've written a lot more blog posts this year because of this improvement. I love the fact that the lack of friction is really making me write more.
-
 **** Next Steps
 The app does pretty much what I need. Although, I may add a few features like:
 - making it easier to add links: for example, selecting a text should give me a popup and I should be able to add a link there instead of having to go through the Android keyboard to find characters like ~[~, ~]~, ~(~, ~)~  to format a link in markdown.
 - add pages: like the about page, now page or any other pages, instead of restricting the app to just blog posts.
-
 *** DONE Moved from Wireguard to Tailscale
 CLOSED: [2026-02-13 Fri 21:11]
 I had been wanting to install Tailscale for the longest time, but I never got around to it. I finally installed it and the whole installation was a breeze. I'm also able to connect to my devices easily. Every now and then I would set up wireguard on either my NAS or one of the Raspberry Pis and I would set everything up on the phone. And then I would never use it for a few months. And the next time I try to use it, I wouldn't be able to either because the docker container wouldn't be running or I would have lost the profile somehow or some other lame reason. I liked the idea of logging into my network from outside via a Wireguard VPN and be able to access all the hosts and services running on my home network. Wireguard is technically not painful, but it does require some set up and upkeep. For example, for whatever reason the Raspberry Pi on which it's hosted is down, I won't be able to access the network.
@@ -551,7 +550,7 @@ Add specific instructions
 Now every 6 hours it checks todoist and looks for the label ellie (the name for my bot) and picks up the task. It does all the research and puts what it finds in a markdown file in a specific directory. It also adds context to the task, where it came from and any additional metadata. Once it does all that, it notifies me on telegram with a brief summary of what it did. 
 **** Groceries
 I use todoist for my shopping list. I have a shopping list project where most items are groceries. I used to open todoist, add each grocery item and move it to the shopping list project and sometimes add a label like Costco, whole foods, etc. Now the bot has instructions to do this automatically. All I send in the message is "add milk" and it adds it to my shopping list project on todoist. 
-*** DONE OpenClaw use case: improvement to todoist grocery helper     :workflows:todoist:openclaw:
+*** DONE OpenClaw use case: improvement to todoist grocery helper :workflows:todoist:openclaw:
 CLOSED: [2026-02-08 Sun 13:57]
 :PROPERTIES:
 :EXPORT_FILE_NAME: openclaw-use-case-improvement-to-todoist-grocery-helper.md
@@ -588,7 +587,7 @@ CLOSED: [2026-01-27 Tue 20:51]
 :EXPORT_FILE_NAME: testing-cloudflare-pages.md
 :END:
 This is a test post to see how it shows up on Cloudflare Pages.
-*** DONE Week Notes - 26-04                                                            :weeknotes:
+*** DONE Week Notes - 26-04 :weeknotes:
 CLOSED: [2026-01-27 Tue 08:05]
 :PROPERTIES:
 :EXPORT_FILE_NAME: week-notes-26-04.md
@@ -617,7 +616,7 @@ file:/images/OrgRetroJournal.png
 This is invoked by calling the function =org-retro-journal-review=, which can be bound to any key.
 **** Conclusion
 This was a fun exercise. As mentioned earlier in this post, I co-developed it with LLM assistance. I'm not super proficient in Emacs Lisp to the point where I can write complex functions. Given enough time, I would have figured it out, but due to lack of time and LLMs being pretty good at writing code, I chose to use an LLM to assist me with this. The whole process took less than half an hour.
-*** DONE Add modeline indicators to Prodigy in Emacs                            :vibecoding:emacs:
+*** DONE Add modeline indicators to Prodigy in Emacs :vibecoding:emacs:
 CLOSED: [2026-01-15 Thu 15:04]
 :PROPERTIES:
 :EXPORT_FILE_NAME: add-modeline-indicators-to-prodigy-in-emacs.md
@@ -932,7 +931,7 @@ After doing a lot more research, I decided to go all in with both split keyboard
 Since I quickly wanted to ramp up and get better speeds with Colemak, I stopped using QWERTY completely. As my speeds improved, I was no longer able to type in QWERTY on my laptop keyboard. As I typed, I was hitting wrong keys all the time and I would immediately stop and get my split keyboard that was configured for Colemak. Now this became a little cumbersome since everywhere I went I had to take my keyboard with me.
 
 One day, I pushed through the wrong key presses and forced myself to type in QWERTY for some 10-15 minutes and I got much better at it. Turns out, the human brain is quite capable ot handling this kind of drastic change. Once I got some confidence in this switch, I now regularly switch between QWERTY and Colemak and I type fast in both. My Colemak speeds are still not great, but it’s getter better.
-*** DONE The pointlessness of the Mac Dockbar                                               :rant:
+*** DONE The pointlessness of the Mac Dockbar :rant:
 CLOSED: [2023-01-28 Sat 20:59]
 :PROPERTIES:
 :EXPORT_FILE_NAME: the-pointlessness-of-the-mac-dockbar.md
@@ -980,7 +979,7 @@ So, here's what worked. I found this [[https://github.com/helix-editor/helix/dis
 #+end_src
 
 This fixed the prettier issue for me and now any double quotes in the file are converted to single quotes. Any semi-colons that were missed at the end of statements get automatically added, just like how it’s configured in the prettier config for the project.
-*** DONE Clickbaits are here to stay                                                   :clickbait:
+*** DONE Clickbaits are here to stay :clickbait:
 CLOSED: [2022-12-27 Tue 22:43]
 :PROPERTIES:
 :EXPORT_FILE_NAME: clickbaits-are-here-to-stay.md
@@ -1550,7 +1549,7 @@ This page contains everything that was moved from the [[https://rrajath.com/now/
 - Indieweb integration
 - Self-hosting my data using Nextcloud on my Raspberry Pi
 * Footnotes
-* COMMENT Local Variables                                                                  :ARCHIVE:
+* COMMENT Local Variables :ARCHIVE:
 # Local Variables:
 # eval: (org-hugo-auto-export-mode)
 # End:

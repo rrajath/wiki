@@ -1,5 +1,6 @@
 Run the `ingest` operation as defined in `.claude/SKILL.md`.
 
+0. First fetch the latest changes from remote using jj to keep the repo up to date.
 1. Read `CLAUDE.md` and `wiki/index.md` first.
 2. Scan all org source directories listed in `CLAUDE.md` for `.org` files that are either (a) not yet present in `raw/notes/`, or (b) present but modified since last copied (compare by last-modified date or checksum).
 3. For each new or updated file:

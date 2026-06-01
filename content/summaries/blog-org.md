@@ -2,7 +2,7 @@
 title: blog.org — Blog Post Drafts & Ideas
 type: summary
 created: 2026-05-12
-updated: 2026-05-28
+updated: 2026-05-31
 sources:
   - raw/notes/blog.org
 tags: [writing, blog, decisions, tools, productivity]
@@ -54,6 +54,7 @@ Personal journey from Keychron K1 → Moonlander → Corne → Microdox Bud. Int
 - *Lessons Dark Souls taught me* — embrace repeated failure; expectation-setting changes frustration.
 - *App releases* — after publishing posts about apps I built, write follow-up posts whenever new features ship.
 - *My gripes about Amazon Alexa* — whisper mode with a ding; "Did that answer your question?"; same few dozen songs on music requests; baby-shushing behavior with Alexa vs Alexa+.
+- *Setting up llm-wiki with org files* — how the ingest skill was adapted for org-mode sources; workflow walkthrough; potential Emacs command to trigger ingest from within org-roam.
 
 ## Completed
 

@@ -24,7 +24,13 @@
       "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250218080308-postgresql.org /Users/rrajath/kb-wiki/content/raw/notes/20250218080308-postgresql.org)",
       "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250222100446-load_balancer.org /Users/rrajath/kb-wiki/content/raw/notes/20250222100446-load_balancer.org)",
       "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20250305091929-database_indexing.org /Users/rrajath/kb-wiki/content/raw/notes/20250305091929-database_indexing.org)",
-      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260513210409-grpc.org /Users/rrajath/kb-wiki/content/raw/notes/20260513210409-grpc.org)"
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260513210409-grpc.org /Users/rrajath/kb-wiki/content/raw/notes/20260513210409-grpc.org)",
+      "Bash(git pull:*)",
+      "Bash(jj git:*)",
+      "Bash(jj log:*)",
+      "Bash(ls /Users/rrajath/Library/CloudStorage/Dropbox/org-roam/*.org)",
+      "Bash(cp /Users/rrajath/Library/CloudStorage/Dropbox/org-mode/resources.org /Users/rrajath/kb-wiki/content/raw/notes/resources.org)",
+      "Bash(cp /Users/rrajath/Library/CloudStorage/Dropbox/org-mode/blog.org /Users/rrajath/kb-wiki/content/raw/notes/blog.org)"
     ]
   }
 }

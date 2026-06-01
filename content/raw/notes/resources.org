@@ -1773,7 +1773,7 @@ These are some thoughts about how to structure notes:
 I saw the usage of the word "could" in this article: https://jvns.ca/blog/2021/04/16/notes-on-debugging-puzzles/
 
 I thought it should be italicized. But it's bolded. I should update my knowledge.
-** Akrasia :zettel:
+** Akrasia                                                                                  :zettel:
 [2021-08-07 Sat 08:00]
 Akrasia
 
