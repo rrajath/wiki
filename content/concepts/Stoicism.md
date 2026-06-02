@@ -35,7 +35,7 @@ Reality does not care about your opinion of it. It is a cascade of cause and eff
 
 People change — their moods, energy, values, capabilities shift multiple times a day. Treating yourself or others as a fixed identity is a distortion. This has downstream implications:
 
-- **[[Identity Attached to Outcomes]]**: Attaching your identity to outcomes (a project's success, a label like "runner") creates a fragile self that can be broken by circumstances outside your control. You are not your outputs.
+- **[[Attaching Identity to Outcomes]]**: Attaching your identity to outcomes (a project's success, a label like "runner") creates a fragile self that can be broken by circumstances outside your control. You are not your outputs.
 - **[[Labels Anchor Us Down]]**: Labels freeze a dynamic person into a static snapshot, making it hard to grow or change course without feeling like you're betraying yourself.
 
 ### The Arbitrary Future State of Supposed Happiness

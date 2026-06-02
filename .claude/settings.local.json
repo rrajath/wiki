@@ -34,7 +34,9 @@
       "WebFetch(domain:www.hellointerview.com)",
       "Bash(jj status *)",
       "Bash(jj describe *)",
-      "Bash(jj bookmark *)"
+      "Bash(jj bookmark *)",
+      "Bash([ ! -f \"$CONTENT/$link.md\" ])",
+      "Bash([ ! -f \"$CONTENT/$link/index.md\" ])"
     ]
   }
 }
