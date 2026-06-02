@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-05-26 (added Sharding, Kafka).
+Last updated: 2026-06-01 (created 12 Week Year concept page; created Handling Information Overload concept page).
 
 ### Concepts
 
@@ -63,7 +63,7 @@ Last updated: 2026-05-26 (added Sharding, Kafka).
 
 **Productivity & Workflow**: Workflow · Productivity Improvement · App Summon · Easy Plug-and-Play · Muscle Memory
 
-**Awareness & Cognition**: Awareness · Information Overload · Decision Fatigue · Mental Junk Food · Our Defaults · Instant Gratification vs Deep Satisfaction
+**Awareness & Cognition**: Awareness · Information Overload · Handling Information Overload · Decision Fatigue · Mental Junk Food · Our Defaults · Instant Gratification vs Deep Satisfaction
 
 **Stoicism & Mindset**: Stoicism · Dichotomy of Control · Accept Reality as It Is · Attaching Identity to Outcomes · Labels Anchor Us Down · Arbitrary Future State of Supposed Happiness
 

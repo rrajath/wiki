@@ -26,7 +26,7 @@
 - [[concepts/Priorities are Time-Bound]] — higher priority = must be done sooner; time and priority are linked
 - [[concepts/You Always Make the Best Decision]] — decisions are made with available info; outcomes are separate
 - [[concepts/Decisions vs Outcomes]] — separating decisions from outcomes enables rational evaluation
-- [[concepts/12 Week Year]] — replace annual planning with 12-week cycles for urgency and clarity
+- [[concepts/12 Week Year]] — compress annual plans into 12-week cycles; four "years" per calendar year
 
 ### Systems Thinking
 - [[concepts/Systems Thinking]] — seeing circular relationships and feedback loops vs linear cause-effect
