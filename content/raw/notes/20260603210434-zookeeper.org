@@ -1,0 +1,88 @@
+:PROPERTIES:
+:ID:       212EBCB2-35C6-40C2-BCF2-5D904F08A92E
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/deep-dives/zookeeper
+:END:
+#+title: Zookeeper
+
+* Why Zookeeper was needed
+There's a need for coordinating servers in a scalable application so that they all work together as a well oiled machine.
+Take a chat application for example. You start with a simple chat app where there's just one server and Alice can send a message to Bob and both users are connected to the same server. The server knows where to send the message and who is connected.
+
+Imagine the chat app has way more users and you add more servers. Now each server must know which user is connected to which server. This can be a database lookup every time a user dis/connects and every time a user sends a message. But this doesn't scale. The DB becomes a single point of failure and also adds latency to each request.
+
+You think of adding a cache, but what if the cache goes down? Also, you'll deal with cache inconsistency issues. If a user disconnects from one server and connects to another, and the cache still thinks the user is connected to the main server, then messages get lost.
+
+You think of making servers talk to each other by implementing heartbeats to know which ones are alive. But this creates a lot of network traffic and gets worse as new servers get added. Plus you run into [[id:1823035B-2731-4916-8B19-BEC2E044E13D][Partition Tolerance]] issue where a server may be alive, but due to a network issue it may not respond to the ping requests from other servers.
+
+Each of these problems - service discovery, configuration sharing, failure detection, leader election, and distributed consensus - are fundamental problems in distributed systems and Zookeeper solves all of them.
+
+When a server comes online, they get stored in Zookeeper.
+When users connect to a server, the mapping gets stored in Zookeeper.
+Zookeeper then notifies interested servers about changes and automatically handles failures through its ephemeral nodes.
+
+* Zookeeper Basics
+
+** Data Model: ZNodes
+Zookeeper organizes its data in hierarchical namespaces that are similar to a file system or a tree. The nodes in this tree are called ZNodes.
+ZNodes can store data and have associated metadata.
+
+Each ZNode is associated by a path. For example, ~/app1/config~ would refer to the configuration for an application called ~app1~.
+ZNodes are designed to store coordination data, not bulk data like images or documents.
+
+ZNodes come in 3 main flavors
+
+- Persistent ZNodes :: These exist until explicitly deleted. In a chat app, these nodes would store config data like max message size or rate limiting parameters.
+- Ephemeral ZNodes :: automatically deleted when the session that created them ends. This is perfect for tracking which servers are alive and which users are online.
+- Sequential ZNodes :: these have an automatically appended monotonically increasing counter to their name. In a chat app, we could use this for ordering messages or implementing distributed locks.
+
+** Server Roles and Ensemble
+Zookeeper isn't designed to run on a single server. That would create a single point of failure. Instead, it runs on a group of servers called an *Ensemble*. A typical prod deployment consists of an odd number of servers to help with majority decisions.
+Within this ensemble, servers take on different roles:
+- Leader :: one server is elected as the leader and is responsible for processing all update requests. When Server 2 registers a new user connection in Zookeeper, this write request goes to the leader.
+- Followers :: the rest of the servers follow the leader's instructions and help serve read requests. When Server 1 needs to find where Bob is connected, it can read this information from any Zookeeper server in the ensemble.
+
+** Watches: Knowing when things change
+Watches allow servers to be notified when a ZNode changes, eliminating the need for constant polling or complex server-to-server communication.
+In a chat app, here's how watches work:
+1. When Server 1 starts up, it sets a watch on the ~/chat-app/users~ directory.
+2. When Bob disconnects from Server 2 and reconnects to Server 3, Server 3 updates Bob's ZNode.
+3. Zookeeper automatically notifies Server 1 about this change through its watcher callback.
+
+So, when a user moves between servers, only the servers that care about that user receive notifications.
+
+* Key Capabilities
+
+** Configuration Management
+One of the most common uses of Zookeeper is to store and distribute config data across a distributed system. This might include database connection strings, feature flags, or service endpoints.
+
+Zookeeper has the ability to notify interested services when configuration changes.
+
+For example, if you want to enable a new feature across your entire chat platform, Zookeeper can:
+1. Update a single Znode: ~set /chat-app/config/enable_reactions "true"~
+2. All chat servers watching this node receive a notification
+3. Servers update their behavior without restarting
+
+** Service Discovery
+...is the process of automatically detecting services and endpoints in a distributed system. As services come online, they register themselves; as they go offline, they deregister.
+
+For example, when a new video upload service needs to find available transcoders, it simply:
+1. Reads ~/streaming/services/video-transcoder~ children
+2. Connects to one of the available transcoder instances
+3. Sets a watch to be notified of any changes to the available transcoders
+
+** Leader Election
+You might want only one server to process payment transactions or schedule jobs. Having a leader allows you to coordinate these operations and ensure only one server is doing them at a time.
+
+Zookeeper's sequential ZNodes make leader election straightforward:
+1. Each server creates a sequential ephemeral node under a designated path
+2. The server with the lowest sequence number becomes the leader
+3. All other servers watch the node with the next lowest sequence number
+4. If a leader fails, its node disappears, and the next server in sequence steps up
+
+** Distributed Locks
+Zookeeper implements distributed locks using sequential ephemeral ZNodes:
+1. Each client trying to acquire the lock createes a sequential ephemeral node under a lock path
+2. All clients sort the nodes by sequence number
+3. The client with the lowest sequence number holds the lock
+4. Each client watches the node with the next lower sequence number
+5. When a client releases the lock (or crashes), its ZNode is removed, and the next client is notified

@@ -29,6 +29,7 @@ Notes captured during system design interview preparation. Covers databases, dis
 - [[Distributed Systems/WebRTC]] — peer-to-peer UDP communication; STUN/TURN for NAT traversal
 - [[Distributed Systems/Sharding]] — partitioning data across machines; shard key selection, strategies, hot spots
 - [[Distributed Systems/Kafka]] — distributed event streaming; topics, partitions, consumer groups, fault tolerance
+- [[Distributed Systems/Zookeeper]] — distributed coordination: service discovery, config management, leader election, distributed locks
 
 ## Database comparison
 

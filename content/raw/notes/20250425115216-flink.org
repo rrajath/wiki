@@ -10,7 +10,7 @@
 - Flink is a dataflow engine, built around the idea of a dataflow graph. This is a DAG of nodes and edges between nodes
 - Nodes are called *operators*, edges are called *streams*
 - beginning and end of graphs are called *sources* and *sinks*
-** Basic Dataflow Graph                                                                     :ATTACH:
+** Basic Dataflow Graph                                                                    :ATTACH:
 :PROPERTIES:
 :ID:       0FEF9C71-AD0D-4D22-A68A-DF77A28F6D3F
 :END:
@@ -58,7 +58,7 @@
   - sliding window: fixed-size, overlapping windows
   - session window: dynamic-size windows based on activity
   - global window: custom windowing logic
-- Based on the window type, Flink emits a value at the end of a window. For example, if I create a tumbling window of 5 minutes and my input is clicks, Flink emits the total number of clicks every 5 minutes (at the end of each window)
+- *Based on the window type, Flink emits a value at the end of a window. For example, if I create a tumbling window of 5 minutes and my input is clicks, Flink emits the total number of clicks every 5 minutes (at the end of each window)*
 - windows can be applied to both keyed and non-keyed streams. When they're applied for keyed streams, windows are maintained independently for each key. This allows you to look at a window for a particular user/account or other key
 - windows work closely with watermarks to determine when to trigger computations and how to handle late events.
 - you can also configure windows with allowed lateness to process events that arrive after the window has closed but before a specified grace period ends.

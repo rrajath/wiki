@@ -442,7 +442,7 @@ After I make posts about the apps I built, whenever I add new features, I should
 *** TODO Setting up llm-wiki with org files
 - write about how you modified the skill to work with org files, like what changes you made in SKILL.md
 - explain your workflow 
-- potentially create a command that triggers the ingest operation from emacs 
+- potentially create a command that triggers the ingest operation from emacs
 *** DONE Bloggo: an android app to blog on the go
 CLOSED: [2026-05-14 Thu 08:04]
 :PROPERTIES:

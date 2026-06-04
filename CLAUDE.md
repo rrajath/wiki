@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-06-01 (created 12 Week Year concept page; created Handling Information Overload concept page).
+Last updated: 2026-06-03 (added Zookeeper).
 
 ### Concepts
 
@@ -77,7 +77,7 @@ Last updated: 2026-06-01 (created 12 Week Year concept page; created Handling In
 
 **Pregnancy**: Stages of Labor
 
-**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka
+**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper
 
 ### Entities
 *(none)*

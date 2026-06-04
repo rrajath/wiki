@@ -96,6 +96,7 @@
     - [[concepts/Distributed Systems/WebRTC]] — peer-to-peer UDP; STUN/TURN NAT traversal; audio/video/data
     - [[concepts/Distributed Systems/Sharding]] — partitioning data across machines; shard key selection, hot spots, cross-shard ops
     - [[concepts/Distributed Systems/Kafka]] — distributed event streaming; topics, partitions, consumer groups, fault tolerance
+    - [[concepts/Distributed Systems/Zookeeper]] — coordination service: service discovery, config management, leader election, distributed locks
 
 ## Entities
 
