@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-06-03 (added Zookeeper).
+Last updated: 2026-06-05 (added Real-time Updates, Simple Polling, Long Polling, Server Sent Events).
 
 ### Concepts
 
@@ -77,7 +77,7 @@ Last updated: 2026-06-03 (added Zookeeper).
 
 **Pregnancy**: Stages of Labor
 
-**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper
+**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events
 
 ### Entities
 *(none)*

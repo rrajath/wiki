@@ -97,6 +97,10 @@
     - [[concepts/Distributed Systems/Sharding]] — partitioning data across machines; shard key selection, hot spots, cross-shard ops
     - [[concepts/Distributed Systems/Kafka]] — distributed event streaming; topics, partitions, consumer groups, fault tolerance
     - [[concepts/Distributed Systems/Zookeeper]] — coordination service: service discovery, config management, leader election, distributed locks
+    - [[concepts/Distributed Systems/Real-time Updates]] — overview of all real-time delivery patterns and server-side routing
+        - [[concepts/Distributed Systems/Simple Polling]] — baseline: client polls server on a fixed interval
+        - [[concepts/Distributed Systems/Long Polling]] — server holds request open until data is ready
+        - [[concepts/Distributed Systems/Server Sent Events]] — persistent HTTP stream; efficient one-way push
 
 ## Entities
 

@@ -36,7 +36,14 @@
       "Bash(jj describe *)",
       "Bash(jj bookmark *)",
       "Bash([ ! -f \"$CONTENT/$link.md\" ])",
-      "Bash([ ! -f \"$CONTENT/$link/index.md\" ])"
+      "Bash([ ! -f \"$CONTENT/$link/index.md\" ])",
+      "mcp__reddit__reddit_get_post",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260605182311-simple_polling.org /Users/rrajath/kb-wiki/content/raw/notes/20260605182311-simple_polling.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260605182700-long_polling.org /Users/rrajath/kb-wiki/content/raw/notes/20260605182700-long_polling.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260605183435-server_sent_events_sse.org /Users/rrajath/kb-wiki/content/raw/notes/20260605183435-server_sent_events_sse.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260605195148-server_side_push_pull.org /Users/rrajath/kb-wiki/content/raw/notes/20260605195148-server_side_push_pull.org)",
+      "Bash(cp ~/Library/CloudStorage/Dropbox/org-roam/20260605201718-real_time_updates.org /Users/rrajath/kb-wiki/content/raw/notes/20260605201718-real_time_updates.org)",
+      "Bash(jj st *)"
     ]
   }
 }

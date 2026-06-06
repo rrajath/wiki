@@ -550,7 +550,7 @@ Add specific instructions
 Now every 6 hours it checks todoist and looks for the label ellie (the name for my bot) and picks up the task. It does all the research and puts what it finds in a markdown file in a specific directory. It also adds context to the task, where it came from and any additional metadata. Once it does all that, it notifies me on telegram with a brief summary of what it did. 
 **** Groceries
 I use todoist for my shopping list. I have a shopping list project where most items are groceries. I used to open todoist, add each grocery item and move it to the shopping list project and sometimes add a label like Costco, whole foods, etc. Now the bot has instructions to do this automatically. All I send in the message is "add milk" and it adds it to my shopping list project on todoist. 
-*** DONE OpenClaw use case: improvement to todoist grocery helper :workflows:todoist:openclaw:
+*** DONE OpenClaw use case: improvement to todoist grocery helper     :workflows:todoist:openclaw:
 CLOSED: [2026-02-08 Sun 13:57]
 :PROPERTIES:
 :EXPORT_FILE_NAME: openclaw-use-case-improvement-to-todoist-grocery-helper.md
@@ -587,7 +587,7 @@ CLOSED: [2026-01-27 Tue 20:51]
 :EXPORT_FILE_NAME: testing-cloudflare-pages.md
 :END:
 This is a test post to see how it shows up on Cloudflare Pages.
-*** DONE Week Notes - 26-04 :weeknotes:
+*** DONE Week Notes - 26-04                                                            :weeknotes:
 CLOSED: [2026-01-27 Tue 08:05]
 :PROPERTIES:
 :EXPORT_FILE_NAME: week-notes-26-04.md
@@ -616,7 +616,7 @@ file:/images/OrgRetroJournal.png
 This is invoked by calling the function =org-retro-journal-review=, which can be bound to any key.
 **** Conclusion
 This was a fun exercise. As mentioned earlier in this post, I co-developed it with LLM assistance. I'm not super proficient in Emacs Lisp to the point where I can write complex functions. Given enough time, I would have figured it out, but due to lack of time and LLMs being pretty good at writing code, I chose to use an LLM to assist me with this. The whole process took less than half an hour.
-*** DONE Add modeline indicators to Prodigy in Emacs :vibecoding:emacs:
+*** DONE Add modeline indicators to Prodigy in Emacs                            :vibecoding:emacs:
 CLOSED: [2026-01-15 Thu 15:04]
 :PROPERTIES:
 :EXPORT_FILE_NAME: add-modeline-indicators-to-prodigy-in-emacs.md
@@ -931,7 +931,7 @@ After doing a lot more research, I decided to go all in with both split keyboard
 Since I quickly wanted to ramp up and get better speeds with Colemak, I stopped using QWERTY completely. As my speeds improved, I was no longer able to type in QWERTY on my laptop keyboard. As I typed, I was hitting wrong keys all the time and I would immediately stop and get my split keyboard that was configured for Colemak. Now this became a little cumbersome since everywhere I went I had to take my keyboard with me.
 
 One day, I pushed through the wrong key presses and forced myself to type in QWERTY for some 10-15 minutes and I got much better at it. Turns out, the human brain is quite capable ot handling this kind of drastic change. Once I got some confidence in this switch, I now regularly switch between QWERTY and Colemak and I type fast in both. My Colemak speeds are still not great, but it’s getter better.
-*** DONE The pointlessness of the Mac Dockbar :rant:
+*** DONE The pointlessness of the Mac Dockbar                                               :rant:
 CLOSED: [2023-01-28 Sat 20:59]
 :PROPERTIES:
 :EXPORT_FILE_NAME: the-pointlessness-of-the-mac-dockbar.md
@@ -979,7 +979,7 @@ So, here's what worked. I found this [[https://github.com/helix-editor/helix/dis
 #+end_src
 
 This fixed the prettier issue for me and now any double quotes in the file are converted to single quotes. Any semi-colons that were missed at the end of statements get automatically added, just like how it’s configured in the prettier config for the project.
-*** DONE Clickbaits are here to stay :clickbait:
+*** DONE Clickbaits are here to stay                                                   :clickbait:
 CLOSED: [2022-12-27 Tue 22:43]
 :PROPERTIES:
 :EXPORT_FILE_NAME: clickbaits-are-here-to-stay.md
@@ -1549,7 +1549,7 @@ This page contains everything that was moved from the [[https://rrajath.com/now/
 - Indieweb integration
 - Self-hosting my data using Nextcloud on my Raspberry Pi
 * Footnotes
-* COMMENT Local Variables :ARCHIVE:
+* COMMENT Local Variables                                                                  :ARCHIVE:
 # Local Variables:
 # eval: (org-hugo-auto-export-mode)
 # End:

@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:       6CDF2D01-7000-4D45-80C8-E7CA89954A03
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/realtime-updates#server-sent-events-sse-the-efficient-one-way-street
+:END:
+#+title: Server Sent Events (SSE)
+
+* How it works
+This is an extension of [[id:67C384D7-E482-4916-AFB0-E0C99F287C5E][Long Polling]] that allows the server to send a stream of data to the client.
+
+HTTP reponses typically contain headers like Content-Length that indicate how many bytes of data the client is expected to receive. With SSE, there a specific header called ~Transfer-Encoding: chunked~. This tells the client that the response is a series of chunks - we don't know how many there are and how big they are.
+
+With SSE, instead of sending the full data once it becomes available, the server sends a chunk of data and keeps the request open to send more data as needed.
+
+Perfect for scenarios where the server needs to send data to clients, but the clients don't need to respond back. How it works is:
+
+1. The client establishes connection
+2. Server keeps the connection open
+3. Server sends messages when data changes or updates happen
+4. Client receives updates in real-time
+
+* Advantages
+- built into browsers
+- works over HTTP
+- automatic reconnection
+- more efficient than [[id:67C384D7-E482-4916-AFB0-E0C99F287C5E][Long Polling]] due to less connection initiation/teardown
+- simple to implement
+
+* Disadvantages
+- one way communication only
+- some proxies and networking equipment don't support streaming
+- browsers limit the number of concurrent connections per domain, meaning you only have a few SSE connections available per domain
+- makes monitoring painful since requests can hang around for a long time
+
+* When to use SSE
+- notifications shown on a website that the client does not need to respond to
+- AI chat apps

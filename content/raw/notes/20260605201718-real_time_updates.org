@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:       A85D8C6D-7DAE-4EB8-8A5E-332F8E1ED20F
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/realtime-updates
+:END:
+#+title: Real-time Updates
+
+* Problem
+Sometimes we need updates in real-time. Certain applications ask for it - chat apps, metrics, dashboards, live scores, live comments, collaborative document editing, etc.
+
+* Solution
+Two parts:
+1. How do we get the server to send updates to clients?
+2. How do get updates to the server?
+
+** Servers sending updates to clients
+A few ways to do this:
+1. [[id:B40AE80C-56AC-4C2F-B3D1-854BAADD352B][Simple Polling]]
+2. [[id:67C384D7-E482-4916-AFB0-E0C99F287C5E][Long Polling]]
+3. [[id:6CDF2D01-7000-4D45-80C8-E7CA89954A03][Server Sent Events (SSE)]]
+4. [[id:887D6451-5EC8-40DB-96C8-8549D3807B5C][WebSockets]]
+5. [[id:AB6C5275-D594-4372-8002-6DB38FC12A1A][WebRTC]]
+
+** Servers getting updates
+[[id:46E6E23D-77D3-4DD1-A141-A3F4CB93457B][Server Side Push/Pull]]
+
+* Common Deep Dives
+Here are some common deep dives that could be asked in an interview and how you might want to answer them:
+
+** How do you handle connection failures and reconnection?
+Real-world networks are unreliable. Mobile users lose connections constantly, WiFi drops out, and servers restart. Your real-time system needs graceful degradation and recovery.
+
+The key challenge is detecting disconnections quickly and resuming without data loss. WebSocket connections don't always signal when they break - a client might think it's connected while the server has already cleaned up the connection. Implementing heartbeat mechanisms helps detect these "zombie" connections.
+
+For recovery, you need to track what messages or updates a client has received. When they reconnect, they should get everything they missed. This often means maintaining a per-user message queue or implementing sequence numbers that clients can reference during reconnection. Using Redis streams for this is a popular option.
+
+** What happens when a single user has millions of followers who all need the same update?
+This is the classic "celebrity problem" in real-time systems. When a celebrity posts, millions of users need that update simultaneously. Naive approaches create massive fan-out that can crash your system.
+
+The solution involves strategic caching and hierarchical distribution. Instead of writing the update to millions of individual user feeds, cache the update once and distribute through multiple layers. Regional servers can pull the update and push to their local clients, reducing the load on any single component.
+
+** How do you maintain message ordering across distributed servers?
+When multiple servers handle real-time updates, ensuring consistent ordering becomes complex. Two messages sent milliseconds apart might arrive out of order if they travel different network paths or get processed by different servers.
+
+Vector clocks or logical timestamps help establish ordering relationships between messages. Each server maintains its own clock, and messages include timestamp information that helps recipients determine the correct order.
+
+For critical ordering requirements, you might need to funnel all related messages through a single server or partition. This trades some scalability for consistency guarantees, but simplifies the ordering problem significantly.

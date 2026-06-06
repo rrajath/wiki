@@ -2,7 +2,7 @@
 title: Distributed Systems — Index
 type: concept
 created: 2026-05-12
-updated: 2026-05-26
+updated: 2026-06-05
 sources:
   - raw/notes/20250220100347-databases.org
 tags: [distributed-systems, system-design, databases]
@@ -30,6 +30,10 @@ Notes captured during system design interview preparation. Covers databases, dis
 - [[Distributed Systems/Sharding]] — partitioning data across machines; shard key selection, strategies, hot spots
 - [[Distributed Systems/Kafka]] — distributed event streaming; topics, partitions, consumer groups, fault tolerance
 - [[Distributed Systems/Zookeeper]] — distributed coordination: service discovery, config management, leader election, distributed locks
+- [[Distributed Systems/Real-time Updates]] — overview of all real-time patterns: polling, SSE, WebSockets, WebRTC, and server-side routing
+    - [[Distributed Systems/Simple Polling]] — baseline: client polls server at regular intervals
+    - [[Distributed Systems/Long Polling]] — server holds request open until data is ready
+    - [[Distributed Systems/Server Sent Events]] — persistent HTTP stream; server→client only
 
 ## Database comparison
 

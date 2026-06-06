@@ -1,0 +1,27 @@
+:PROPERTIES:
+:ID:       67C384D7-E482-4916-AFB0-E0C99F287C5E
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/realtime-updates#long-polling-the-easy-solution
+:END:
+#+title: Long Polling
+
+* How it works
+The client makes a request to the server and the server holds the request open until new data is available. The server returns the data and the client makes another request. It's as if the server is taking too long to respond. Since the client needs to "call back" to the server after each receipt, the approach can introduce some extra latency.
+
+* Advantages
+- builds on standard HTTP and works everywhere HTTP works
+- easy to implement
+- no special infra needed
+- stateless server-side
+
+* Disadvantages
+- higher latency than alternatives
+- more HTTP overhead
+- can be resource intensive with many clients
+- not suitable for frequent updates
+- makes monitoring more painful since requests hang around for a long time
+- browsers limit the number of concurrent connections per domain, so you may only have a few long polling connections available per domain
+
+* When to use Long Polling
+- when updates are infrequent and a simple solution is preferred
+- if the latency trade off of a [[id:B40AE80C-56AC-4C2F-B3D1-854BAADD352B][Simple Polling]] solution is an issue, long polling is a good upgrade
+- it's good for applications where a long async process is running but you want to know when it finishes, as soon as it finishes - for example, cash payment processing

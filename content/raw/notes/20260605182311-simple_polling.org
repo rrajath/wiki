@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       B40AE80C-56AC-4C2F-B3D1-854BAADD352B
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/realtime-updates#simple-polling-the-baseline
+:END:
+#+title: Simple Polling
+
+* How it works
+Client polls the server at a regular interval. It's a simple HTTP request.
+
+* Advantages
+- simple to implement
+- stateless
+- no special infra needed
+- works with any standard networking infra
+
+* Disadvantages
+- higher latency than other methods. Updates might be delayed as long as the polling interval + the time it takes to process the request
+- limited update frequency
+- more bandwidth usage
+- can be resource intensive with many clients, establishing new connections, etc.

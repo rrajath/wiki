@@ -1,0 +1,97 @@
+:PROPERTIES:
+:ID:       46E6E23D-77D3-4DD1-A141-A3F4CB93457B
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/realtime-updates#server-side-push-pull
+:END:
+#+title: Server Side Push/Pull
+
+* What it is
+In real-time updates, there are two hops to get data from server to client.
+1. How the server sends data to client
+2. How the server gets the data to send to clients in the first place
+
+The first hop deals with different mechanisms each containing trade offs. They are:
+1. [[id:B40AE80C-56AC-4C2F-B3D1-854BAADD352B][Simple Polling]]
+2. [[id:67C384D7-E482-4916-AFB0-E0C99F287C5E][Long Polling]]
+3. [[id:6CDF2D01-7000-4D45-80C8-E7CA89954A03][Server Sent Events (SSE)]]
+4. [[id:887D6451-5EC8-40DB-96C8-8549D3807B5C][WebSockets]]
+5. [[id:AB6C5275-D594-4372-8002-6DB38FC12A1A][WebRTC]]
+
+The second hop deals with the server getting the data. Server getting the data is also known as a *trigger*. The server must be /triggered/ to send data to client. This is done via a few mechanisms:
+
+** Pulling with [[id:B40AE80C-56AC-4C2F-B3D1-854BAADD352B][Simple Polling]]
+When a client polls the server at regular intervals, that itself acts as a trigger.
+1. The client sends a request to the server.
+2. The server looks up the database, which could be getting updated from somewhere else.
+3. The server sends the data.
+
+** Pushing with Consistent Hashes
+This approach involves pushing data to clients. In most client update mechanisms (like long polling, SSE, WebSockets, etc), the client has a persistent connection to one server and that server is responsible for pushing updates to the client.
+
+This has a problem. In a chat app, for example, in order to send a message to a user, we need to know which server the user is connected to. That server must get the message and then send that message to the user.
+
+This can be done in two ways.
+
+*** Simple Hashing
+Use modulo method where you hash the connections by ~%N~ where ~N~ is the number of servers. A user connected to a particular server (after hashing) will receive the message intended for them since the same hash will be applied on the server-side to push updates to that user.
+
+When clients initially connect to our service, we can either:
+1. Directly connect them to the appropriate server, or
+2. Have them randomly connect to any of the servers, and have that server redirect them to the appropriate server based on the internal data.
+
+When a client connects, the following happens:
+1. The client connects to a random server
+2. The server uses [[id:212EBCB2-35C6-40C2-BCF2-5D904F08A92E][Zookeeper]]'s server list to compute which server is responsible for the client
+3. The server redirects the client to the appropriate server
+4. The client connects to the correct server
+5. The server adds that client to the map of connections
+
+*** [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]]
+
+**** Advantages
+- predictable server assignment
+- minimal connection disruption during scaling
+- works well with stateful connections
+- easy to add/remove servers
+
+**** Disadvantages
+- complex to implement correctly
+- requires coordination service (like [[id:212EBCB2-35C6-40C2-BCF2-5D904F08A92E][Zookeeper]])
+- all servers need to maintain routing information
+- connection state is lost if a server fails
+
+**** Things to discuss in your interview
+If you introduce a consistent hashing approach in an interview, you'll want to be able to discuss not only how the updates are routed (e.g. a coordination service like Zookeeper or etcd). Interviewers are usually interested to understand how the system scales: what happens when we need to increase or decrease the number of nodes. For those instances, you'll want to be able to share your knowledge about consistent hashing but also talk about the orchestration logic necessary to make it work. In practice, this usually means:
+
+1. Signaling the beginning of a scaling event. Recording both the old and new server assignments.
+2. Slowly disconnecting clients from the old server and having them reconnect to their newly assigned server.
+3. Signaling the end of the scaling event and updating the coordination service with the new server assignments.
+4. In the interim, having messages which are sent to both the old and new server until they're fully transitioned.
+
+** Pushing via Pub/Sub
+In this model, we have a single service that's reponsible for collecting updates from the source and then broadcasting it to all the interested clients. Most popular options include [[id:9C0DF38D-A6AE-4570-9FF8-1398FECA89AF][Kafka]] and [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]].
+
+Endpoint servers subscribe to relevant topics and forward the updates to appropriate clients.
+
+When clients connect, we don't need them to connect to a specific endpoint server (like we did with consistent hashing) and instead can connect to any of them. Once connected, the endpoint server will register the client with the pub/sub server so that any updates can be sent to them.
+
+On the connection side, the following happens:
+
+1. The client establishes a connection with an endpoint server.
+2. The endpoint server registers the client with the Pub/Sub service, often by creating a topic, subscribing to it, and keeping a mapping from topics to the connections associated with them.
+
+On the update broadcasting side, the following happens:
+
+1. Updates are pushed to the Pub/Sub service to the relevant topic.
+2. The Pub/Sub service broadcasts the update to all clients subscribed to that topic.
+3. The endpoint server receives the update, looks up which client is subscribed to that topic, and forwards the update to that client over the existing connection.
+
+*** Advantages
+- Managing load on endpoint servers is easy, we can use a simple load balancer with "least connections" strategy.
+- We can broadcast updates to a large number of clients efficiently.
+- We minimize the proliferation of state through our system.
+
+*** Disadvantages
+- We don't know whether subscribers are connected to the endpoint server, or when they disconnect.
+- The Pub/Sub service becomes a single point of failure and bottleneck.
+- We introduce an additional layer of indirection which can add to latency.
+- There exist many-to-many connections between Pub/Sub service hosts and the endpoint servers.
