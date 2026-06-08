@@ -3,6 +3,7 @@
 :ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/realtime-updates
 :END:
 #+title: Real-time Updates
+#+filetags: :patterns:
 
 * Problem
 Sometimes we need updates in real-time. Certain applications ask for it - chat apps, metrics, dashboards, live scores, live comments, collaborative document editing, etc.

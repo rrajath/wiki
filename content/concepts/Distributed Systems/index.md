@@ -2,7 +2,7 @@
 title: Distributed Systems — Index
 type: concept
 created: 2026-05-12
-updated: 2026-06-05
+updated: 2026-06-07
 sources:
   - raw/notes/20250220100347-databases.org
 tags: [distributed-systems, system-design, databases]
@@ -34,6 +34,13 @@ Notes captured during system design interview preparation. Covers databases, dis
     - [[Distributed Systems/Simple Polling]] — baseline: client polls server at regular intervals
     - [[Distributed Systems/Long Polling]] — server holds request open until data is ready
     - [[Distributed Systems/Server Sent Events]] — persistent HTTP stream; server→client only
+
+- [[Distributed Systems/Dealing with Contention]] — race conditions and five tools to prevent lost updates
+    - [[Distributed Systems/Conditional Writes]] — atomic UPDATE with WHERE predicate; simplest fix
+    - [[Distributed Systems/Pessimistic Locking]] — FOR UPDATE; locks rows across app decision logic
+    - [[Distributed Systems/Optimistic Concurrency Control]] — version columns; detect collision at write time
+    - [[Distributed Systems/Database Isolation Levels]] — four levels; SERIALIZABLE for write skew
+    - [[Distributed Systems/Distributed Locks]] — Redis TTL / DB column / ZooKeeper for cross-transaction holds
 
 ## Database comparison
 

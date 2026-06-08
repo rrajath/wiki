@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-06-05 (added Real-time Updates, Simple Polling, Long Polling, Server Sent Events).
+Last updated: 2026-06-07 (added Dealing with Contention cluster: Conditional Writes, Pessimistic Locking, OCC, Database Isolation Levels, Distributed Locks).
 
 ### Concepts
 
@@ -77,7 +77,7 @@ Last updated: 2026-06-05 (added Real-time Updates, Simple Polling, Long Polling,
 
 **Pregnancy**: Stages of Labor
 
-**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events
+**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
 
 ### Entities
 *(none)*

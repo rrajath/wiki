@@ -90,9 +90,11 @@ ACID transactions. Three isolation levels:
 | Repeatable Read | Snapshot at transaction start; same query returns same results |
 | Serializable | Full serial ordering; prevents all anomalies; requires retry on conflict |
 
-Row-level locking with `SELECT ... FOR UPDATE` prevents concurrent writes to the same row.
+Row-level locking with `SELECT ... FOR UPDATE` prevents concurrent writes to the same row. See [[Distributed Systems/Pessimistic Locking]].
 
-**Optimistic Concurrency Control (OCC)**: instead of locking upfront, read the data along with a version number or timestamp. At commit time, check whether the version has changed. If it has, another transaction modified the row — retry. Lower contention than pessimistic locking for read-heavy workloads.
+**Optimistic Concurrency Control (OCC)**: instead of locking upfront, read the data along with a version number or timestamp. At commit time, check whether the version has changed. If it has, another transaction modified the row — retry. Lower contention than pessimistic locking for read-heavy workloads. See [[Distributed Systems/Optimistic Concurrency Control]].
+
+For a full treatment of contention patterns: [[Distributed Systems/Dealing with Contention]], [[Distributed Systems/Database Isolation Levels]].
 
 ## When to use
 

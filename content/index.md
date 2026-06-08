@@ -101,6 +101,12 @@
         - [[concepts/Distributed Systems/Simple Polling]] — baseline: client polls server on a fixed interval
         - [[concepts/Distributed Systems/Long Polling]] — server holds request open until data is ready
         - [[concepts/Distributed Systems/Server Sent Events]] — persistent HTTP stream; efficient one-way push
+    - [[concepts/Distributed Systems/Dealing with Contention]] — race conditions; five tools to prevent lost updates
+        - [[concepts/Distributed Systems/Conditional Writes]] — atomic UPDATE with predicate; simplest contention fix
+        - [[concepts/Distributed Systems/Pessimistic Locking]] — FOR UPDATE; locks rows across application decision logic
+        - [[concepts/Distributed Systems/Optimistic Concurrency Control]] — version columns; detect collision at write time
+        - [[concepts/Distributed Systems/Database Isolation Levels]] — four levels; SERIALIZABLE for write skew
+        - [[concepts/Distributed Systems/Distributed Locks]] — Redis / DB column / ZooKeeper for cross-transaction holds
 
 ## Entities
 
