@@ -70,6 +70,6 @@ The second buyer's `WHERE status = 'available'` is false after the first sale �
 
 ## Limits
 
-Conditional writes work when the entire decision fits in a `WHERE` clause. When the decision requires application logic between the read and write (e.g., finding a contiguous block of open seats), the database can't re-evaluate it — reach for [[Distributed Systems/Pessimistic Locking]] instead.
+Conditional writes work when the entire decision fits in a `WHERE` clause. When the decision requires application logic between the read and write (e.g., finding a contiguous block of open seats), the database can't re-evaluate it — reach for [[Pessimistic Locking]] instead.
 
-See also: [[Distributed Systems/Dealing with Contention]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Dealing with Contention]], [[concepts/Distributed Systems/index|Distributed Systems]]

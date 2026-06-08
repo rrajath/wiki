@@ -10,7 +10,7 @@ tags: [distributed-systems, networking, real-time, system-design, polling]
 
 # Long Polling
 
-An upgrade over [[Distributed Systems/Simple Polling]] that reduces latency by having the **server hold the HTTP request open** until new data is available, then respond and let the client immediately re-issue the request.
+An upgrade over [[Simple Polling]] that reduces latency by having the **server hold the HTTP request open** until new data is available, then respond and let the client immediately re-issue the request.
 
 ## How it works
 
@@ -50,17 +50,17 @@ The "call-back" cycle means there is always a small gap between when the server 
 
 ## When to use
 
-- Updates are infrequent and [[Distributed Systems/Simple Polling]]'s interval latency is unacceptable
+- Updates are infrequent and [[Simple Polling]]'s interval latency is unacceptable
 - A long async process needs to signal completion as soon as it finishes (e.g. payment processing, job queues)
-- Full [[Distributed Systems/WebSockets]] or [[Distributed Systems/Server Sent Events]] infrastructure is impractical
+- Full [[WebSockets]] or [[Server Sent Events]] infrastructure is impractical
 
 ## Comparison
 
 | Mechanism | Latency | Connection state | Complexity |
 |---|---|---|---|
-| [[Distributed Systems/Simple Polling\|Simple Polling]] | interval-bounded | none | minimal |
+| [[Simple Polling\|Simple Polling]] | interval-bounded | none | minimal |
 | **Long Polling** | low (held until data) | held per request | low |
-| [[Distributed Systems/Server Sent Events\|SSE]] | near real-time | persistent (server→client) | low |
-| [[Distributed Systems/WebSockets\|WebSockets]] | near real-time | persistent (bidirectional) | medium |
+| [[Server Sent Events\|SSE]] | near real-time | persistent (server→client) | low |
+| [[WebSockets\|WebSockets]] | near real-time | persistent (bidirectional) | medium |
 
-See also: [[Distributed Systems/Real-time Updates]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Real-time Updates]], [[concepts/Distributed Systems/index|Distributed Systems]]

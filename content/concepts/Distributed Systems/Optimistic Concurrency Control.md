@@ -10,7 +10,7 @@ tags: [distributed-systems, concurrency, databases, system-design, occ]
 
 # Optimistic Concurrency Control (OCC)
 
-A concurrency strategy that **assumes conflicts are rare and detects them at write time** rather than blocking to prevent them. Protects the same read-modify-write gap as [[Distributed Systems/Pessimistic Locking]] but without holding any lock — everyone proceeds and only the loser retries.
+A concurrency strategy that **assumes conflicts are rare and detects them at write time** rather than blocking to prevent them. Protects the same read-modify-write gap as [[Pessimistic Locking]] but without holding any lock — everyone proceeds and only the loser retries.
 
 ## Mechanism
 
@@ -41,7 +41,7 @@ WHERE concert_id = 'weeknd_tour'
 ROLLBACK;
 ```
 
-**Zero rows is not an error** — same trap as [[Distributed Systems/Conditional Writes]]. The application must check the affected row count and roll back when it's zero; otherwise the `INSERT` runs and creates a ticket with no seat.
+**Zero rows is not an error** — same trap as [[Conditional Writes]]. The application must check the affected row count and roll back when it's zero; otherwise the `INSERT` runs and creates a ticket with no seat.
 
 ## Version column options
 
@@ -63,12 +63,12 @@ Only reuse a business value as a version when it is **guaranteed to move in one 
 
 | Signal | Choose |
 |--------|--------|
-| Collisions are common | [[Distributed Systems/Pessimistic Locking\|Pessimistic Locking]] — retries cost more than the lock |
+| Collisions are common | [[Pessimistic Locking\|Pessimistic Locking]] — retries cost more than the lock |
 | Collisions are rare (most e-commerce, social features) | OCC — skips locking overhead on the common case |
 | Read-heavy workload (many reads, few writes) | OCC — no lock contention on reads |
 
 ## Limits
 
-OCC protects conflicts where both transactions touch the same row. When two transactions read overlapping rows but write to different rows, the version check misses the conflict entirely — that is write skew, handled by [[Distributed Systems/Database Isolation Levels|SERIALIZABLE isolation]].
+OCC protects conflicts where both transactions touch the same row. When two transactions read overlapping rows but write to different rows, the version check misses the conflict entirely — that is write skew, handled by [[Database Isolation Levels|SERIALIZABLE isolation]].
 
-See also: [[Distributed Systems/Dealing with Contention]], [[Distributed Systems/Pessimistic Locking]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Dealing with Contention]], [[Pessimistic Locking]], [[concepts/Distributed Systems/index|Distributed Systems]]

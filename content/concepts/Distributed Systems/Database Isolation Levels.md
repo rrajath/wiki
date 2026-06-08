@@ -65,8 +65,8 @@ SERIALIZABLE makes the database track all read-write dependencies. Every abort t
 
 | Conflict type | Better tool | Why |
 |---------------|-------------|-----|
-| Same row, predicate check | [[Distributed Systems/Conditional Writes\|Conditional Writes]] | One atomic statement |
-| Same row, app decision | [[Distributed Systems/Pessimistic Locking\|Pessimistic Locking]] or [[Distributed Systems/Optimistic Concurrency Control\|OCC]] | Cheaper than SERIALIZABLE |
+| Same row, predicate check | [[Conditional Writes\|Conditional Writes]] | One atomic statement |
+| Same row, app decision | [[Pessimistic Locking\|Pessimistic Locking]] or [[Optimistic Concurrency Control\|OCC]] | Cheaper than SERIALIZABLE |
 | Cross-row invariant | **SERIALIZABLE** | The others miss it |
 
-See also: [[Distributed Systems/Dealing with Contention]], [[Distributed Systems/PostgreSQL]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Dealing with Contention]], [[PostgreSQL]], [[concepts/Distributed Systems/index|Distributed Systems]]

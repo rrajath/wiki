@@ -18,7 +18,7 @@ A single-server system is simple: the server knows what is connected and where e
 
 - A **database** for server–user mappings adds latency and becomes a single point of failure.
 - A **cache** can go stale when users reconnect to different servers, causing messages to be lost.
-- **Server-to-server heartbeats** create O(n²) network traffic and suffer from [[Distributed Systems/CAP Theorem|partition tolerance]] issues — a live server may not respond to pings due to a transient network split.
+- **Server-to-server heartbeats** create O(n²) network traffic and suffer from [[CAP Theorem|partition tolerance]] issues — a live server may not respond to pings due to a transient network split.
 
 Zookeeper replaces all these ad-hoc solutions. When a server comes online it registers in Zookeeper; when a user connects, the mapping is stored there. Interested servers receive automatic notifications about changes.
 
@@ -96,6 +96,6 @@ Same sequential ephemeral pattern as leader election:
 
 ## Connected concepts
 
-- [[Distributed Systems/Distributed Primitives]] — consistent hashing, gossip, bloom filter; Zookeeper adds coordination on top
-- [[Distributed Systems/Kafka]] — Kafka originally used Zookeeper for broker coordination and leader election (now replaced by KRaft in newer versions)
-- [[Distributed Systems/CAP Theorem]] — Zookeeper is CP: it prioritises consistency and partition tolerance over availability
+- [[Distributed Primitives]] — consistent hashing, gossip, bloom filter; Zookeeper adds coordination on top
+- [[Kafka]] — Kafka originally used Zookeeper for broker coordination and leader election (now replaced by KRaft in newer versions)
+- [[CAP Theorem]] — Zookeeper is CP: it prioritises consistency and partition tolerance over availability

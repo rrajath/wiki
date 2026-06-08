@@ -28,11 +28,11 @@ SET seat:A15 user123 NX EX 600
 
 **Weakness**: if the lock holder stalls past the TTL (long GC pause, slow network), Redis hands the lock to the next caller. For a brief window, two clients hold the lock simultaneously. Safe for soft reservations where a duplicate grant is a recoverable hiccup; **not safe** for operations where a double-grant corrupts data. Redis is also a single point of failure.
 
-See also: [[Distributed Systems/Redis]]
+See also: [[Redis]]
 
 ### Database columns
 
-Add `reserved_by` and `reserved_until` to the row. Acquiring the lock is a [[Distributed Systems/Conditional Writes|conditional write]]:
+Add `reserved_by` and `reserved_until` to the row. Acquiring the lock is a [[Conditional Writes|conditional write]]:
 
 ```sql
 UPDATE seats
@@ -57,7 +57,7 @@ Both provide strong consistency guarantees during network partitions and leader 
 
 **Weakness**: operational complexity; requires running and maintaining a separate coordination cluster.
 
-See also: [[Distributed Systems/Zookeeper]]
+See also: [[Zookeeper]]
 
 ## Comparison
 
@@ -75,6 +75,6 @@ See also: [[Distributed Systems/Zookeeper]]
 
 ## When NOT to use
 
-If exclusive access fits inside a single database transaction, reach for [[Distributed Systems/Conditional Writes]], [[Distributed Systems/Pessimistic Locking]], or [[Distributed Systems/Optimistic Concurrency Control|OCC]] instead. Distributed locks add a new component and new failure modes — use them only when the scope genuinely requires it.
+If exclusive access fits inside a single database transaction, reach for [[Conditional Writes]], [[Pessimistic Locking]], or [[Optimistic Concurrency Control|OCC]] instead. Distributed locks add a new component and new failure modes — use them only when the scope genuinely requires it.
 
-See also: [[Distributed Systems/Dealing with Contention]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Dealing with Contention]], [[concepts/Distributed Systems/index|Distributed Systems]]

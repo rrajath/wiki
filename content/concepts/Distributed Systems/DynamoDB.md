@@ -35,7 +35,7 @@ DynamoDB is schema-less:
 
 Combination of **Partition Key** (required) + **Sort Key** (optional).
 
-- **Partition Key**: hashed via [[Distributed Systems/Distributed Primitives#Consistent Hashing|consistent hashing]] to determine physical node placement.
+- **Partition Key**: hashed via [[Distributed Primitives#Consistent Hashing|consistent hashing]] to determine physical node placement.
 - **Sort Key**: enables ordering and range queries within a partition. Backed by a B-tree index.
 
 | System | Partition Key | Sort Key |
@@ -62,7 +62,7 @@ All entities share one table; partition and sort keys are carefully designed to 
 
 ## Architecture
 
-- Uses [[Distributed Systems/Distributed Primitives#Consistent Hashing|consistent hashing]] for partition key placement → scales horizontally.
+- Uses [[Distributed Primitives#Consistent Hashing|consistent hashing]] for partition key placement → scales horizontally.
 - Writes go to a single leader node; leader replicates asynchronously to replicas in different AZs.
 - Strong consistency reads come from the leader (no replication lag).
 - Consistency model is **per-request**, not table-level. Pass `ConsistentRead=true` on individual `GetItem`, `Scan`, or `Query` calls to opt into strong consistency.

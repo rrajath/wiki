@@ -10,7 +10,7 @@ tags: [distributed-systems, networking, real-time, system-design, sse]
 
 # Server Sent Events (SSE)
 
-An extension of [[Distributed Systems/Long Polling]] that establishes a **persistent HTTP connection** through which the server streams a sequence of events to the client. Unlike long polling, there is no re-request cycle — the connection stays open and the server sends chunks as data becomes available.
+An extension of [[Long Polling]] that establishes a **persistent HTTP connection** through which the server streams a sequence of events to the client. Unlike long polling, there is no re-request cycle — the connection stays open and the server sends chunks as data becomes available.
 
 ## How it works
 
@@ -61,10 +61,10 @@ sequenceDiagram
 
 | Mechanism | Direction | Persistent | Native browser API |
 |---|---|---|---|
-| [[Distributed Systems/Simple Polling\|Simple Polling]] | client→server (pull) | no | yes (fetch) |
-| [[Distributed Systems/Long Polling\|Long Polling]] | server→client (pull-held) | per request | yes (fetch) |
+| [[Simple Polling\|Simple Polling]] | client→server (pull) | no | yes (fetch) |
+| [[Long Polling\|Long Polling]] | server→client (pull-held) | per request | yes (fetch) |
 | **SSE** | server→client only | yes | yes (EventSource) |
-| [[Distributed Systems/WebSockets\|WebSockets]] | bidirectional | yes | yes (WebSocket) |
-| [[Distributed Systems/WebRTC\|WebRTC]] | peer-to-peer | yes | yes (RTCPeerConnection) |
+| [[WebSockets\|WebSockets]] | bidirectional | yes | yes (WebSocket) |
+| [[WebRTC\|WebRTC]] | peer-to-peer | yes | yes (RTCPeerConnection) |
 
-See also: [[Distributed Systems/Real-time Updates]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Real-time Updates]], [[concepts/Distributed Systems/index|Distributed Systems]]

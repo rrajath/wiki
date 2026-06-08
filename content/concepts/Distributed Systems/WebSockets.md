@@ -58,7 +58,7 @@ sequenceDiagram
 | HTTP polling | Client→Server | No | Simple but wasteful |
 | Server-Sent Events (SSE) | Server→Client only | Yes | Good for one-way push |
 | WebSockets | Bidirectional | Yes | Best for interactive real-time |
-| [[Distributed Systems/WebRTC\|WebRTC]] | Peer-to-peer | Yes | No server relay; UDP-based |
-| [[Distributed Systems/gRPC\|gRPC]] | Bidirectional stream | Yes | Internal services; binary |
+| [[WebRTC\|WebRTC]] | Peer-to-peer | Yes | No server relay; UDP-based |
+| [[gRPC\|gRPC]] | Bidirectional stream | Yes | Internal services; binary |
 
-See also: [[Distributed Systems/index|Distributed Systems]]
+See also: [[concepts/Distributed Systems/index|Distributed Systems]]

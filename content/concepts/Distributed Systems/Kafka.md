@@ -99,7 +99,7 @@ By default, Kafka retains messages for **7 days**. Consumers that fall too far b
 
 ## Related Pages
 
-- [[Distributed Systems/Distributed Primitives]] — consistent hashing; LSM trees (Kafka's log storage)
-- [[Distributed Systems/Flink]] — often paired with Kafka for stateful stream processing
-- [[Distributed Systems/Sharding]] — Kafka partitioning is a form of sharding; hot-partition strategies mirror shard hot-spot strategies
-- [[Distributed Systems/System Design Numbers]] — throughput figures for sizing Kafka clusters
+- [[Distributed Primitives]] — consistent hashing; LSM trees (Kafka's log storage)
+- [[Flink]] — often paired with Kafka for stateful stream processing
+- [[Sharding]] — Kafka partitioning is a form of sharding; hot-partition strategies mirror shard hot-spot strategies
+- [[System Design Numbers]] — throughput figures for sizing Kafka clusters

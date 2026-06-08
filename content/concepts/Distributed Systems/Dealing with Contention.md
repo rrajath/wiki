@@ -51,11 +51,11 @@ flowchart TD
 
 | Tool | Use when | Avoid when | Complexity |
 |------|----------|------------|------------|
-| [[Distributed Systems/Conditional Writes\|Conditional Writes]] | Check is a WHERE predicate | Decision needs app logic | Low |
-| [[Distributed Systems/Pessimistic Locking\|Pessimistic Locking]] | Read-decide-write; high contention | Low contention | Low |
-| [[Distributed Systems/Optimistic Concurrency Control\|OCC]] | Read-decide-write; rare collisions | High contention → retry storm | Medium |
-| [[Distributed Systems/Database Isolation Levels\|SERIALIZABLE]] | Write skew across non-overlapping rows | Hot paths (abort/retry cost) | Medium |
-| [[Distributed Systems/Distributed Locks\|Distributed Locks]] | Hold must span wait, external call, or multi-step | Row guard inside one TX covers it | Medium |
+| [[Conditional Writes\|Conditional Writes]] | Check is a WHERE predicate | Decision needs app logic | Low |
+| [[Pessimistic Locking\|Pessimistic Locking]] | Read-decide-write; high contention | Low contention | Low |
+| [[Optimistic Concurrency Control\|OCC]] | Read-decide-write; rare collisions | High contention → retry storm | Medium |
+| [[Database Isolation Levels\|SERIALIZABLE]] | Write skew across non-overlapping rows | Hot paths (abort/retry cost) | Medium |
+| [[Distributed Locks\|Distributed Locks]] | Hold must span wait, external call, or multi-step | Row guard inside one TX covers it | Medium |
 
 ## Hot partition (celebrity problem)
 
@@ -75,7 +75,7 @@ Options (pick in order of preference):
 | On-call scheduling | SERIALIZABLE (write skew across engineer rows) |
 | Checkout seat hold | Distributed Lock with TTL |
 | Bank transfer (single DB) | Pessimistic Locking or OCC |
-| Bank transfer (cross-service) | [[Distributed Systems/Distributed Primitives\|Saga Pattern]] |
+| Bank transfer (cross-service) | [[Distributed Primitives\|Saga Pattern]] |
 | Ride dispatch | Distributed Lock on driver status |
 
-See also: [[Distributed Systems/index|Distributed Systems]], [[Distributed Systems/PostgreSQL]]
+See also: [[concepts/Distributed Systems/index|Distributed Systems]], [[PostgreSQL]]

@@ -31,4 +31,4 @@ Most browsers do not natively support gRPC. Public-facing APIs therefore use RES
 - **Streaming**: gRPC supports bidirectional streaming natively, unlike traditional REST.
 - **Strongly typed contracts**: protobuf schemas enforce the interface between services at compile time.
 
-See also: [[Distributed Systems/index|Distributed Systems]]
+See also: [[concepts/Distributed Systems/index|Distributed Systems]]

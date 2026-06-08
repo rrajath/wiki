@@ -73,4 +73,4 @@ When gathering non-functional requirements, start with CAP:
 2. Ask: if a partition occurs, should the system stay available (AP) or stay consistent (CP)?
 3. Use the answer to justify database and architecture choices.
 
-See: [[Distributed Systems/DynamoDB]], [[Distributed Systems/Cassandra]], [[Distributed Systems/PostgreSQL]]
+See: [[DynamoDB]], [[Cassandra]], [[PostgreSQL]]

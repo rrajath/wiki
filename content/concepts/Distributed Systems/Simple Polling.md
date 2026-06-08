@@ -52,9 +52,9 @@ Each poll is an independent, stateless HTTP request. The server responds immedia
 | Mechanism | Latency | Connection state | Complexity |
 |---|---|---|---|
 | **Simple Polling** | interval-bounded | none | minimal |
-| [[Distributed Systems/Long Polling\|Long Polling]] | lower (held until data ready) | held open | low |
-| [[Distributed Systems/Server Sent Events\|SSE]] | near real-time | persistent (server→client) | low |
-| [[Distributed Systems/WebSockets\|WebSockets]] | near real-time | persistent (bidirectional) | medium |
-| [[Distributed Systems/WebRTC\|WebRTC]] | near real-time | peer-to-peer | high |
+| [[Long Polling\|Long Polling]] | lower (held until data ready) | held open | low |
+| [[Server Sent Events\|SSE]] | near real-time | persistent (server→client) | low |
+| [[WebSockets\|WebSockets]] | near real-time | persistent (bidirectional) | medium |
+| [[WebRTC\|WebRTC]] | near real-time | peer-to-peer | high |
 
-See also: [[Distributed Systems/Real-time Updates]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Real-time Updates]], [[concepts/Distributed Systems/index|Distributed Systems]]

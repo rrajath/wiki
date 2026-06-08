@@ -36,7 +36,7 @@ A bad shard key causes uneven distribution, hot spots, and scatter-gather querie
 
 **Range-based sharding** — groups records by a continuous value range (e.g., order date). Simple and intuitive, but risks skew: users almost always query recent orders, leaving older shards idle.
 
-**Hash-based sharding** — applies a hash function to the shard key to assign a partition. Produces even distribution. The downside is that adding or removing shards requires re-assigning data — this is where [[Distributed Systems/Distributed Primitives|Consistent Hashing]] helps.
+**Hash-based sharding** — applies a hash function to the shard key to assign a partition. Produces even distribution. The downside is that adding or removing shards requires re-assigning data — this is where [[Distributed Primitives|Consistent Hashing]] helps.
 
 **Directory-based sharding** — a lookup table records which shard each record lives on. Maximum flexibility (you can relocate a hot user to a dedicated shard), but the lookup adds latency and the directory service is a single point of failure.
 
@@ -62,7 +62,7 @@ Mitigations:
 
 ### Distributed Transactions
 
-A single-database transaction is straightforward. With sharding, a transaction that spans two shards requires a distributed transaction protocol (e.g., two-phase commit or a saga pattern) because the shards don't share a transaction log. See [[Distributed Systems/Distributed Primitives]].
+A single-database transaction is straightforward. With sharding, a transaction that spans two shards requires a distributed transaction protocol (e.g., two-phase commit or a saga pattern) because the shards don't share a transaction log. See [[Distributed Primitives]].
 
 ## When to Propose Sharding
 
@@ -83,6 +83,6 @@ Formula: **identify the bottleneck → explain why a single database won't scale
 
 ## Related Pages
 
-- [[Distributed Systems/Distributed Primitives]] — consistent hashing, which makes hash-based resharding tractable
-- [[Distributed Systems/CAP Theorem]] — sharding affects consistency/availability trade-offs
-- [[Distributed Systems/System Design Numbers]] — capacity thresholds that trigger the sharding conversation
+- [[Distributed Primitives]] — consistent hashing, which makes hash-based resharding tractable
+- [[CAP Theorem]] — sharding affects consistency/availability trade-offs
+- [[System Design Numbers]] — capacity thresholds that trigger the sharding conversation

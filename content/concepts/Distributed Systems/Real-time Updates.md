@@ -35,11 +35,11 @@ flowchart LR
 
 | Mechanism | Direction | Connection | Best for |
 |---|---|---|---|
-| [[Distributed Systems/Simple Polling\|Simple Polling]] | pull | stateless | low-frequency, simple setup |
-| [[Distributed Systems/Long Polling\|Long Polling]] | pull-held | per-request | infrequent updates, async job completion |
-| [[Distributed Systems/Server Sent Events\|SSE]] | server→client | persistent | one-way push (notifications, AI streaming) |
-| [[Distributed Systems/WebSockets\|WebSockets]] | bidirectional | persistent | interactive real-time (chat, gaming) |
-| [[Distributed Systems/WebRTC\|WebRTC]] | peer-to-peer | persistent | audio/video, low-latency P2P |
+| [[Simple Polling\|Simple Polling]] | pull | stateless | low-frequency, simple setup |
+| [[Long Polling\|Long Polling]] | pull-held | per-request | infrequent updates, async job completion |
+| [[Server Sent Events\|SSE]] | server→client | persistent | one-way push (notifications, AI streaming) |
+| [[WebSockets\|WebSockets]] | bidirectional | persistent | interactive real-time (chat, gaming) |
+| [[WebRTC\|WebRTC]] | peer-to-peer | persistent | audio/video, low-latency P2P |
 
 Choose the simplest mechanism that satisfies latency and interaction requirements. WebSockets are not always better — SSE is sufficient for one-way feeds and is far easier to operate.
 
@@ -51,7 +51,7 @@ The server queries the database each time a client poll arrives. No separate tri
 
 ### Pushing via pub/sub
 
-A pub/sub service (e.g. [[Distributed Systems/Kafka|Kafka]], [[Distributed Systems/Redis|Redis]] Pub/Sub) fans out updates to endpoint servers, which then forward to their connected clients.
+A pub/sub service (e.g. [[Kafka|Kafka]], [[Redis|Redis]] Pub/Sub) fans out updates to endpoint servers, which then forward to their connected clients.
 
 ```mermaid
 flowchart LR
@@ -81,7 +81,7 @@ For protocols that maintain a persistent connection per client (long polling, SS
 
 **Modulo hashing** — `server_index = hash(user_id) % N`. Deterministic assignment; simple to implement. Scaling N disrupts all existing assignments.
 
-**Consistent hashing** — nodes on a ring; only `1/N` of connections are remapped when N changes. Requires a coordination service (e.g. [[Distributed Systems/Zookeeper|Zookeeper]], etcd) that all servers query to determine routing.
+**Consistent hashing** — nodes on a ring; only `1/N` of connections are remapped when N changes. Requires a coordination service (e.g. [[Zookeeper|Zookeeper]], etcd) that all servers query to determine routing.
 
 Connection flow with consistent hashing:
 
@@ -128,4 +128,4 @@ Two messages sent milliseconds apart may arrive out of order via different netwo
 - **Single writer per partition**: route all messages for a given entity/room through one server or Kafka partition; sacrifices some scalability for ordering guarantees
 - **Client-side ordering buffer**: hold messages for a short window and reorder before rendering; hides network jitter at the cost of a small added latency
 
-See also: [[Distributed Systems/index|Distributed Systems]]
+See also: [[concepts/Distributed Systems/index|Distributed Systems]]

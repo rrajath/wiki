@@ -68,7 +68,7 @@ Three main approaches:
 
 Maps terms to document IDs: `word → [doc1, doc3, ...]`.
 
-Used for full-text search. Large storage overhead; updates require touching every term in the document. Used by Elasticsearch, and in PostgreSQL via [[Distributed Systems/PostgreSQL#Full-text search with GIN|GIN]].
+Used for full-text search. Large storage overhead; updates require touching every term in the document. Used by Elasticsearch, and in PostgreSQL via [[PostgreSQL#Full-text search with GIN|GIN]].
 
 ## Index optimization strategies
 

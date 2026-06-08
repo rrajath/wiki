@@ -34,14 +34,14 @@ Distributed wide-column NoSQL database. Optimized for write-heavy workloads. AP 
 
 ## Primary keys
 
-- **Partition Key**: one or more columns determining the partition (via [[Distributed Systems/Distributed Primitives#Consistent Hashing|consistent hashing]]).
+- **Partition Key**: one or more columns determining the partition (via [[Distributed Primitives#Consistent Hashing|consistent hashing]]).
 - **Clustering Key**: zero or more columns determining sorted order within a partition.
 
-Mirrors [[Distributed Systems/DynamoDB#Keys and indexing|DynamoDB's primary key]] (partition key + sort key).
+Mirrors [[DynamoDB#Keys and indexing|DynamoDB's primary key]] (partition key + sort key).
 
 ## Partitioning and replication
 
-Uses [[Distributed Systems/Distributed Primitives#Consistent Hashing|consistent hashing]] for horizontal scaling.
+Uses [[Distributed Primitives#Consistent Hashing|consistent hashing]] for horizontal scaling.
 
 **Replication strategies**:
 - *SimpleStrategy*: replication factor N → replicate to next N-1 nodes clockwise on the ring. For dev/test.
@@ -60,24 +60,24 @@ QUORUM on both reads and writes gives strong consistency without ALL's performan
 ## Query routing
 
 - Any node can act as query coordinator — no single point of failure.
-- Nodes share cluster state via [[Distributed Systems/Distributed Primitives#Gossip Protocol|gossip protocol]].
-- Routing uses [[Distributed Systems/Distributed Primitives#Consistent Hashing|consistent hashing]] + replication strategy knowledge.
+- Nodes share cluster state via [[Distributed Primitives#Gossip Protocol|gossip protocol]].
+- Routing uses [[Distributed Primitives#Consistent Hashing|consistent hashing]] + replication strategy knowledge.
 
 ## Storage model (LSM tree)
 
-Cassandra uses a [[Distributed Systems/Distributed Primitives#Log Structured Merge Tree (LSM Tree)|Log Structured Merge Tree]]:
+Cassandra uses a [[Distributed Primitives#Log Structured Merge Tree (LSM Tree)|Log Structured Merge Tree]]:
 1. **Commit Log (WAL)**: every write lands here first for durability.
 2. **Memtable**: in-memory sorted structure. Accumulates writes.
 3. **SSTable**: immutable on-disk file flushed from memtable.
 
-Read path: check memtable → use [[Distributed Systems/Distributed Primitives#Bloom Filter|bloom filter]] to identify candidate SSTables → read SSTables newest-to-oldest.
+Read path: check memtable → use [[Distributed Primitives#Bloom Filter|bloom filter]] to identify candidate SSTables → read SSTables newest-to-oldest.
 
 Compaction runs periodically to consolidate SSTables and remove tombstones.
 
 ## Fault tolerance
 
-- [[Distributed Systems/Distributed Primitives#Phi Accrual Failure Detector|Phi Accrual Failure Detector]]: each node independently decides if peers are alive based on heartbeat patterns.
-- [[Distributed Systems/Distributed Primitives#Hinted Handoff|Hinted Handoff]]: coordinator stores writes for offline nodes temporarily.
+- [[Distributed Primitives#Phi Accrual Failure Detector|Phi Accrual Failure Detector]]: each node independently decides if peers are alive based on heartbeat patterns.
+- [[Distributed Primitives#Hinted Handoff|Hinted Handoff]]: coordinator stores writes for offline nodes temporarily.
 
 ## Design philosophy
 

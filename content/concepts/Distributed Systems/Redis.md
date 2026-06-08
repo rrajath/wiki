@@ -34,7 +34,7 @@ In-memory data store. Single-threaded with atomic operations. Read latency in mi
 
 - Single node or cluster.
 - In cluster mode, Redis clients cache "hash slot" → node mappings for direct routing.
-- Nodes share cluster state via [[Distributed Systems/Distributed Primitives#Gossip Protocol|gossip protocol]].
+- Nodes share cluster state via [[Distributed Primitives#Gossip Protocol|gossip protocol]].
 - **Key principle**: Redis doesn't solve scaling for you. How you structure your keys determines how you scale.
 
 ## Capabilities

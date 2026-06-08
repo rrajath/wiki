@@ -75,4 +75,4 @@ WebRTC uses UDP for data transfer. This suits real-time media: a dropped video f
 | NAT traversal | No issue (server has public IP) | Requires STUN/TURN |
 | Use case | Real-time push/bidirectional | Audio/video, P2P data |
 
-See also: [[Distributed Systems/WebSockets]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[WebSockets]], [[concepts/Distributed Systems/index|Distributed Systems]]

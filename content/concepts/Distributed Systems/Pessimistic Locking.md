@@ -41,7 +41,7 @@ COMMIT;
 
 | Situation | Tool |
 |-----------|------|
-| Guard is a WHERE predicate | [[Distributed Systems/Conditional Writes\|Conditional Write]] |
+| Guard is a WHERE predicate | [[Conditional Writes\|Conditional Write]] |
 | Decision runs in app code (block of seats, balance check across rows) | Pessimistic Locking |
 
 If your logic can be simplified back to a WHERE predicate, drop the lock — don't pay for what you don't need.
@@ -78,6 +78,6 @@ Even with ordered locking, treat deadlock as a retryable error. Every major data
 
 ## Cost
 
-Every transaction pays the locking overhead, including the majority that would never have collided with anyone. This is the premium for an insurance policy most buyers don't need. When collisions are rare, [[Distributed Systems/Optimistic Concurrency Control|OCC]] is cheaper — it pays only on actual collision.
+Every transaction pays the locking overhead, including the majority that would never have collided with anyone. This is the premium for an insurance policy most buyers don't need. When collisions are rare, [[Optimistic Concurrency Control|OCC]] is cheaper — it pays only on actual collision.
 
-See also: [[Distributed Systems/Dealing with Contention]], [[Distributed Systems/Optimistic Concurrency Control]], [[Distributed Systems/index|Distributed Systems]]
+See also: [[Dealing with Contention]], [[Optimistic Concurrency Control]], [[concepts/Distributed Systems/index|Distributed Systems]]
