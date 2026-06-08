@@ -101,6 +101,9 @@
         - [[concepts/Distributed Systems/Simple Polling]] — baseline: client polls server on a fixed interval
         - [[concepts/Distributed Systems/Long Polling]] — server holds request open until data is ready
         - [[concepts/Distributed Systems/Server Sent Events]] — persistent HTTP stream; efficient one-way push
+    - [[concepts/Distributed Systems/Scaling Reads]] — DB optimization, read replicas, sharding, caching, CDN
+        - [[concepts/Distributed Systems/Cache Stampede]] — thundering herd on expiry; probabilistic early refresh
+        - [[concepts/Distributed Systems/Cache Invalidation]] — TTL, write-through, cache key versioning, deleted items cache
     - [[concepts/Distributed Systems/Dealing with Contention]] — race conditions; five tools to prevent lost updates
         - [[concepts/Distributed Systems/Conditional Writes]] — atomic UPDATE with predicate; simplest contention fix
         - [[concepts/Distributed Systems/Pessimistic Locking]] — FOR UPDATE; locks rows across application decision logic

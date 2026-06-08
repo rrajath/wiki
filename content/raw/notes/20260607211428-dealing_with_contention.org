@@ -1,0 +1,47 @@
+:PROPERTIES:
+:ID:       39CEB785-56BA-43C2-91B3-247CF451D744
+:END:
+#+title: Dealing with Contention
+#+filetags: :patterns:
+
+Contention occurs when multiple processes compete for the same resource at the same time, like booking the last concert ticket or bidding on an auction item. Without proper handling, you get race conditions, double-bookings, and inconsistent state.
+
+* The Race Condition
+Imagine buying concert tickets. There's just one ticket left and Alice and Bob both try to buy it at the same time. Without proper contention mechanisms or locking, the system/database would allow this to happen. Here's how:
+- Alice and Bob both look at the last remaining ticket
+- Both hit buy at the same time
+- Alice's request looks at the database and sees 1 ticket remaining. So does Bob's request
+- Alice's update decrements the ticket count by 1 (and after that the ticket count is now zero) and Alice gets the ticket
+- Bob's update also decrements the ticket count by 1 (ticket count is now -1) and Bob also gets the ticket
+
+#+begin_src sql
+  -- Read the current count
+  SELECT available_seats FROM concerts WHERE concert_id = 'weeknd_tour';
+
+  -- The app checks available_seats > 0, then writes the new value back
+  UPDATE concerts
+  SET available_seats = available_seats - 1
+  WHERE concert_id = 'weeknd_tour';
+#+end_src
+
+Now assume there are 20 or 200 or 2000 people trying to buy the same ticket.
+
+* The Solution
+The race condition from earlier has a name. It's a lost update, the classic failure of a read-modify-write cycle. Two requests read the same value, both act on it, and both write back, so one silently overwrites the other.
+
+There are ways to fix this:
+
+** Conditional Writes
+Instead of just decrementing the count, do so only if there's a seat left.
+
+#+begin_src sql
+  UPDATE concerts
+  SET available_seats = available_seats - 1
+  WHERE concert_id = 'weeknd_tour'
+  AND available_seats > 0;
+#+end_src
+
+In this method, no matter how many people try to grab the last ticket, only one will succeed.
+
+** Pessimistic Locking
+

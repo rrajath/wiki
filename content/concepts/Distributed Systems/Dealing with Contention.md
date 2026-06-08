@@ -5,6 +5,7 @@ created: 2026-06-07
 updated: 2026-06-07
 sources:
   - raw/articles/dealing-with-contention.md
+  - raw/notes/20260607211428-dealing_with_contention.org
 tags: [distributed-systems, concurrency, databases, system-design, locking]
 ---
 

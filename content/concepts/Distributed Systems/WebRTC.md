@@ -2,7 +2,7 @@
 title: WebRTC
 type: concept
 created: 2026-05-21
-updated: 2026-05-21
+updated: 2026-06-08
 sources:
   - raw/notes/20260521092503-webrtc.org
 tags: [distributed-systems, networking, real-time, p2p, webrtc, system-design]
@@ -60,6 +60,20 @@ If the direct connection fails → both peers connect via TURN relay server inst
 | STUN server | NAT traversal — discover public address | Setup only |
 | TURN server | Relay fallback when direct P2P fails | Only as fallback |
 | Peer A ↔ Peer B | Direct data exchange | Yes |
+
+## Trade-offs
+
+**Advantages**:
+- Direct P2P — data travels the shortest path, no server relay for the media stream
+- Very low latency — ideal for audio/video where a late packet is worse than a dropped one
+- Reduced server bandwidth costs — the heavy media stream bypasses the server entirely
+- Native audio/video APIs built into browsers and mobile SDKs
+
+**Disadvantages**:
+- Complex setup — ICE, STUN, TURN, SDP negotiation require careful implementation
+- NAT/firewall traversal fails on some network configurations (symmetric NAT), requiring TURN fallback at extra cost
+- Connection setup delay — ICE gathering and peer negotiation adds ~1–3 seconds before the first byte flows
+- Still requires a signaling server for peer discovery (not fully serverless)
 
 ## TCP vs UDP
 

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       9B18D79A-EFA2-45F7-84BF-7DDD406E7262
+:END:
+#+title: Probabilistic Early Refresh
+
+This is where a cache gets refreshed in the background while it's still being actively served to callers.
+
+This refreshes cache entries before they expire, but not all at once. When your cache entry is fresh (just created), requests simply use it. But as it gets older, each request has a tiny chance of triggering a background refresh. If your entry expires in 60 minutes, a request at minute 50 might have a 1% chance of refreshing it. At minute 55, that chance increases to 5%. At minute 59, it might be 20%. Instead of 100,000 requests hammering your database at minute 60, you spread those refreshes across the last 10-15 minutes. Most users still get cached data while a few unlucky ones trigger refreshes.

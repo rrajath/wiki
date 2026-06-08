@@ -2,7 +2,7 @@
 title: WebSockets
 type: concept
 created: 2026-05-21
-updated: 2026-05-21
+updated: 2026-06-08
 sources:
   - raw/notes/20260521075825-websockets.org
 tags: [distributed-systems, networking, real-time, system-design, websockets]
@@ -43,6 +43,20 @@ sequenceDiagram
 | Initiation | HTTP upgrade (reuses TCP connection) |
 | State | Persistent (stateful) |
 | Latency | Low — no per-message connection overhead |
+
+## Trade-offs
+
+**Advantages**:
+- Full-duplex — server and client send simultaneously without waiting
+- Lower latency per message — no per-request headers after the handshake
+- Efficient for frequent small messages (gaming state, live prices)
+- Wide browser support
+
+**Disadvantages**:
+- Stateful connections complicate horizontal scaling and load balancing — a client is pinned to one server
+- Reconnection must be handled explicitly by the application
+- More complex to implement than simple HTTP polling
+- Requires WebSocket-aware infrastructure — every proxy, load balancer, and CDN between client and server must support the protocol; HTTP→WebSocket upgrades silently fail on unaware intermediaries
 
 ## When to use
 

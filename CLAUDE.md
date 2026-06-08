@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-06-07 (added Dealing with Contention cluster: Conditional Writes, Pessimistic Locking, OCC, Database Isolation Levels, Distributed Locks).
+Last updated: 2026-06-08 (added Scaling Reads, Cache Stampede, Cache Invalidation; updated WebSockets and WebRTC with trade-offs).
 
 ### Concepts
 
@@ -77,7 +77,7 @@ Last updated: 2026-06-07 (added Dealing with Contention cluster: Conditional Wri
 
 **Pregnancy**: Stages of Labor
 
-**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
+**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Scaling Reads · Cache Stampede · Cache Invalidation · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
 
 ### Entities
 *(none)*

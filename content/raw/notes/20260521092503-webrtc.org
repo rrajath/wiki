@@ -26,3 +26,15 @@ There are 4 steps to a WebRTC connection:
 4. Clients establish a direct peer-to-peer connection and start sending data
 
 Sometimes when connections fail, the clients have to reach out to the TURN server to connect to their peers.
+
+* Advantages
+- direct p2p connection
+- lower latency
+- reduced server costs
+- native audio/video support
+
+* Disadvantages
+- complex setup
+- requires signaling server
+- NAT/firewall issues
+- connection setup delay

@@ -2,7 +2,7 @@
 title: Distributed Systems — Index
 type: concept
 created: 2026-05-12
-updated: 2026-06-07
+updated: 2026-06-08
 sources:
   - raw/notes/20250220100347-databases.org
 tags: [distributed-systems, system-design, databases]
@@ -35,6 +35,9 @@ Notes captured during system design interview preparation. Covers databases, dis
     - [[Long Polling]] — server holds request open until data is ready
     - [[Server Sent Events]] — persistent HTTP stream; server→client only
 
+- [[Scaling Reads]] — optimize DB, read replicas, sharding, application caching, CDN
+    - [[Cache Stampede]] — thundering herd on cache expiry; probabilistic early refresh, background refresh
+    - [[Cache Invalidation]] — TTL, write-through, cache key versioning, deleted items cache
 - [[Dealing with Contention]] — race conditions and five tools to prevent lost updates
     - [[Conditional Writes]] — atomic UPDATE with WHERE predicate; simplest fix
     - [[Pessimistic Locking]] — FOR UPDATE; locks rows across app decision logic
