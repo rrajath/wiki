@@ -1,0 +1,113 @@
+:PROPERTIES:
+:ID:       82A994A6-D723-473A-AE67-2BFAA33D0484
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/scaling-writes
+:END:
+#+title: Scaling Writes
+#+filetags: :patterns:
+
+Scaling Writes addresses the challenge of handling high-volume write operations when a single database or single server becomes the bottleneck. As your application grows from hundreds to millions of writes per second, individual components hit hard limits on disk I/O, CPU, and network bandwidth.
+
+* Problem
+What happens when there's a sudden increase in writes that is in orders of magnitudes higher than expected.
+
+* Solution
+A combination of 4 strategies will help you scale writes.
+1. Vertical scaling and database choices
+2. Sharding and Partitioning
+4. Handling Burts with Queues and Load Shedding
+5. Batching and Hierarchical Aggregation
+
+** Vertical Scaling and Write Optimization
+*** Vertical Scaling
+Get bigger hardware. This is usually a good first step and sometimes that's all the application needs. [[id:e013a981-d8b2-4b80-bf1c-996e36de2426][Numbers to know for system design]] gives a good overview.
+
+*** Database Choices
+Consider using write optimized databases like [[id:F7F14052-A562-4E6B-87C1-4601E1168A12][Cassandra]]. Their read performance isn't that great. But if there are more writes than reads for your application or if reads can tolerate a little bit of latency, but scaled writes are more important, then a write optimized database is a must.
+
+Other [[id:F4D4B0AC-B1FF-4791-84D6-3E97C1229ED6][Databases]] make similar trade offs:
+- *Timeseries databases* like InfluxDB or Timescale DB are built for high-volume sequential writes with timestamps
+- *Log-structured databases* append new records to the database instead for updating them in place
+- *Column stores* like ClickHouse can batch writes efficiently for analytics workloads
+
+** [[id:3238FB60-8EE9-4F3B-93DA-B39FF461394B][Sharding]] and Partitioning
+*** Horizontal Sharding
+This is what a [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] cluster does. Each entry in Redis is stored with a single string ~key~. These keys are hashed to determine a slot number. When a client wants to write to a key, it selects the right shard using the same hash function and writes to it. Another approach is [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]] to determine which server to write to.
+
+**** Selecting a good partition key
+Select a key that minimizes variance in the number of writes per shard. Choose a scheme that spreads reads and writes as evenly as possible across your data. Ask yourself "how many shards does this request need to hit?" and "how often does this request happen?" Those questions will help you decide whether you've created a bottleneck.
+
+*** Vertical Partitioning
+While horizontal sharding splits rows, vertical sharding splits columns. For example, you may have a single table called Posts in a social media application. This table could contain a lot of columns. So, user related columns could be in one shard, comments related columns could be in one shard, etc.
+
+Once the data is logically separated, we can also move each table to a different database instance which can be optimized separately:
+- For Post content we'll use traditional B-tree indexes and is optimized for read performance
+- For Post metrics we might use in-memory storage or specialized counters for high-frequency updates
+- For Post analytics we can use time-series optimized storage or database with column-oriented compression
+
+** Handling Bursts with Queues and Load Shedding
+*** Write Queues for burst handling
+Something like [[id:9C0DF38D-A6AE-4570-9FF8-1398FECA89AF][Kafka]] or SQS. When there's a spike in traffic, the requests can just be put in a queue and handled asynchronously. The queue will handle the bursts while the database processes writes at a steady pace.
+
+It's important to understand at the requirements stage what tolerance we have for delayed writes or inconsistent reads.
+
+*** Load shedding strategies
+Load shedding is where we drop the less important writes. In apps like Uber/Strava, users send their location at regular intervals. If we have an excess of users, we can't solve this problem by adding a queue. Instead, since users will be sending location every few seconds any way, we can drop one write and pick up the next one which will be fresher. There will be little to no impact in doing so.
+
+** Batching and Hierarchical Aggregation
+When our database becomes the bottleneck, we can look upstream to see how we can make the incoming data easier to process.
+
+*** Batching
+Instead of processing writes one by one, you batch multiple writes together. Databases are great at handling batch writes more than several individual writes. This can be done at Application Layer, as an in-between process or in the database layer.
+
+**** Application Layer
+The client can batch up writes together before we send them to the database.
+
+**** Intermediate Processing
+Have an intermediate process which batches up writes before they are sent to the database.
+
+**** Database Layer
+Most databases have configurable options for how often writes are flushed to disk. For example, [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] default configuration is to flush writes to disk every 100ms. If there are 1000 writes in a second, we'll only write to disk 100ms after the last write.
+
+** Hierarchical Aggregation
+Sometimes we only need to write aggregated data to the database and not each individual record. For example, in a live stream, users may be able to both like the video or comment on them. If a user does either of them, all the other users need to be notified of it. This creates an issue where there are millions of viewers, millions of users are writing and all their writes must go to all their peers.
+
+Since all viewers are looking for the same eventually consistent view of the data - the latest comments - this can be simplified by assigning users to a bunch of broadcast nodes that are set up with [[id:7EB73C76-345C-4DC8-A865-38224306EFE9][Consistent Hashing]]. Now, instead of sending data to all viewers, we just have to push the data to the broadcast nodes and each of those nodes forward the data to the viewers associated with them.
+
+* Common Deep Dives
+
+** How do you handle resharding when you need to add more shards?
+The naive approach is to take the system offline, rehash all data, and move it to new shards. But this creates hours of downtime for large datasets.
+
+Production systems use gradual migration which targets writes to both locations (e.g. the shard we're migrating from and the shard we're migrating to). This allows us to migrate data gradually while maintaining availability.
+
+** What happens when you have a hot key that's too popular for even a single shard?
+We talked earlier about how we need to spread load evenly across our shards. Sometimes, in spite of even the best choices around keys, a shard can still have a disproportionate traffic pointed at it. Consider a viral tweet that receives 100,000 likes per second. Even though we've spread out our tweets evenly across our shards, this tweet may still cause us problems! Even dedicating an entire shard to this single tweet isn't enough.
+
+We have two major options for handling this:
+
+*** Split All Keys
+The first option is to split all keys a fixed k number of times. This is a pretty big hammer, but it's the simplest solution. Instead of having each tweet's likes be stored on a single shard, we can instead store them across multiple shards.
+
+For the post1Likes key, we can have post1Likes-0, post1Likes-1, post1Likes-2, all the way through to post1Likes-k-1. This means that each shard will only have a subset of the data for a given post, but the write volume for a given shard for a given post is reduced by k times.
+
+This has some big downsides:
+
+- By doing so we're both increasing the size of our overall dataset by ~k~ times.
+- We've also multiplied the read volume by k. In order to get the number of likes for a given post, we need to reach ~postId-0~, ~postId-1~, ~postId-2~, all the way through to ~postId-k-1~.
+
+But if a small ~k~ brings our workload comfortably back into line with our database's write capacity, we've solved our problem!
+
+*** Split Hot Keys Dynamically
+Another solution is breaking the hot key into multiple sub-keys dynamically based on whether the key is hot or not.
+
+For the viral tweet example, you might split the like count across 100 sub-keys, each handling 1,000 likes per second. When reading, you aggregate the counts from all sub-keys.
+
+Both of these approaches work for metrics that can be aggregated (likes, views, counts, balances) but don't work for data that must remain atomic (user profiles). Fortunately, the latter category is rarely under the same type of write pressure as the former.
+
+Importantly, both readers and writers need to be able to agree on which keys are hot for this to work. If writers are spreading writes across multiple sub-keys, but readers aren't reading from all sub-keys, we have a problem!
+
+We have two main solutions here:
+
+- We can have the readers always check all the sub-keys. This means the same read amplification as the key split approach, but it's simple to implement and easy to understand. When a writer detects a key may be hot (they can keep local statistics), they can conditionally write to the sub-keys for that key.
+- Another, more burdensome approach is to have the writers announce the split to the readers. All readers would need to receive this announcement before the split is executed. This is more complex to implement and understand, but it's more efficient and keeps readers from reading splits that don't exist.
+
