@@ -1,0 +1,45 @@
+:PROPERTIES:
+:ID:       FFA817F2-90A7-4538-81BE-47528853D07E
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/large-blobs
+:END:
+#+title: Handling Large Blobs
+#+filetags: :patterns:
+
+Large files like videos, images, and documents need special handling in distributed systems. Instead of shoving gigabytes through your servers, this pattern uses presigned URLs to let clients upload directly to blob storage and download from CDNs. You also get resumable uploads, parallel transfers, and progress tracking
+
+* Problem
+Clients can technically upload files to API server that could then be forwarded to blob storage. But this breaks for large files (in GBs). So, we use the pattern to upload to blob storage directly. Downloads would come from CDN (like Cloudfront) directly, so your servers don't touch the actual bytes. So, this solves the bottleneck issue.
+
+Some problems emerge even with this pattern:
+- A 25GB file that's being downloaded from CDN could fail at 99%, meaning we need to restart the download.
+- you lose visibilty into upload progress since it bypasses your servers completely. Your database may show "pending" while S3 may have the complete file
+
+* Solution
+Instead of uploading to API server directly, clients are given temporary, scoped credentials to interact directly with storage. Your application's role shifts from data transfer to access control - it validates the request, generates credentials and gets out of the way.
+
+** Simple Direct Upload
+When a client wants to upload a file, the server gets the upload request. It checks for permissions, quota, storage, etc. and generates a presigned URL, and hands that URL to the client. The presigned URL is done in-memory in the application. No network call is made. The server uses its cloud credentials to create a signature that the storage service can verify later.
+
+The signature is a cryptographic hash of the request details (HTTP method, resource path, expiry time) combined with your secret key. When the client uploads to this URL, the storage service recalculates the same hash using its copy of your credentials. If the signatures match and the URL hasn't expired, the upload proceeds.
+
+** Simple Direct Download
+Works very similar to the upload for both blob storage and CDN. Client asks the server for a file and the server responds with a signed download URL that grants temporary access to specific files.
+
+For CDN delivery, you're not signing blob storage URLs. Instead, you're creating signed URLs or signed cookies that your CDN validates.
+
+** Resumable uploads for large files
+All cloud providers support multipart uploads. S3 uses multipart upload by splitting large files into 5MB chunks, with each chunk getting its own presigned URL. If the connection drops after 60 of 100 parts, the client doesn't start from the beginning. It would instead start from part 61. The storage service maintains this state using Session ID.
+
+** State synchronization challenges
+The common pattern is to store file metadata in the database while storing the actual file in the blob storage. The table that stores file metadata could have a status column that indicates that status of the file upload to the blob storage. Keeping this in sync with the actual upload could get tricky - your database and blob storage are separate systems that update at different times.
+
+The simplest approach is trusting the client. After uploading to blob storage, the client calls your API saying "upload complete!" and you update the database status. But this creates several problems:
+
+- *Race conditions*: The database might show 'completed' before the file actually exists in storage
+- *Orphaned files*: The client might crash after uploading but before notifying you, leaving files in storage with no database record
+- *Malicious clients*: Users could mark uploads as complete without actually uploading anything
+- *Network failures*: The completion notification might fail to reach your servers
+
+Most blob storage services solve this with event notifications. When S3 receives a file, it publishes events through messaging services (like SNS/SQS) with details about what was uploaded. The event includes the object key - the same ~storage_key~ you stored in your database when generating the presigned URL. This lets you find the exact row to update
+
+Now the storage service itself confirms what exists, removing the client from the trust equation. But events can fail too - network issues, service outages, or processing errors might cause events to be delayed or lost. That's why production systems add reconciliation as a safety net. A periodic job checks for files stuck in pending status and verifies them against storage.

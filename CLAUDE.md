@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-06-08 (added Scaling Writes; updated raw copy of scaling_reads.org).
+Last updated: 2026-06-09 (added Handling Large Blobs).
 
 ### Concepts
 
@@ -77,7 +77,7 @@ Last updated: 2026-06-08 (added Scaling Writes; updated raw copy of scaling_read
 
 **Pregnancy**: Stages of Labor
 
-**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Scaling Reads · Scaling Writes · Cache Stampede · Cache Invalidation · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
+**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Scaling Reads · Scaling Writes · Handling Large Blobs · Cache Stampede · Cache Invalidation · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
 
 ### Entities
 *(none)*
