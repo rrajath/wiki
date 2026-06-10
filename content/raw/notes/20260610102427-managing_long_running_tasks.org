@@ -1,0 +1,109 @@
+:PROPERTIES:
+:ID:       FE3C60F8-ADC3-4DE4-B788-328B9264322B
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/long-running-tasks
+:END:
+#+title: Managing Long Running Tasks
+#+filetags: :patterns:
+
+The Managing Long-Running Tasks pattern splits API requests into two phases: immediate acknowledgment and background processing. When users submit heavy tasks (like video encoding), the web server instantly validates the request, pushes a job to a queue (Redis/RabbitMQ), and returns a job ID, all within milliseconds. Meanwhile, separate worker processes continuously poll the queue, grab pending jobs, execute the actual time-consuming work, and update the job status in a database.
+
+* Problem
+A web service that responds to requests quickly using a quick database lookup (like profile information, user prefs, etc.) would be ideal for synchronous processing. The user would only be waiting for milliseconds. So, the response would feel instantaneous. However, for tasks that require querying multiple tables and joining them to produce a report, or a video encoding task or or a heavy file upload, we cannot use synchronous processing since the user has to sit in front of the browser waiting and looking at the loading indicator. Also, most web servers and load balances enforce timeouts of 30-60 seconds.
+
+* Solution
+Instead of making the user wait, when a user clicks Generate Report, we immediately show a message saying they will be notified once the report is generated. This would take milliseconds, not minutes.
+
+The web server now simply validates the request, submits the job to a queue and gets the job ID. This is the Managing Long-Running Tasks pattern. The web servers become lightweight request routers. They submit a job to the queue which acts as a buffer between the web servers and the workers. A number of workers will be polling the queue regularly to pick up the tasks and work on them.
+
+The queues give you visibility into how many tasks are waiting. The web servers don't need beefy hardware. The workers can scale up or down based on queue size.
+
+Users have a better experience. Instead of staring at a loading screen, they will be notified once the task is complete. This can be done via [[id:6CDF2D01-7000-4D45-80C8-E7CA89954A03][Server Sent Events (SSE)]] or [[id:887D6451-5EC8-40DB-96C8-8549D3807B5C][WebSockets]]. This pattern applies broadly to any operation that takes more than a few seconds. 
+
+* Trade Offs
+
+** What you gain
+- fast user response times
+- independent scaling
+- fault isolation: a worker crash processing one video will not bring down the entire API
+- better resource utilization: CPU-intensive workers run on compute optimized instances. Memory-heavy tasks get high memory machines. And so on.
+
+** What you lose
+- system complexity: now there are queues, workers, job status to track and manage
+- eventual consistency: work isn't done when the API returns. The user would still be seeing stale data until the job completes
+- job status tracking: need infra to store job status, handle retries, and expose status endpoints
+- monitoring overhead: queue depth, worker health, job failure rates, processing latency
+
+* How to implement
+1. Message queues
+2. Pool of workers
+
+
+** Message Queues
+The queue needs to be durable. If it crashes, we can't lose all the messages that were in the queue. It also needs to handle concurrent access so that multiple workers accessing the messages in the queue must not duplicate work.
+Some options:
+- [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] with Bull/BullMQ: Redis provides storage while Bull adds job queue semantics on top like automatic retries, delayed jobs, priority queues. Simple to set up, but stores data directly in memory and may cause data loss if the server crashes.
+- SQS: removes operational overhead. Amazon manages the infra, handles scaling and guarantees message delivery. You pay per message
+- RabbitMQ: gives you more control with complex routing patterns, but requires self-hosting. High operational burden. You need to manage clusters, handle upgrades and monitor disk usage.
+- [[id:9C0DF38D-A6AE-4570-9FF8-1398FECA89AF][Kafka]]: this is a go-to when your stack already uses event streaming. Its append only log lets you replay messages, fan out to multiple consumers, and keep data around for longer retention window
+
+** Workers
+Three ways to run the workers
+1. Normal Servers: you run 10-20 worker processes on a few machines and they poll the queue every few seconds. Gives you full contol of the environment, makes debugging straightforward since you can SSH into the host. The downside is you're managing servers and paying for quiet periods.
+2. Serverless Functions: Lambdas eliminate server management. Each job triggers a function that will run in a hosted environment that you don't manage. Each task is isolated. You don't manage scaling either. Downside is you pay a lot if there's a spike in traffic. You're limited to 15-60 minutes of execution time depending on the provider. You also need to deal with cold start latency and local storage is minimal.
+3. Container-based workers: you package workers as Docker containers and let the orchestrator handle the scaling and deployment. This is more complex than plain servers, but gives more flexibility than serverless.
+
+* Common Deep Dives
+
+** Handling Failures
+What happens if the worker crashes while working the job? The answer is pretty simple if we've been following the pattern. The job will be retried by another worker.
+
+But how do we know the worker crashed? Typically, you'll have a heartbeat mechanism that periodically checks in with the queue to let it know that the worker is still alive. If the worker doesn't check in, the queue will assume it's dead and will retry the job.
+
+The interval of the heartbeat is a key design decision. If it's too long, crashes will mean the jobs are significantly delayed (the queue will optimistically assume the worker is still alive for much longer than it actually is). If it's too short, you'll be sending a lot of unnecessary messages to the queue or worse, you may mark jobs as failed when in fact they're still running (e.g. a garbage collection pause).
+
+Each queue system has a different way of handling this. For example, in SQS, you can set a visibility timeout. In RabbitMQ, you can set a heartbeat interval. In Kafka, you can set a session timeout. Choose the longest interval that is permissible by your users/clients in terms of extra delay. For most systems, 10-30 seconds is a good starting point.
+
+** Handling Repeated Failures
+What happens if a job keeps failing? Maybe there's a bug in your code or bad input data that crashes the worker every time.
+
+Without handling, failed jobs get retried forever. Your workers waste cycles on doomed jobs while valid work backs up in the queue. Even worse, a poison message that crashes workers can take down your entire worker fleet as each one tries to process it and dies.
+
+The solution is a Dead Letter Queue (DLQ). After a job fails a certain number of times (typically 3-5), you move it to a separate queue instead of retrying again. This isolates problematic jobs while letting healthy work continue. Your DLQ becomes a collection of jobs that need human investigation. Maybe there's a bug to fix or data to clean up. Once fixed, you can move jobs back to the main queue for reprocessing.
+
+Most queue systems have built-in DLQ support. In SQS, you configure a redrive policy. In RabbitMQ, you set up a dead letter exchange. The key is monitoring your DLQ since a growing dead letter queue usually signals a bug in your system that needs immediate attention.
+
+** Preventing Duplicate Work
+A user gets impatient and clicks 'Generate Report' three times. Now you have three identical jobs in the queue. How do you prevent doing the same work multiple times?
+
+Without deduplication, you waste resources processing identical jobs. Worse, you might send three emails to the same user or charge their credit card three times. Side effects compound when jobs aren't idempotent.
+
+The solution is idempotency keys. When accepting a job, require a unique identifier that represents the operation. For user-initiated actions, combine user ID + action + timestamp (likely rounded to the duration you want to prevent duplicate work on). For system-generated jobs, use deterministic IDs based on the input data. Before starting work, check if a job with this key already exists. If it does, return the existing job ID instead of creating a new one.
+
+You'll also want to make the work itself idempotent. If a job fails halfway through and gets retried, it should be safe to run again. This might mean checking if an email was already sent or if a file was already processed before proceeding.
+
+** Managing Queue Backpressure
+It's Black Friday and suddenly you're getting 10x more jobs than usual. Your workers can't keep up. The queue grows to millions of pending jobs. What do you do?
+
+When workers can't process jobs fast enough, queues grow unbounded. Memory usage explodes. Job wait times stretch to hours. New jobs get rejected because the queue is full. Users get frustrated waiting for results that never come.
+
+The solution is called backpressure. It slows down job acceptance when workers are overwhelmed. You can set queue depth limits and reject new jobs when the queue is too deep and return a "system busy" response immediately rather than accepting work you can't handle.
+
+You should also autoscale workers based on queue depth. When the queue grows beyond a threshold, spin up more workers. When it shrinks, scale down. CloudWatch alarms + Auto Scaling groups make this straightforward on AWS. The key metric is queue depth, not CPU usage. By the time CPU is high, your queue is already backed up.
+
+** Handling Mixed Workloads
+Some of your PDF reports take 5 seconds, but end-of-year reports take 5 hours. They're all in the same queue. What problems does this cause?
+
+Long jobs block short ones. A user requesting a simple report waits hours behind someone's massive year-end export. Worker utilization becomes uneven as some workers process hundreds of quick jobs while others are stuck on single long jobs. Autoscaling becomes a huge pain when you can't predict how long jobs will take.
+
+The solution is to separate queues by job type or expected duration. Quick reports go to a "fast" queue with many workers. Complex reports go to a "slow" queue with fewer, beefier workers. This prevents head-of-line blocking and lets you tune each queue independently. Alternatively, you can break large jobs into smaller chunks that use the same queue infrastructure, like splitting news feed fanout into batches of followers.
+
+Route jobs to the appropriate queue when submitted. If you can't predict duration upfront, start jobs in the fast queue and move them to the slow queue if they exceed a time limit. This keeps your fast queue responsive while giving long jobs the resources they need.
+
+** Orchestrating Job Dependencies
+What if generating a report requires three steps: fetch data, generate PDF, then email it. How do you handle jobs that depend on other jobs?
+
+Without proper orchestration, you end up with spaghetti code. Workers complete step 1 then directly queue step 2, making the flow hard to understand and modify. Error handling becomes a nightmare - if step 2 fails, should you retry just that step or start over? Monitoring which step failed and why requires digging through logs.
+
+For simple chains, have each worker queue the next job before marking itself complete. Include the full context in each job so steps can be retried independently.
+
+For complex workflows with branching or parallel steps, use a workflow orchestrator like AWS Step Functions, Temporal, or Airflow. These tools let you define workflows as code, handle retries per step, and provide visibility into where workflows get stuck. The tradeoff is additional complexity - only reach for orchestration when job dependencies become truly complex.

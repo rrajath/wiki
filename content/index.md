@@ -104,6 +104,7 @@
     - [[concepts/Distributed Systems/Scaling Reads]] — DB optimization, read replicas, sharding, caching, CDN
     - [[concepts/Distributed Systems/Scaling Writes]] — write-optimized DBs, sharding, queues, batching, hot key splitting
     - [[concepts/Distributed Systems/Handling Large Blobs]] — presigned URLs, multipart uploads, event-driven state sync
+    - [[concepts/Distributed Systems/Managing Long Running Tasks]] — job queues, workers, DLQ, idempotency, backpressure, orchestration
         - [[concepts/Distributed Systems/Cache Stampede]] — thundering herd on expiry; probabilistic early refresh
         - [[concepts/Distributed Systems/Cache Invalidation]] — TTL, write-through, cache key versioning, deleted items cache
     - [[concepts/Distributed Systems/Dealing with Contention]] — race conditions; five tools to prevent lost updates
