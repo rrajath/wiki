@@ -1,0 +1,124 @@
+:PROPERTIES:
+:ID:       D680C68C-51E1-4998-B088-639BD4763C14
+:ROAM_REFS: https://www.hellointerview.com/learn/system-design/patterns/multi-step-processes
+:END:
+#+title: Multi-step Processes
+#+filetags: :patterns:
+
+Real production systems must survive failures, retries, and long-running operations spanning hours or days. Often they take the form of multi-step processes or sagas which involve the coordination of multiple services and systems. This is a continual source of operational and design challenges for engineers, with a variety of different solutions.
+
+* Problem
+Many complex real world systems involve calling dozens, if not hundreds, of services to complete a user's request. An e-commerce system, for example, needs to confirm payment, reserve inventory, kick off shipping workflows, wait for a human to pick up, send confirmation emails, etc. Since there are multiple systems involved, the problem becomes increasingly complex when a server crashes or is being deployed to or starts to run out of memory, etc.
+
+The flow could look something like this:
+
+Charge payment -> reserve inventory -> create label -> pick and pack -> send confirmation -> wait for pickup
+
+Here are the potential problems with each step:
+1. Charge payment: need to wait on payment gateway
+2. Reserve inventory: might need to refund if inventory is unavailable
+3. Create label: label machine could be down and that'll require cutting a ticket
+4. Send confirmation: could take several hours. Sending the email could fail and may need retries
+
+* Solution
+
+** Distributed Transactions
+Having all operations in a single database is easy to build and maintain. Either all of them succeed or all of them fail. When an operation spans multiple databases, things get complex.
+
+Example: bank transaction between Alice and Bob where the bank may have sharded their large database on user ID and now the two users live in different databases. For this transfer to work, the transactions must succeed in both databases or fail in both databases. It cannot be a partial success.
+
+Two ways to coordinate this, but they make opposite bets.
+
+*** Two-Phase Commit (2PC)
+Your transfer service acts as a coordinator managing the transaction across multiple database participants. The coordinator (your service) asks all the partitions to prepare the transaction in the first phase, then tells them to commit or abort in the second phase based on whether everyone successfully prepared.
+
+Critically, the coordinator must write to a persistent log before sending any commit or abort decisions. This log records which participants are involved and the current state of the transaction. Without this log, coordinator crashes create unrecoverable situations where participants don't know whether to commit or abort their prepared transactions.
+
+The prepare phase holds locks on Alice's and Bob's account rows, blocking any other operations on those accounts. If your coordinator service crashes between prepare and commit, databases are left in an uncertain state, waiting for a decision that may never come. This is 2PC's biggest weakness: participants that have prepared are blocked until the coordinator recovers and resolves the transaction. This is why the coordinator's persistent log is so critical, and why 2PC requires careful attention to coordinator availability.
+
+The prepare phase is where each database does all the work except the final commit. In a true 2PC implementation, databases use a ~PREPARE TRANSACTION~ command (or equivalent) that makes the prepared state durable, surviving even database restarts.
+
+*** Saga Pattern
+The saga pattern takes a different approach. Instead of coordinating everything atomically like a 2PC, it breaks the operation into a sequence of independent steps that can each be undone if something goes wrong.
+
+For example, in the fund transfer between Alice and Bob, Alice's account gets debited and that transaction is committed. Then Bob's account gets credited and that transaction is committed. If crediting Bob's account fails for any reason, then the transaction in Alice's account is "compensated" by crediting back the original amount.
+
+Each step is a complete, committed transaction. There are no long-running open transactions holding locks across networks like in 2PC.
+
+The important trade off is, during the saga execution, the system is temporarily inconsistent. In the middle of the transaction, if someone looks at Alice's account, they'd see the money debited. This eventual consistency is what makes sagas practical. You avoid the blocking problem of 2PC by accepting a brief inconsistency, and you handle it by designing your application to understand these intermediate states.
+
+** Single Server Orchestration
+This is the most straightforward solution. Your application receives an order request and a single server calls each of the services sequentially. For simple cases, this works best. But you'll run into issues once you need reliability guarantees and more complex coordination.
+
+For example, what happens when the server crashes after accepting payment but before reserving inventory? The server will have no memory of the state it was in or where in the workflow things failed. We might try to solve this by adding state persistence between each step and maybe a pub/sub system to route callbacks.
+
+We can scale out the API servers so that when they start up they can read the state from the database. But now we have other problems:
+- What happens if there are multiple API servers? Who picks up the dropped work?
+- We still haven't solved "compensation" problem. What if inventory reservation fails? You need to refund the payment. What if shipping fails? You need to release the inventory reservation.
+
+** Event Sourcing
+This is an architectural pattern where instead of storing the current state, you store the sequence of events that happened. The most common way is to use a durable log like [[id:9C0DF38D-A6AE-4570-9FF8-1398FECA89AF][Kafka]] or [[id:80518A58-814C-4C6E-8020-EB0EE9F8ADC3][Redis]] Streams.
+
+Event sourcing is a close, but more practical cousin to Event-Driven Architecture. Whereas EDA is about decoupling services by publishing events to a topic, event sourcing is about replaying events to reconstruct the state of the system with the goal of increasing robustness and reliability.
+
+Here's how it works. We're using the logs in event store to store the entire history of the system but also to orchestrate next steps. Whenever something happens that we need to react to, we write an event to the event store and have a worker who can pick it up and react to it. Each worker consumes events, performs its work, and emits new events.
+
+So the payment worker sees "OrderPlaced" and calls our payment service. When the payment service calls back later with the status, the Payment Worker emits "PaymentCharged" or "PaymentFailed". The inventory worker sees "PaymentCharged" and emits "InventoryReserved" or "InventoryFailed". And so on.
+
+** Workflows
+
+*** Durable Execution Engines
+Durable execution is a way to write long-running code that can move between machines and survive system failures and restarts. Instead of losing all progress when a server crashes or restarts, durable execution systems automatically pick up where they left off on a new host. You write a function that represents the workflow and the engine handles the orchestration of it. Most popular solution is Temporal.
+
+Temporal runs workflow code in a special environment that guarantees deterministic execution: timestamps are fixed, random numbers are deterministic, etc.
+
+Development of Temporal workflows centers around two concepts: workflows and activities. Workflows are high level flow and activities are each individual step. Workflows are /deterministic/: given the same history and inputs, they always make the same decisions. This enables replay-based recovery. Activities need to be idempotent. Temporal guarantees that they're not retried once they return successfully.
+
+*** Managed Workflow Systems
+Examples are; AWS Step Functions, Apache Airflow, Google Cloud Workflows.
+They do the same things as Temporal, but use a declarative approach. You define the workflow in a declarative language and the engine handles the orchestration. Instead of writing code that looks like regular programming, you define workflows as state machines using JSON, YAML or specialized DSL.
+
+The declarative approach brings advantages like nicer UI, but the drawbacks are expressiveness since you may need a lot of custom code to fit into the declarative model.
+
+** Common Deep Dives
+*** What if your coordinator service crashes during a distributed transaction?
+This is the classic 2PC failure scenario. Databases are sitting with prepared transactions, waiting for commit or abort instructions that never come. Those transactions hold locks on resources, potentially blocking other operations indefinitely.
+
+Production systems handle this with coordinator failover and transaction recovery. When a new coordinator starts up, it reads persistent logs to determine which transactions were in-flight and completes them. Most enterprise transaction managers handle this automatically, but you still need to design for coordinator high availability and maintain transaction state across failures.
+
+Sagas are more resilient here because they don't hold locks across network calls. Coordinator failure just pauses progress rather than leaving participants in limbo, which is exactly the durability a workflow engine gives you for free.
+
+*** How will you handle updates to the workflow?
+You have 10,000 running workflows for loan approvals. You need to add a new compliance check. How do you update the workflow without breaking existing executions?
+
+The challenge is that workflows can run for days or weeks. You can't just deploy new code and expect running workflows to handle it correctly. If a workflow started with 5 steps and you deploy a version with 6 steps, what happens when it resumes?
+
+Workflow versioning and workflow migrations are the two main approaches to this.
+
+**** Workflow Versioning
+Deploy workflows with new version and the old workflows will continue to run on the old version. This way you won't break the old workflows.
+This is the simplest approach, but won't work if you want the change to take place immediately.
+
+**** Workflow Migrations
+With declarative workflow systems you can simply update the workflow definition in place.
+
+With durable execution engines, you'll often use a "patch" which helps the workflow system to decide deterministically whether a new path can be followed. For workflows that have passed through the patched branch before in their execution, they follow the legacy path. For new workflows that have yet to follow the patched branch, they follow the new path.
+
+**** How do we keep the workflow state size in check?
+When using a durable execution engine like Temporal, the entire history of the workflow execution needs to be persisted. When a worker crashes, the workflow is replayed from the beginning, using the results in the history of previous activity invocations instead of re-running the activities. This means your workflow state can grow very large very quickly, and some interviewers like to poke on this.
+
+There's a few aspects of the solution: first, we should try to minimize the size of the activity input and results. If you can pass an identifier which can be looked up in a database or external system rather than a huge payload, you can do that.
+
+Second, we can keep our workflows lean by periodically recreating them. If you have a long-running workflow with lots of history, you can periodically recreate the workflow from the beginning, passing only the required inputs to the new workflow to keep going.
+
+**** How do we deal with external events?
+The interviewer asks: "Your workflow needs to wait for a customer to sign documents. They might take 5 minutes or 5 days. How do you handle this efficiently?"
+
+Workflows excel at waiting without consuming resources. Use signals for external events.
+
+External systems send signals through the workflow engine's API. The workflow suspends efficiently - no polling, no resource consumption. This pattern handles human tasks, webhook callbacks, and integration with external systems.
+
+**** How can we ensure X step runs exactly once?
+Most workflow systems provide a way to ensure an activity runs exactly once ... for a very specific definition of "run". If the activity finishes successfully, but fails to "ack" to the workflow engine, the workflow engine will retry the activity. This might be a bad thing if the activity is a refund or an email send.
+
+The solution is to make the activity idempotent. This means that the activity can be called multiple times with the same inputs and get the same result. Storing off a key to a database (e.g. the idempotency key of the email) and then checking if it exists before performing the irreversible action is a common pattern to accomplish this.

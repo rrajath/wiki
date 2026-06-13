@@ -39,6 +39,7 @@ Notes captured during system design interview preparation. Covers databases, dis
 - [[Scaling Writes]] — vertical scaling, write-optimized DBs, sharding, queues, batching, hierarchical aggregation
 - [[Handling Large Blobs]] — presigned URLs, multipart resumable uploads, storage event sync, reconciliation
 - [[Managing Long Running Tasks]] — job queues, workers, DLQ, idempotency, backpressure, mixed workloads, orchestration
+- [[Multi-step Processes]] — 2PC, saga pattern, event sourcing, durable execution (Temporal), workflow versioning
     - [[Cache Stampede]] — thundering herd on cache expiry; probabilistic early refresh, background refresh
     - [[Cache Invalidation]] — TTL, write-through, cache key versioning, deleted items cache
 - [[Dealing with Contention]] — race conditions and five tools to prevent lost updates
