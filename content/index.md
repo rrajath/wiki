@@ -1,3 +1,12 @@
+---
+title: Index — Personal Knowledge Base
+type: index
+created: 2026-05-12
+updated: 2026-06-23
+sources: []
+tags: [index, navigation]
+---
+
 # Index — Personal Knowledge Base
 
 > Personal notes, reading highlights, and ideas compiled from org-roam and org-mode captures into a cross-linked knowledge graph.

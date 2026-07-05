@@ -51,7 +51,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-Last updated: 2026-06-12 (added Multi-step Processes).
+Last updated: 2026-06-23 (lint pass: fixed dead links, added missing entries).
 
 ### Concepts
 
@@ -67,7 +67,7 @@ Last updated: 2026-06-12 (added Multi-step Processes).
 
 **Stoicism & Mindset**: Stoicism · Dichotomy of Control · Accept Reality as It Is · Attaching Identity to Outcomes · Labels Anchor Us Down · Arbitrary Future State of Supposed Happiness
 
-**Mental Models**: Map is not the Territory
+**Mental Models**: Map is not the Territory · Hell Yeah or No · Ideas as Multipliers · First Follower
 
 **Learning**: Contemplative Reading
 
@@ -77,10 +77,11 @@ Last updated: 2026-06-12 (added Multi-step Processes).
 
 **Pregnancy**: Stages of Labor
 
-**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Scaling Reads · Scaling Writes · Handling Large Blobs · Managing Long Running Tasks · Multi-step Processes · Cache Stampede · Cache Invalidation · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
+**Distributed Systems (folder-split)**: Distributed Systems/index · CAP Theorem · DynamoDB · Cassandra · Redis · PostgreSQL · Database Indexing · Distributed Primitives · Load Balancer · Flink · System Design Numbers · gRPC · WebSockets · WebRTC · Sharding · Kafka · Zookeeper · Real-time Updates · Simple Polling · Long Polling · Server Sent Events · Scaling Reads · Scaling Writes · Handling Large Blobs · Managing Long Running Tasks · Multi-step Processes · Cache Stampede · Cache Invalidation · Dealing with Contention · Conditional Writes · Pessimistic Locking · Optimistic Concurrency Control · Database Isolation Levels · Distributed Locks
 
 ### Entities
-*(none)*
+
+- Derek Sivers
 
 ### Summaries
 
@@ -90,6 +91,7 @@ Last updated: 2026-06-12 (added Multi-step Processes).
 - thoughts-org
 - resources-org
 - blog-org
+- sive-rs-ref
 
 ## Open research questions
 

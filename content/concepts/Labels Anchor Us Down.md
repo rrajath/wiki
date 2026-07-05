@@ -2,7 +2,7 @@
 title: Labels Anchor Us Down
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-23
 sources:
   - raw/notes/20240818215342-labels_anchor_us_down.org
 tags: [mindset, identity, stoicism]
@@ -26,4 +26,4 @@ Years of marathon training earned the label "runner." That identity persisted lo
 
 Either drop labels entirely, or treat them as **time-bound**: "I *was* a runner" or "I believed *X* during that period." This acknowledges that identity is a snapshot, not a permanent essence. Labels then describe phases rather than prescribe permanent obligations.
 
-This relates directly to [[Attaching Identity to Outcomes]] and the recognition that [[We Are Not Static]]. See also: [[Stoicism]].
+This relates directly to [[Attaching Identity to Outcomes]] and [[Stoicism|the recognition that we are not static]].

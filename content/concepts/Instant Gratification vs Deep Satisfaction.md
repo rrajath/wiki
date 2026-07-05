@@ -2,7 +2,7 @@
 title: Instant Gratification vs Deep Satisfaction
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-23
 sources:
   - raw/notes/20240819233557-instant_gratification_vs_deep_satisfaction.org
 tags: [mindset, awareness, habits, cognition]
@@ -32,7 +32,7 @@ Characteristics:
 
 ## The battle
 
-The brain gravitates toward instant gratification because it is easier — this is [[Our Defaults|the default state]]. We [[We Run on Autopilot|run on autopilot]], and the autopilot reaches for the dopamine hit.
+The brain gravitates toward instant gratification because it is easier — this is [[Our Defaults|the default state]]. We [[Our Defaults|run on autopilot]], and the autopilot reaches for the dopamine hit.
 
 The split-second before engaging with something instant-gratifying is where [[Awareness]] lives. Saying no in that moment — repeatedly — is what shifts the default over time.
 

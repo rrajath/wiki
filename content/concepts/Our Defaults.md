@@ -2,7 +2,7 @@
 title: Our Defaults
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-23
 sources:
   - raw/notes/20240821085652-our_defaults.org
   - raw/notes/20240821085730-we_run_on_autopilot.org
@@ -34,4 +34,4 @@ Defaults are sticky but not fixed. Changing them requires:
 
 The goal of most productivity and habit systems is to make good behavior the new default — to make the autopilot work for you rather than against you.
 
-See also: [[We Run on Autopilot]], [[Handling Information Overload]]
+See also: [[Handling Information Overload]]

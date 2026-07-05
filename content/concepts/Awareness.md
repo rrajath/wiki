@@ -2,7 +2,7 @@
 title: Awareness
 type: concept
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-23
 sources:
   - raw/notes/20240821084435-awareness.org
 tags: [awareness, cognition, mindset, meta-cognition]
@@ -25,7 +25,7 @@ It is a "meta state" — you observe yourself as an actor in a situation rather 
 
 ## Why it matters
 
-Much of daily life runs on autopilot ([[We Run on Autopilot]]). Habitual patterns ([[Our Defaults]]) execute without conscious input. Awareness is the interrupt mechanism — the capacity to pause the autopilot and choose deliberately.
+Much of daily life runs on autopilot ([[Our Defaults]]). Habitual patterns execute without conscious input. Awareness is the interrupt mechanism — the capacity to pause the autopilot and choose deliberately.
 
 Specific applications:
 
